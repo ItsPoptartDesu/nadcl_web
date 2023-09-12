@@ -1,0 +1,234 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Sans-Serif;
+    line-height: 1.5em;
+}
+
+header {
+    height: 100px;
+}
+
+header h1 {
+    margin: 0;
+    padding-top: 15px;
+}
+
+main {
+    padding-bottom: 10010px;
+    margin-bottom: -10000px;
+    float: left;
+    width: 100%;
+}
+
+footer {
+    clear: left;
+    width: 100%;
+    text-align: center;
+    padding: 4px 0;
+}
+
+#wrapper {
+    overflow: hidden;
+}
+
+#content {
+    margin-right: 230px;
+    /* Same as 'nav' width */
+}
+
+.innertube {
+    margin: 15px;
+    /* Padding for content */
+    margin-top: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.right-element {
+    float: right;
+    padding: 8px;
+}
+
+.center-element {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.na_blue {
+    background: rgb(8, 10, 49);
+}
+
+#nav {
+    color: white;
+}
+
+.white {
+    color: white;
+}
+
+.header_logo {
+    display: block;
+    object-fit: contain;
+    margin: auto;
+    max-width: 140px;
+    max-height: none;
+    object-position: center center;
+}
+
+.middle-bar {
+    flex-basis: 100%;
+    max-width: 100%;
+    padding-right: 16px;
+    padding-left: 16px;
+}
+
+.pad-top80 {
+    padding-top: 80px;
+}
+
+.nav-header {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-top: 24px;
+    display: block;
+}
+
+.list {
+    justify-content: center;
+    flex-direction: row;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.list-header {
+    position: relative;
+    padding: 3px;
+}
+
+.downdown_header {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    left: 16px;
+    margin: 0;
+    min-width: 120px;
+    text-align: left;
+    box-sizing: inherit;
+}
+
+.dropdown-inner_header {
+    display: grid;
+    overflow: hidden;
+    gap: 12px;
+    border: 1px solid white;
+    border-radius: 0px;
+    padding: 11px 15px;
+    background: #080a30;
+    ;
+}
+
+.dropdown-link_header {
+    color: white;
+    white-space: nowrap;
+}
+
+.icon_header-link {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    line-height: 14px;
+}
+
+.header__link {
+    font-family: "Josefin Sans";
+    line-height: 1.2;
+    font-weight: 400;
+    font-style: normal;
+    text-transform: none;
+    letter-spacing: normal;
+    display: block;
+    padding: 12px 16px;
+    color: #ffffff;
+}
+
+.header__link--icon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    line-height: 14px;
+}
+
+.header__link-icon {
+    margin-left: 8px;
+}
+
+#a {
+    transition: all 200ms;
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.na-sidebar {
+    height: 100%;
+    width: 200px;
+    background-color: rgb(8, 10, 49);
+    position: fixed !important;
+    z-index: 1;
+    overflow: auto;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    position: relative;
+}
+
+.grid_item {
+    width: 100%;
+    overflow: hidden;
+}
+
+.content {
+    width: 50%;
+    padding: 0 18px;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    display: none;
+}
+
+.na_white_text {
+    color: white;
+}
+
+.na_red_text {
+    color: red;
+}
+
+.bracket {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.team {
+    font-size: 16px;
+}
+
+.score {
+    font-size: 12px;
+}
+
+.hyperlink {
+    text-decoration: none;
+    font-weight: bold;
+}
