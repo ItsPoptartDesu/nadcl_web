@@ -16,20 +16,18 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css" rel="stylesheet">
-
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-
+    <link rel="stylesheet" href="css/style.css" rel="stylesheet">
 </head>
 
 <body class="na_white_text na_blue">
     <!-- Sidebar/menu -->
     <nav class="na-sidebar " style="z-index:3;font-weight:bold;" id="mySidebar"><br>
-        <div class="container">
-            <h3 class="row na_red_text">
+        <div class="container row na_red_text">
+            <h1 style="font-size: 2em">
                 <b>NADCL</b>
-            </h3>
+            </h1>
         </div>
         <div class="container">
             <div class="row">
@@ -47,36 +45,36 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
         @include('header')
         <!-- Teams -->
         <div class="container na_red_text" id="Teams">
-            <h1 class="text-center" style="margin-top: 50px; margin-bottom: 50px;"><b>North American Dota 2 Challenger's
+            <h1 class="text-center" style="font-size: 5em; margin-top: 50px; margin-bottom: 50px;"><b>North American Dota 2 Challenger's
                     League</b></h1>
-            <h2><b>Our Teams</b></h2>
+            <h2 style="font-size: 2em"><b>Our Teams</b></h2>
             <hr style="width:130px;border:5px solid red">
         </div>
 
         <!-- Team Photos -->
         <div class="grid-container">
-            <a href="/astronaut">
+            <a href="{{ url('/astronaut') }}">
                 <img class="grid_item" src="{{ URL('/img/team_logos/astronauts.png') }}">
             </a>
-            <a href="/bullish">
+            <a href="{{ url('/bullish') }}">
                 <img class="grid_item" src="{{ URL('/img/team_logos/bullish.png') }}">
             </a>
-            <a href="/fryboys">
+            <a href="{{ url('/fryboys') }}">
                 <img class="grid_item" src="{{ URL('/img/team_logos/fryboys.png') }}">
             </a>
-            <a href="/grin">
+            <a href="{{ url('/grin') }}">
                 <img class="grid_item" src="{{ URL('/img/team_logos/grin.png') }}">
             </a>
-            <a href="/paladins">
+            <a href="{{ url('/paladins') }}">
                 <img class="grid_item" src="{{ URL('/img/team_logos/paladins.png') }}">
             </a>
-            <a href="/sporkface">
+            <a href="{{ url('/sporkface') }}">
                 <img class="grid_item" src="{{ URL('/img/team_logos/sporkface.png') }}">
             </a>
-            <a href="/thv">
+            <a href="{{ url('/thv') }}">
                 <img class="grid_item" src="{{ URL('/img/team_logos/thv.png') }}">
             </a>
-            <a href="/tko">
+            <a href="{{ url('/tko') }}">
                 <img class="grid_item" src="{{ URL('/img/team_logos/tko.png') }}">
             </a>
         </div>
@@ -84,7 +82,7 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
         <!-- Youtube -->
         <div class="container na_red_text" id="youtube">
             <div>
-                <h1>
+                <h1 style="font-size: 2em">
                     <b>Youtube</b>
                 </h1>
                 <hr style="width:123px;border:5px solid red">
@@ -111,7 +109,7 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
                                     </iframe>
                                 </div>
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5>First slide label</h5>
+                                    <h5 style="font-size: 2em">First slide label</h5>
                                     <p>Some representative placeholder content for the first slide.</p>
                                 </div>
                             </div>
@@ -124,7 +122,7 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
                                     </iframe>
                                 </div>
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5>Second slide label</h5>
+                                    <h5 style="font-size: 2em">Second slide label</h5>
                                     <p>Some representative placeholder content for the second slide.</p>
                                 </div>
                             </div>
@@ -137,7 +135,7 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
                                     </iframe>
                                 </div>
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5>Third slide label</h5>
+                                    <h5 style="font-size: 2em">Third slide label</h5>
                                     <p>Some representative placeholder content for the third slide.</p>
                                 </div>
                             </div>
@@ -158,7 +156,7 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
         </div>
         <!-- TikTok -->
         <div class="container na_red_text" id="tiktok" style="margin-top:75px">
-            <h1><b>TikTok</b></h1>
+            <h1 style="font-size: 2em"><b>TikTok</b></h1>
             <hr style="width:98px;border:5px solid red">
             <div class="row">
                 <div class="col-sm">
@@ -215,7 +213,7 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
                                     <script async src="https://www.tiktok.com/embed.js"></script>
                                 </div>
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5>Third slide label</h5>
+                                    <h5 style="font-size: 2em">Third slide label</h5>
                                     <p>Some representative placeholder content for the third slide.</p>
                                 </div>
                             </div>
@@ -234,7 +232,7 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
                 </div>
             </div>
             <div class="na_white_text">
-                <h5>Details about the the editors</h5>
+                <h5 style="font-size: 2em">Details about the the editors</h5>
             </div>
         </div>
 
@@ -246,10 +244,10 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
                 @include('bracket')
             </div>
             <div class="text-center">
-                <h2>Season 4</h2>
-                <h4>Thursday: 6 & 9 PM Eastern Time</h4>
-                <h4>Friday: 6 & 9 PM Eastern Time</h4>
-                <h4>Saturday: 3, 6, & 9 PM Eastern Time</h4>
+                <h2 style="font-size: 2em">Season 4</h2>
+                <h4 style="font-size: 2em">Thursday: 6 & 9 PM Eastern Time</h4>
+                <h4 style="font-size: 2em">Friday: 6 & 9 PM Eastern Time</h4>
+                <h4 style="font-size: 2em">Saturday: 3, 6, & 9 PM Eastern Time</h4>
             </div>
         </div>
         <!-- End page content -->

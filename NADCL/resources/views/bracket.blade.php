@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="css/bracket.css" rel="stylesheet">
 <div class="bracket" style="color:red">
-    <h1>NADCL SEASON 4 Bracket</h1>
-    <hr style="width:435px;border:5px solid red">
+    <h1 style="font-size: 3em">NADCL SEASON 4 Bracket</h1>
+    <hr style="width:470px;border:5px solid red">
     <div class="bracketmain" id="tournament">
         <ul class="round round-1">
             <li class="spacer">&nbsp;</li>
