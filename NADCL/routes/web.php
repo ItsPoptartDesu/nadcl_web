@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TournamentController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TeamDisplayController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,45 +19,23 @@ Route::get('/', function () {
     return view('landing');
 });
 
-Route::get('/astronaut', function()
-{
-    return view('nadclteams/astronaut',[TeamDisplayController::class, 'Astronaut']);
-});
+Route::get('/astronaut', [TeamDisplayController::class, 'Astronaut']);
 
-Route::get('/bullish', function()
-{
-    return view('nadclteams/bullish', [TeamDisplayController::class, 'Bullish']);
-});
+Route::get('/bullish', [TeamDisplayController::class, 'Bullish']);
 
-Route::get('/fryboys', function()
-{
-    return view('nadclteams/fryboys', [TeamDisplayController::class, 'Fryboys']);
-});
+Route::get('/fryboys',[TeamDisplayController::class, 'Fryboys']);
 
-Route::get('/grin', function()
-{
-    return view('nadclteams/grin', [TeamDisplayController::class, 'Grin']);
-});
+Route::get('/grin',  [TeamDisplayController::class, 'Grin']);
 
-Route::get('/paladins', function()
-{
-    return view('nadclteams/paladins', [TeamDisplayController::class, 'Paladins']);
-});
+Route::get('/paladins', [TeamDisplayController::class, 'Paladins']);
 
-Route::get('/sporkface', function()
-{
-    return view('nadclteams/sporkface', [TeamDisplayController::class, 'Sporkface']);
-});
+Route::get('/sporkface', [TeamDisplayController::class, 'Sporkface']);
 
-Route::get('/thv', function()
-{
-    return view('nadclteams/thv', [TeamDisplayController::class, 'Thv']);
-});
+Route::get('/thv',[TeamDisplayController::class, 'Thv']);
 
-Route::get('/tko', function()
-{
-    return view('nadclteams/tko', [TeamDisplayController::class, 'Tko']);
-});
+Route::get('/tko', [TeamDisplayController::class, 'Tko']);
+
+Route::get('/Tournaments/NADCL_Season/{id}', [TournamentController::class, 'NADCL_SeasonSelection']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -66,5 +46,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 require __DIR__.'/auth.php';

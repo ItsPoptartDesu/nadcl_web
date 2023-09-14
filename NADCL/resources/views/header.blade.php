@@ -1,6 +1,15 @@
 <div class="container">
     <h5 class="center-element">NADCL Player Combine has begun! Watch live at twitch.tv/nadcleague 6 pm - 10
         pm EST Thursday, Friday, and Saturday!</h5>
+    <div style="display: flex; justify-content: flex-start;">
+        <button type="button" class="btn btn-outline-info dropdown-toggle"data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <a style="color:#0062cc; text-decoration: none;">Tournaments</a>
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href=" {{URL("Tournaments/NADCL_Season/4")}}">Season 4</a>
+        </div>
+    </div>
     <div style="display: flex; justify-content: flex-end;">
         <button type="button" class="btn btn-outline-info"> <a style="color:#0062cc; text-decoration: none;"
                 href="https://nadcl.us/pages/nadclshop">Merch </a>

@@ -18,28 +18,32 @@ class TeamDisplayController extends Controller
 
     public function Fryboys()
     {
-        return view('/nadcleteams/fryboys');
+        return view('/nadclteams/fryboys');
     }
 
     public function Grin()
     {
-        return view('/nadcleteams/fryboys');
+        return view('/nadclteams/grin');
     }
 
     public function Paladins()
     {
-        return view('/nadcleteams/paladins');
+        return view('/nadclteams/paladins');
     }    
     public function Sporkface()
     {
-        return view('/nadcleteams/sporkface');
+        return view('/nadclteams/sporkface');
     }
     public function Thv()
     {
-        return view('/nadcleteams/thv');
+        return view('/nadclteams/thv');
     }
     public function Tko()
     {
-        return view('/nadcleteams/tko');
+        return view('/nadclteams/tko');
+    }
+    public function NADCL_SeasonSelection($id)
+    {
+        return $id;
     }
 }
