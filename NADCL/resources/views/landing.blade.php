@@ -19,6 +19,11 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link rel="stylesheet" href="css/style.css" rel="stylesheet">
+    <script>
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 </head>
 
 <body class="na_white_text na_blue">
@@ -33,6 +38,7 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
             <div class="row">
                 <a class="row btn btn-primary btn-lg active" href="#">Home</a>
                 <a class="row btn btn-primary btn-lg active" href="#Teams">Teams</a>
+                <a class="row btn btn-primary btn-lg active" href="#sponsors">Sponsors</a>
                 <a class="row btn btn-primary btn-lg active" href="#youtube">Youtube</a>
                 <a class="row btn btn-primary btn-lg active" href="#tiktok">TikTok</a>
                 <a class="row btn btn-primary btn-lg active" href="#schedule">Schedule</a>
@@ -45,14 +51,16 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
         @include('header')
         <!-- Teams -->
         <div class="container na_red_text" id="Teams">
-            <h1 class="text-center" style="font-size: 5em; margin-top: 50px; margin-bottom: 50px;"><b>North American Dota 2 Challenger's
-                    League</b></h1>
+            <h1 class="text-center">
+                <div class="jumbotron na_blue">
+                    <h1 class="display-4">North American Dota 2 Challenger's League</h1>
+            </h1>
             <h2 style="font-size: 2em"><b>Our Teams</b></h2>
             <hr style="width:130px;border:5px solid red">
         </div>
 
         <!-- Team Photos -->
-        <div class="grid-container">
+        <div id="test" class="grid-container">
             <a href="{{ url('/astronaut') }}">
                 <img class="grid_item" src="{{ URL('/img/team_logos/astronauts.png') }}">
             </a>
@@ -78,22 +86,70 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
                 <img class="grid_item" src="{{ URL('/img/team_logos/tko.png') }}">
             </a>
         </div>
+        <br>
+        <br>
+        <br>
+        <!-- Sponsors -->
+        <div class="container na_red_text">
+            <h1 style="font-size: 2em">
+                <b id="sponsors">Our Sponsors</b>
+            </h1>
 
+            <hr style="width:165px;border:5px solid red">
+            <div class="row">
+                <div class="col">
+                    <div class="card na_white_text" style="width: 18rem;--bs-card-bg: none;">
+                        <img class="card-img-top" src="{{ URL('/img/we_want_you.png') }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title na_red_text"><b>We Want You</b></h5>
+                            <p class="card-text">...to become a Web3 Supporter!</p>
+                            <a href="https://exchange.art/nadcl/nfts" class="btn btn-primary" style="width:100%;"
+                                target="_blank">Season 4 Pass</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card na_white_text" style="width: 18rem;--bs-card-bg: none;">
+                        <img class="card-img-top" src="{{ URL('/img/gg_logo.png') }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title na_red_text"><b>Gamer Gains</b></h5>
+                            <p class="card-text">An easy to use, non intrusive,
+                                Dota 2 app that runs in the background while you play. Gamer Gains has daily challengers
+                                to complete along with contests.</p>
+                            <a href="https://gamergains.com/games/dota2/challenges" class="btn btn-primary"
+                                style="width:100%;" target="_blank">Dota 2 Challenges</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card na_white_text" style="width: 18rem;--bs-card-bg: none;">
+                        <img class="card-img-top" src="{{ URL('/img/we_want_you.png') }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title na_red_text"><b>We Want You</b></h5>
+                            <p class="card-text">...to become a Team Supporter!</p>
+                            <a href="https://nadcl.us/pages/supporters" class="btn btn-primary" style="width:100%;"
+                                target="_blank">Join A Team</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
         <!-- Youtube -->
         <div class="container na_red_text" id="youtube">
-            <div>
-                <h1 style="font-size: 2em">
-                    <b>Youtube</b>
-                </h1>
-                <hr style="width:123px;border:5px solid red">
-            </div>
+            <h1 style="font-size: 2em">
+                <b>Youtube</b>
+            </h1>
+            <hr style="width:123px;border:5px solid red">
             <div class="row">
                 <div class="col-sm">
                     <!-- Youtube Carousel -->
                     <div id="youtubeCarousel" class="carousel slide" data-interval="false">
                         <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#youtubeCarousel" data-bs-slide-to="0" class="active"
-                                aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#youtubeCarousel" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
                             <button type="button" data-bs-target="#youtubeCarousel" data-bs-slide-to="1"
                                 aria-label="Slide 2"></button>
                             <button type="button" data-bs-target="#youtubeCarousel" data-bs-slide-to="2"
@@ -245,13 +301,18 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
             </div>
             <div class="text-center">
                 <h2 style="font-size: 2em">Season 4</h2>
+                <br>
                 <h4 style="font-size: 2em">Thursday: 6 & 9 PM Eastern Time</h4>
+                <br>
                 <h4 style="font-size: 2em">Friday: 6 & 9 PM Eastern Time</h4>
+                <br>
                 <h4 style="font-size: 2em">Saturday: 3, 6, & 9 PM Eastern Time</h4>
             </div>
         </div>
         <!-- End page content -->
-
+        <br>
+        <br>
+        <br>
         <div class="container">
             <div class="row">
                 <div class="col-sm">

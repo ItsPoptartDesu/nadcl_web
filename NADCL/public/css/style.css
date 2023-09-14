@@ -60,7 +60,11 @@ nav ul {
 }
 
 .na_blue {
-    background: rgb(8, 10, 49);
+    background-color: rgb(8, 10, 49) !important;
+}
+
+.d{
+    background-color: transparent;
 }
 
 #nav {
