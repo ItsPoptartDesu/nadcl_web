@@ -16,7 +16,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
-<body>
+<html>
 
     <body class="na_white_text na_blue">
         <div class="main " style="margin-left:340px; margin-right:40px">
@@ -28,8 +28,8 @@
                     </div>
                     <div class="col-lg">
                         <div class="row" style="padding-top:50px;">
-                            <h2>Trash Knights Online</h2>
-                            <div class="html-formatter">
+                            <h2 class="display-2">Trash Knights Online</h2>
+                            <div class="html-formatter h4">
                                 <p>
                                     <span>
                                         The

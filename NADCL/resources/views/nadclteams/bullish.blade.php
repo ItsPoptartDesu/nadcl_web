@@ -16,7 +16,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
-<body>
+<html>
 
     <body class="na_white_text na_blue">
         <div class="main " style="margin-left:340px; margin-right:40px">
@@ -28,9 +28,9 @@
                     </div>
                     <div class="col-lg">
                         <div class="row" style="padding-top:50px;">
-                            <h2>Bullish On Gaming!</h2>
+                            <h1 class="display-2"><b>Bullish On Gaming!</b></h1>
                             <ul>
-                                <li>
+                                <li class='h4'>
                                     <span>
                                         <p>
                                             <a class="na_red_text hyperlink" class="na_red_text hyperlink"
@@ -54,7 +54,7 @@
                                         </p>
                                     </span>
                                 </li>
-                                <li>
+                                <li class='h4'>
                                     <span>
                                         <p>Anyone and everyone is welcome to join their
                                             <a class="na_red_text hyperlink" href="https://discord.gg/6q6cmrj6gU"
@@ -62,7 +62,8 @@
                                             </a>
                                             where they discuss gaming, esports, crypto,
                                             business, and basketball...
-                                            <br><br>
+                                            <p class="h1"></p>
+                                            <p class="h1"></p>
                                             Catch their show live on Twitter or
                                             listen to the recordings on
                                             <a class="na_red_text hyperlink"

@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 class TournamentController extends Controller
 {
     //
-    public function NADCL_SeasonSelection()
+    public function NADCL_SeasonSelection($id)
     {
-        
+        return view('/tournaments/NADCL_Season', ['id' => $id]);
     }
 }

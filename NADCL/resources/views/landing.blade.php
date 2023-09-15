@@ -19,11 +19,6 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link rel="stylesheet" href="css/style.css" rel="stylesheet">
-    <script>
-        $(function() {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
-    </script>
 </head>
 
 <body class="na_white_text na_blue">

@@ -2,14 +2,18 @@
 <html lang="en">
 
 <head>
-    <title>GRIN Esports</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css" rel="stylesheet">
+
+    <title>NADCL Season {{ $id }}</title>
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <link rel="stylesheet" href="css/style.css" rel="stylesheet">
 </head>
 
 <body class="na_white_text na_blue">
@@ -18,24 +22,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg">
-                    <img class="grid_item" src="{{ URL('/img/team_logos/grin.png') }}">
+                    <img class="grid_item" src="{{ URL('/img/team_logos/fryboys.png') }}">
                 </div>
                 <div class="col-lg">
                     <div class="row" style="padding-top:50px;">
-                        <h2 class="display-2">GRIN Esports</h2>
-                        <div class="h4">
-                            <p>Grin Esports, an esteemed DOTA2 organization, has recently gained attention
-                                for their challenging journey in the NA DPC Division II, where they faced a
-                                series of unfortunate defeats resulting in a 0-7 record. However, true
-                                champions are defined by their resilience and ability to bounce back from
-                                adversity.
-                            </p>
-                            <p>Despite the tough start, Grin Esports remains undeterred, using their recent
-                                performance as a catalyst for growth and improvement. With a determined
-                                spirit and a burning desire to prove themselves, the team is determined to
-                                turn their fortunes around and showcase their true potential in the NADCL.
-                            </p>
-                        </div>
+                        <h2>FryBoys</h2>
+                        <p>
+                            {{ $id }}
+                        </p>
                     </div>
                 </div>
             </div>

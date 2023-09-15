@@ -16,7 +16,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
-<body>
+<html>
     <body class="na_white_text na_blue">
         <div class="main " style="margin-left:340px; margin-right:40px">
             @include('header')
@@ -27,8 +27,8 @@
                     </div>
                     <div class="col-lg">
                         <div class="row" style="padding-top:50px;">
-                            <h2>Paladins</h2>
-                            <p>
+                            <h2 class="display-2">Paladins</h2>
+                            <p class="h4">
                                 <span>
                                     Paladins is a gaming organization that is looking to solve some of the
                                     sustainability issues that esports team have, starting with creating a

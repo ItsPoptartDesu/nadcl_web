@@ -10,22 +10,18 @@ class TeamDisplayController extends Controller
     {
         return view('/nadclteams/astronaut');
     }
-
     public function Bullish()
     {
         return view('/nadclteams/bullish');
     }
-
     public function Fryboys()
     {
         return view('/nadclteams/fryboys');
     }
-
     public function Grin()
     {
         return view('/nadclteams/grin');
     }
-
     public function Paladins()
     {
         return view('/nadclteams/paladins');
@@ -41,9 +37,5 @@ class TeamDisplayController extends Controller
     public function Tko()
     {
         return view('/nadclteams/tko');
-    }
-    public function NADCL_SeasonSelection($id)
-    {
-        return $id;
     }
 }

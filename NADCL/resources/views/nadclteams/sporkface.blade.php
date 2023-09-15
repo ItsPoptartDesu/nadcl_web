@@ -16,7 +16,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
-<body>
+<html>
 
     <body class="na_white_text na_blue">
         <div class="main " style="margin-left:340px; margin-right:40px">
@@ -28,8 +28,8 @@
                     </div>
                     <div class="col-lg">
                         <div class="row" style="padding-top:50px;">
-                            <h2>Sporkface Killas</h2>
-                            <div class="html-formatter html-formatter--center">
+                            <h2 class="display-2">Sporkface Killas</h2>
+                            <div class="h4 html-formatter html-formatter--center">
                                 <p style="text-align:left;">
                                     <span>Introducing the Sporkface Killas, a formidable force
                                         in the North American Dota Challengers League (NADCL).

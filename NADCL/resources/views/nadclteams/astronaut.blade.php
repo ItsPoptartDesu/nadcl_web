@@ -16,7 +16,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
-<body>
+<html>
     <body class="na_white_text na_blue">
         <div class="main " style="margin-left:340px; margin-right:40px">
             @include("header")
@@ -27,20 +27,20 @@
                     </div>
                     <div class="col-lg">
                         <div class="row" style="padding-top:50px;">
-                            <h2>Astronaut Esports!</h2>
+                            <h1 class='display-2'><b>Astronaut Esports!</b></h1>
                             <ul>
-                                <li>
+                                <li class='h4'>
                                     <span><a class="na_red_text hyperlink" href="https://astronautesports.com/"
                                             rel="noopener" target="_blank">Astronaut Esports</a> is embarking on a new
                                         journey, setting
                                         our sights on winning the NADCL title with rocket-fueled
                                         dominance&nbsp;<br></span>
                                 </li>
-                                <li>
+                                <li class='h4'>
                                     <span>Founded in 2023, our mission in the NADCL is to crush
                                         our&nbsp;</span><span>opponents with the gravity of a thousand suns</span>
                                 </li>
-                                <li>
+                                <li class='h4'>
                                     <span>
                                         We'll be watching all of the action in
                                         our
@@ -49,19 +49,19 @@
                                         target="_blank">Astronaut&nbsp;Moonbase
                                     </a>!
                                 </li>
-                                <li>
+                                <li class='h4'>
                                     <span>
                                         Highlight clips of our team will be minted as NFTs and proudly displayed in
                                         the world!
                                     </span>
                                 </li>
-                                <li>
+                                <li class='h4'>
                                     <span>
                                         Buying apparel and merchandise through our NADCL store supports the players,
                                         the league, and NA DotA<br>
                                     </span>
                                 </li>
-                                <li>
+                                <li class='h4'>
                                     <span>
                                         Much more to come, be sure to follow us on
                                         <a class="na_red_text hyperlink" href="https://twitter.com/astronautesport/"
