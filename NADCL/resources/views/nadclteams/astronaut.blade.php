@@ -9,11 +9,11 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css" rel="stylesheet">
 
     <title>Astronaut Esports</title>
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <link rel="stylesheet" href="css/style.css" rel="stylesheet">
 </head>
 
 <html>
@@ -23,7 +23,75 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg">
-                        <img class="grid_item" src="{{ URL('/img/team_logos/astronauts.png') }}">
+                        <div class="card na_altTBG" style="width: 18rem;">
+                            <p class="card-text text-center">
+                                Astronaut Esports
+                            </p>
+                            <a href="{{ url('/astronaut') }}">
+                                <img src="{{ URL('/img/team_logos/astronauts.png') }}">
+                            </a>
+                            <div class="card-body">
+                                <table class="table table-sm na_table">
+                                    <thead class="na_altTBG">
+                                        <tr>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Position</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                RohofireFlu
+                                            </td>
+                                            <td>
+                                                2
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Double King
+                                            </td>
+                                            <td>
+                                                1
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                rook62
+                                            </td>
+                                            <td>
+                                                3/5
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                Blueberry Beagle
+                                            </td>
+                                            <td>
+                                                5
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Bokey
+                                            </td>
+                                            <td>
+                                                4
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Just_mada
+                                            </td>
+                                            <td>
+                                                Sub
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-lg">
                         <div class="row" style="padding-top:50px;">
@@ -71,9 +139,12 @@
                                 </li>
                             </ul>
                         </div>
+                        
                     </div>
+                   
                 </div>
             </div>
+            @include('/footer')
     </body>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -13,12 +13,80 @@
 </head>
 
 <body class="na_white_text na_blue">
-    <div class="main " style="margin-left:340px; margin-right:40px">
+    <div class="main">
         @include('header')
         <div class="container">
             <div class="row">
                 <div class="col-lg">
-                    <img class="grid_item" src="{{ URL('/img/team_logos/grin.png') }}">
+                    <div class="card na_altTBG" style="width: 18rem;">
+                        <p class="card-text text-center">
+                            GRIN Esports
+                        </p>
+                        <a href="{{ url('/grin') }}">
+                            <img src="{{ URL('/img/team_logos/grin.png') }}">
+                        </a>
+                        <div class="card-body">
+                            <table class="table table-sm na_table">
+                                <thead class="na_altTBG">
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Position</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            szabo666
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Dave
+                                        </td>
+                                        <td>
+                                            3
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Save
+                                        </td>
+                                        <td>
+                                            4
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Alrenaaron
+                                        </td>
+                                        <td>
+                                            5
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Aeon
+                                        </td>
+                                        <td>
+                                            2
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            giantpoll
+                                        </td>
+                                        <td>
+                                            Sub
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg">
                     <div class="row" style="padding-top:50px;">
@@ -36,9 +104,12 @@
                                 turn their fortunes around and showcase their true potential in the NADCL.
                             </p>
                         </div>
+                        
                     </div>
+
                 </div>
             </div>
+            @include('/footer')
         </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

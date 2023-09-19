@@ -49,7 +49,7 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
         <div class="container na_red_text" id="Teams">
             <h1 class="text-center">
                 <div class="jumbotron na_blue">
-                    <h1 class="display-4">North American Dota 2 Challenger's League</h1>
+                    <h1 class="display-1">North American Dota 2 Challenger's League</h1>
             </h1>
             <h2 style="font-size: 2em"><b>Our Teams</b></h2>
             <hr style="width:100%;border:5px solid red">
@@ -134,7 +134,7 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
         <br>
         <br>
         <!-- Youtube -->
-        <div class="container na_red_text" id="youtube">
+        <div class="container na_red_text" id="youtube" >
             <h1 style="font-size: 2em">
                 <b>Youtube</b>
             </h1>

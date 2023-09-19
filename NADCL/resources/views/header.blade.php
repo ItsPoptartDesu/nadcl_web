@@ -57,7 +57,9 @@
             </div>
         </div>
     </div>
-    <a href="/">
-        <img class="header_logo" src="{{ URL('/img/nadcl_logo.png') }}">
-    </a>
+    <div class="header_logo">
+        <a href="/">
+            <img src="{{ URL('/img/nadcl_logo.png') }}">
+        </a>
+    </div>
 </div>

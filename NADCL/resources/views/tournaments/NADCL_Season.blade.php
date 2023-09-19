@@ -299,7 +299,7 @@
                                                         rook62
                                                     </td>
                                                     <td>
-                                                        3
+                                                        3/5
                                                     </td>
                                                 </tr>
 
@@ -308,7 +308,7 @@
                                                         Blueberry Beagle
                                                     </td>
                                                     <td>
-                                                        4
+                                                        5
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -353,7 +353,7 @@
                                                         Flee
                                                     </td>
                                                     <td>
-                                                        4
+                                                        3/5
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -378,7 +378,7 @@
                                                         Xeriscape
                                                     </td>
                                                     <td>
-                                                        4
+                                                        5
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -386,7 +386,7 @@
                                                         Skyward
                                                     </td>
                                                     <td>
-                                                        5
+                                                        1
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -423,7 +423,7 @@
                                                         Gunga ginga
                                                     </td>
                                                     <td>
-                                                        3
+                                                        2
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -431,7 +431,7 @@
                                                         Pingu
                                                     </td>
                                                     <td>
-                                                        5
+                                                        3
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -456,7 +456,7 @@
                                                         Moozy
                                                     </td>
                                                     <td>
-                                                        3
+                                                        2/3
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -501,7 +501,7 @@
                                                         Dave
                                                     </td>
                                                     <td>
-                                                        4
+                                                        3
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -509,7 +509,7 @@
                                                         Save
                                                     </td>
                                                     <td>
-                                                        5
+                                                        4
                                                     </td>
                                                 </tr>
 
@@ -518,7 +518,7 @@
                                                         Alrenaaron
                                                     </td>
                                                     <td>
-                                                        3
+                                                        5
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -828,6 +828,7 @@
             </div>
             <!-- Bracket -->
             @include('na_bracket')
+            @include('footer')
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

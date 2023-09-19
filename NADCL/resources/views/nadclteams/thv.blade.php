@@ -9,22 +9,90 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css" rel="stylesheet">
 
     <title>The Honored Vanguard</title>
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <link rel="stylesheet" href="css/style.css" rel="stylesheet">
 </head>
 
 <html>
 
 <body class="na_white_text na_blue">
-    <div class="main " style="margin-left:340px; margin-right:40px">
+    <div class="main" >
         @include('header')
         <div class="container">
             <div class="row">
                 <div class="col-lg">
-                    <img class="grid_item" src="{{ URL('/img/team_logos/thv.png') }}">
+                    <div class="card na_altTBG" style="width: 18rem;">
+                        <p class="card-text text-center">
+                            SporkFace Killas
+                        </p>
+                        <a href="{{ url('/thv') }}">
+                            <img src="{{ URL('/img/team_logos/thv.png') }}">
+                        </a>
+                        <div class="card-body">
+                            <table class="table table-sm na_table">
+                                <thead class="na_altTBG">
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Position</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            Vol
+                                        </td>
+                                        <td>
+                                            2
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            BGod
+                                        </td>
+                                        <td>
+                                            4
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            _lil_nick
+                                        </td>
+                                        <td>
+                                            2
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            thesillysnail
+                                        </td>
+                                        <td>
+                                            5
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            dogical
+                                        </td>
+                                        <td>
+                                            2
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Kong_wedge
+                                        </td>
+                                        <td>
+                                            Sub
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg">
                     <div class="row" style="padding-top:50px;">
@@ -48,6 +116,7 @@
                     </div>
                 </div>
             </div>
+            @include('/footer')
         </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
