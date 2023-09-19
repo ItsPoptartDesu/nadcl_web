@@ -292,7 +292,7 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
             <img class="grid_item" src="{{ URL('/img/schedule.png') }}">
             <!-- Bracket -->
             <div id="bracket">
-                @include('bracket')
+                @include('na_bracket')
             </div>
             <div class="text-center">
                 <h2 style="font-size: 2em">Season 4</h2>
