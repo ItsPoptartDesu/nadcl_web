@@ -1,6 +1,6 @@
 <!-- Bracket -->
 <div class="row">
-    <h6 id="#" class="na_red_text display-6 font-semibold leading-tight">
+    <h6 id="bracket" class="na_red_text display-6 font-semibold leading-tight">
         Bracket</h6>
     <hr style="width:100%;border:5px solid red">
     <div class="container"style="padding-top:5px;">
