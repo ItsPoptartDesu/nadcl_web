@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NADCL_SteamController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TournamentController;
 use Illuminate\Support\Facades\Route;
@@ -15,6 +16,7 @@ use App\Http\Controllers\TeamDisplayController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('/', function () {
     return view('landing');
 });
@@ -23,7 +25,7 @@ Route::get('/astronaut', [TeamDisplayController::class, 'Astronaut']);
 
 Route::get('/bullish', [TeamDisplayController::class, 'Bullish']);
 
-Route::get('/fryboys',[TeamDisplayController::class, 'Fryboys']);
+Route::get('/fryboys', [TeamDisplayController::class, 'Fryboys']);
 
 Route::get('/grin',  [TeamDisplayController::class, 'Grin']);
 
@@ -31,9 +33,11 @@ Route::get('/paladins', [TeamDisplayController::class, 'Paladins']);
 
 Route::get('/sporkface', [TeamDisplayController::class, 'Sporkface']);
 
-Route::get('/thv',[TeamDisplayController::class, 'Thv']);
+Route::get('/thv', [TeamDisplayController::class, 'Thv']);
 
 Route::get('/tko', [TeamDisplayController::class, 'Tko']);
+
+Route::get('/user/dota_profile', [NADCL_SteamController::class, 'Load']);
 
 Route::get('/Tournaments/NADCL_Season/{id}', [TournamentController::class, 'NADCL_SeasonSelection']);
 
@@ -46,6 +50,15 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+Route::get('/user/init-openId', [NADCL_SteamController::class, 'ToSteam']);
+// Route::get('/user/init-openId', function () {
+//     return view('init-openId');
+// });
+Route::get('/user/process-openId', [NADCL_SteamController::class, 'Store']);
+
+// Route::get('/user/process-openId', function () {
+//     return view('process-openId');
+// });
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
