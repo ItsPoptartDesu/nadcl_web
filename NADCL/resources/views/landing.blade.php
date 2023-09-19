@@ -51,7 +51,7 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
                     <h1 class="display-4">North American Dota 2 Challenger's League</h1>
             </h1>
             <h2 style="font-size: 2em"><b>Our Teams</b></h2>
-            <hr style="width:130px;border:5px solid red">
+            <hr style="width:100%;border:5px solid red">
         </div>
 
         <!-- Team Photos -->
@@ -90,7 +90,7 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
                 <b id="sponsors">Our Sponsors</b>
             </h1>
 
-            <hr style="width:165px;border:5px solid red">
+            <hr style="width:100%;border:5px solid red">
             <div class="row">
                 <div class="col">
                     <div class="card na_white_text" style="width: 18rem;--bs-card-bg: none;">
@@ -137,7 +137,7 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
             <h1 style="font-size: 2em">
                 <b>Youtube</b>
             </h1>
-            <hr style="width:123px;border:5px solid red">
+            <hr style="width:100%;border:5px solid red">
             <div class="row">
                 <div class="col-sm">
                     <!-- Youtube Carousel -->
@@ -208,7 +208,7 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
         <!-- TikTok -->
         <div class="container na_red_text" id="tiktok" style="margin-top:75px">
             <h1 style="font-size: 2em"><b>TikTok</b></h1>
-            <hr style="width:98px;border:5px solid red">
+            <hr style="width:100%;border:5px solid red">
             <div class="row">
                 <div class="col-sm">
                     <!-- TikTok Carousel -->
@@ -282,13 +282,14 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
                     </div>
                 </div>
             </div>
-            <div class="na_white_text">
-                <h5 style="font-size: 2em">Details about the the editors</h5>
-            </div>
         </div>
 
         <!-- Schedule -->
         <div class="container na_white_text" id="schedule" style="margin-top:75px">
+            <h6 id="#" class="na_red_text display-6 font-semibold leading-tight">
+                Schedule</h6>
+
+            <hr style="width:100%;border:5px solid red">
             <img class="grid_item" src="{{ URL('/img/schedule.png') }}">
             <!-- Bracket -->
             <div id="bracket">

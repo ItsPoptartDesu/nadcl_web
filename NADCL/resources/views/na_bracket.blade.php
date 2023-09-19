@@ -2,7 +2,7 @@
 <div class="row">
     <h6 id="#" class="na_red_text display-6 font-semibold leading-tight">
         Bracket</h6>
-    <hr style="width:100%;border:2px solid red">
+    <hr style="width:100%;border:5px solid red">
     <div class="container"style="padding-top:5px;">
         <div class="row">
             <div class="col-md-auto">
@@ -144,7 +144,7 @@
                                 Finals</b></span>
                     </div>
                     <div class="row"style="padding-top:45px; padding-left:25px;">
-                        <span class="border border-primary rounded">TBD</span>
+                        <div class="col border border-primary rounded">TBD</div>
                     </div>
                     <div class="row">
                         <span class="border border-primary rounded"><b>TBD</b></span>

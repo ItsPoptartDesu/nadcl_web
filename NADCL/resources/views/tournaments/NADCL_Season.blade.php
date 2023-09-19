@@ -825,7 +825,7 @@
                 </div>
             </div>
             <!-- Bracket -->
-            @include("na_bracket");
+            @include("na_bracket")
         </div>
     </div>
 </body>
