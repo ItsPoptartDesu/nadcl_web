@@ -1,7 +1,16 @@
-<div class="container">
+<div class="container" style="padding-top: 10px;">
+    <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+        <strong>Crimson Witnesses + NADCL @ TI12 </strong> <a class="na_red_text hyperlink"
+            href="https://www.eventbrite.ie/e/crimson-witnesses-ti12-finals-party-featuring-nadcl-turbo-mode-tickets-657850286917"
+            class="alert-link">Get your tickets NOW!</a>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
     <div clas="row">
         <h5 class="center-element">NADCL Player Combine has begun! Watch live on
-            <a class="na_red_text hyperlink" href="https://www.youtube.com/@NADCLeague/streams" target="_blank">Youtube</a>
+            <a class="na_red_text hyperlink" href="https://www.youtube.com/@NADCLeague/streams"
+                target="_blank">Youtube</a>
             and
             <a class="na_red_text hyperlink" href="https://www.twitch.tv/NADCLeague" target="_blank"> Twitch</a>
             <div clas="row">
