@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NADCL_ProfileController;
 use App\Http\Controllers\NADCL_SteamController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TournamentController;
@@ -41,9 +42,15 @@ Route::get('/user/dota_profile', [NADCL_SteamController::class, 'Load']);
 
 Route::get('/Tournaments/NADCL_Season/{id}', [TournamentController::class, 'NADCL_SeasonSelection']);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/user/NADCL_Profile', [NADCL_ProfileController::class, 'Load']);
+
+Route::put('/user/NADCL_Profile', [NADCL_ProfileController::class, 'Store']);
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/dashboard', [NADCL_ProfileController::class, 'Dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

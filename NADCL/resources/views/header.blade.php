@@ -28,7 +28,7 @@
                         <a style=""">Tournaments</a>
                     </button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{{ URL('Tournaments/NADCL_Season/4') }}">Season 4</a>
+                        <a class="dropdown-item" href="{{ URL('/Tournaments/NADCL_Season/4') }}">Season 4</a>
                     </div>
                 </div>
             </div>

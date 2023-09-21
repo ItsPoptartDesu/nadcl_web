@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\nadcl_profile;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -44,6 +45,9 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
+        $nadcl_profile = new nadcl_profile;
+        $nadcl_profile->key = $user->email;
+        $nadcl_profile->save();        
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);

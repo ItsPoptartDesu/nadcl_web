@@ -32,7 +32,7 @@ class NADCL_SteamController extends Controller
     }
     public function Store()
     {
-        $steam = new nadcl_steam;
+        
 
         $params = [
             'openid.assoc_handle' => $_GET['openid_assoc_handle'],
@@ -80,24 +80,33 @@ class NADCL_SteamController extends Controller
 
 
         $userData = $response['response']['players'][0];
-        $isFound = nadcl_steam::where('key', '=', auth()->user()->email)->first();
-
-        $steam->key = auth()->user()->email;
-        $steam->steamid64 = $userData['steamid'];
-        $steam->personaname = $userData['personaname'];
-        $steam->profileurl = $userData['profileurl'];
-        $steam->avatarmedium = $userData['avatarmedium'];
-        $steam->avatar = $userData['avatar'];
-        $steam->avatarfull = $userData['avatarfull'];
-        $steam->realname = $userData['realname'];
-        $steam->loccountrycode = $userData['loccountrycode'];
-        $steam->locstatecode = $userData['locstatecode'];
+        $isFound = nadcl_steam::find(auth()->user()->email)->first();
         if ($isFound) {
-            nadcl_steam::where('key', '=', $steam->key)->update($steam->attributesToArray());
+            $isFound->steamid64 = $userData['steamid'];
+            $isFound->personaname = $userData['personaname'];
+            $isFound->profileurl = $userData['profileurl'];
+            $isFound->avatarmedium = $userData['avatarmedium'];
+            $isFound->avatar = $userData['avatar'];
+            $isFound->avatarfull = $userData['avatarfull'];
+            $isFound->realname = $userData['realname'];
+            $isFound->loccountrycode = $userData['loccountrycode'];
+            $isFound->locstatecode = $userData['locstatecode'];
+            $isFound->update();
         } else {
+            $steam = new nadcl_steam;
+            $steam->key = auth()->user()->email;
+            $steam->steamid64 = $userData['steamid'];
+            $steam->personaname = $userData['personaname'];
+            $steam->profileurl = $userData['profileurl'];
+            $steam->avatarmedium = $userData['avatarmedium'];
+            $steam->avatar = $userData['avatar'];
+            $steam->avatarfull = $userData['avatarfull'];
+            $steam->realname = $userData['realname'];
+            $steam->loccountrycode = $userData['loccountrycode'];
+            $steam->locstatecode = $userData['locstatecode'];
             $steam->save();
         }
-        $redirect_url = "dota_profile";
+        $redirect_url = "NADCL_Profile";
         header("Location: $redirect_url");
         exit();
     }
