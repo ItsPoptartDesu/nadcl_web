@@ -22,63 +22,66 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg">
-                    <div class="card na_altTBG" style="width: 18rem;">
-                        <p class="card-text text-center">
-                            {{ $data['steam'][0]->realname }}
-                        </p>
-                        <img class="text-center" style="display:inline;" src="{{ $data['steam'][0]->avatarfull }}">
-                        <div class="card-body">
-                            <table class="table table-sm na_table">
-                                <thead class="na_altTBG">
-                                    <span>{{ $data['steam'][0]->realname . ' is from ' . $data['steam'][0]->loccountrycode }}</span>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            SteamID
-                                        </td>
-                                        <td>
-                                            {{ $data['steam'][0]->personaname }}
+                    <?php $count = 0; ?>
+                    @foreach ($data['steam'] as $index)
+                        <div class="card na_altTBG" style="width: 18rem;">
+                            <p class="card-text text-center">
+                                {{ $data['steam'][0]->realname }}
+                            </p>
+                            <img class="text-center" style="display:inline;" src="{{ $data['steam'][0]->avatarfull }}">
+                            <div class="card-body">
+                                <table class="table table-sm na_table">
+                                    <thead class="na_altTBG">
+                                        <span>{{ $data['steam'][0]->realname . ' is from ' . $data['steam'][0]->loccountrycode }}</span>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                SteamID
+                                            </td>
+                                            <td>
+                                                {{ $data['steam'][0]->personaname }}
 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            My Siggy is...
-                                        </td>
-                                        <td>
-                                            {{ $data['profile'][0]->siggy }}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Number of Combine Games...
-                                        </td>
-                                        <td>
-                                            TBD
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Hot take...
-                                        </td>
-                                        <td>
-                                            {{ $data['profile'][0]->hottake }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                My Siggy is...
+                                            </td>
+                                            <td>
+                                                {{ $data['profile'][$count]->siggy }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Number of Combine Games...
+                                            </td>
+                                            <td>
+                                                TBD
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Hot take...
+                                            </td>
+                                            <td>
+                                                {{ $data['profile'][$count]->hottake }}
 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            About
-                                        </td>
-                                        <td>
-                                            {{ $data['profile'][0]->about }}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                About
+                                            </td>
+                                            <td>
+                                                {{ $data['profile'][$count]->about }}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="col-lg">
                     <div class="row" style="padding-top:50px;">

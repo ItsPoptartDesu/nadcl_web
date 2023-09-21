@@ -17,52 +17,52 @@
                         <h3 class="text-lg font-medium text-gray-900">Steam Info</h3>
                     </div>
                 </div>
-                <div class="md:mt-0 md:col-span-2">
-                    <div class="px-4 py-5 bg-white sm:p-6 shadow sm:rounded sm:rounded">
-                        <h2 class='h2'> Steam Info</h2>
-                        @if ($data['steam'] != null)
-                            <div class="md:col-span-1 flex justify-between">
-                                <div class="px-4 sm:px-0">
-                                    <h3 class="text-lg font-medium text-gray-900">Steam Name</h3>
+                    <div class="md:mt-0 md:col-span-2">
+                        <div class="px-4 py-5 bg-white sm:p-6 shadow sm:rounded sm:rounded">
+                            <h2 class='h2'> Steam Info</h2>
+                            @if ($data['steam'] != null)
+                                <div class="md:col-span-1 flex justify-between">
+                                    <div class="px-4 sm:px-0">
+                                        <h3 class="text-lg font-medium text-gray-900">Steam Name</h3>
+                                    </div>
+                                    <div class="px-4 sm:px-0">
+                                        <p class="mt-1 text-sm text-gray-600">
+                                            {{ $data['steam']->personaname }}
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="px-4 sm:px-0">
-                                    <p class="mt-1 text-sm text-gray-600">
-                                        {{ $data['steam']->personaname }}
-                                    </p>
+                                <div class="md:col-span-1 flex justify-between">
+                                    <div class="px-4 sm:px-0">
+                                        <h3 class="text-lg font-medium text-gray-900">Steam ID 64</h3>
+                                    </div>
+                                    <div class="px-4 sm:px-0">
+                                        <p class="mt-1 text-sm text-gray-600">
+                                            {{ $data['steam']->steamid64 }}
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="md:col-span-1 flex justify-between">
-                                <div class="px-4 sm:px-0">
-                                    <h3 class="text-lg font-medium text-gray-900">Steam ID 64</h3>
+                                <div class="md:col-span-1 flex justify-between">
+                                    <div class="px-4 sm:px-0">
+                                        <h3 class="text-lg font-medium text-gray-900">Avatar</h3>
+                                    </div>
+                                    <div class="px-4 sm:px-0">
+                                        <p class="mt-1 text-sm text-gray-600">
+                                            <img src={{ $data['steam']->avatar }}>
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="px-4 sm:px-0">
-                                    <p class="mt-1 text-sm text-gray-600">
-                                        {{ $data['steam']->steamid64 }}
-                                    </p>
+                            @else
+                                <div class="md:col-span-1 flex justify-between">
+                                    <div class="px-4 sm:px-0">
+                                        <h3 class="text-lg font-medium text-gray-900">Nothing Connected</h3>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="md:col-span-1 flex justify-between">
-                                <div class="px-4 sm:px-0">
-                                    <h3 class="text-lg font-medium text-gray-900">Avatar</h3>
-                                </div>
-                                <div class="px-4 sm:px-0">
-                                    <p class="mt-1 text-sm text-gray-600">
-                                        <img src={{ $data['steam']->avatar }}>
-                                    </p>
-                                </div>
-                            </div>
-                        @else
-                            <div class="md:col-span-1 flex justify-between">
-                                <div class="px-4 sm:px-0">
-                                    <h3 class="text-lg font-medium text-gray-900">Nothing Connected</h3>
-                                </div>
-                            </div>
-                        @endif
-                        <button type="button" class="btn btn-outline-info">
-                            <a href="init-openId" style="color:#0062cc; text-decoration: none;">Steam Login</a>
-                        </button>
+                            @endif
+                            <button type="button" class="btn btn-outline-info">
+                                <a href="init-openId" style="color:#0062cc; text-decoration: none;">Steam Login</a>
+                            </button>
+                        </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>
@@ -94,7 +94,7 @@
                                 <div class="form-group">
                                     <label for="nadcl_headshot" class="form-label">Player Headshot</label>
                                     <input name="nadcl_headshot" id="nadcl_headshot" type="file"
-                                     class="form-control form-control-sm" />
+                                        class="form-control form-control-sm" />
                                 </div>
                             </div>
                             <div class="form-group">
