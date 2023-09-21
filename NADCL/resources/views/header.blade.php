@@ -8,15 +8,7 @@
         </button>
     </div>
     <div clas="row">
-        <h5 class="center-element">NADCL Player Combine has begun! Watch live on
-            <a class="na_red_text hyperlink" href="https://www.youtube.com/@NADCLeague/streams"
-                target="_blank">Youtube</a>
-            and
-            <a class="na_red_text hyperlink" href="https://www.twitch.tv/NADCLeague" target="_blank"> Twitch</a>
-            <div clas="row">
-                Series 1: 6pm EST | Series 2: 9pm EST |
-                Thursday, Friday, and Saturday!
-            </div>
+
     </div>
     </h5>
     <div class="row">
@@ -25,14 +17,38 @@
                 <div style="display: flex; justify-content: flex-start;">
                     <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        <a style=""">Tournaments</a>
+                        <a style="">Tournaments</a>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ URL('/Tournaments/NADCL_Season/4') }}">Season 4</a>
+                    </div>
+                    <button type="button" class="btn btn-outline-info">
+                        <a href={{ url('/AboutUs') }} class="right-element"style="text-decoration: none;">About Us</a>
                     </button>
                     <button type="button" class="btn btn-outline-info">
-                        <a href={{ url('/AboutUs') }}
-                            class="right-element"style="text-decoration: none;">About Us</a>
+                        <a href={{ url('/BigScreen') }} class="right-element"style="text-decoration: none;">Big
+                            Screen</a>
                     </button>
                 </div>
             </div>
+        </div>
+        <div class="col-auto">
+            <div class="header_logo">
+                <a href="/">
+                    <img src="{{ URL('/img/nadcl_logo.png') }}">
+                </a>
+            </div>
+        </div>
+        <div class="col-auto">
+            <h5 class="center-element">NADCL Player Combine has begun! Watch live on
+                <a class="na_red_text hyperlink" href="https://www.youtube.com/@NADCLeague/streams"
+                    target="_blank">Youtube</a>
+                and
+                <a class="na_red_text hyperlink" href="https://www.twitch.tv/NADCLeague" target="_blank"> Twitch</a>
+                <div clas="row">
+                    Series 1: 6pm EST | Series 2: 9pm EST |
+                    Thursday, Friday, and Saturday!
+                </div>
         </div>
         <div class="col">
             <div style="display: flex; justify-content: flex-end;">
@@ -58,9 +74,5 @@
             </div>
         </div>
     </div>
-    <div class="header_logo">
-        <a href="/">
-            <img src="{{ URL('/img/nadcl_logo.png') }}">
-        </a>
-    </div>
+
 </div>

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TeamDisplayController;
 use App\Models\nadcl_profile;
 use App\Models\nadcl_steam;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,6 +33,16 @@ Route::get('/AboutUs', function () {
         'profile' => $nadclInfo,
     ];
     return view('/aboutus')->with('data', $data);
+});
+
+Route::get('/BigScreen', function () {
+    $nadclInfo = null;
+    if (Auth::check())
+        $nadclInfo = nadcl_profile::find(auth()->user()->email);
+    $data = [
+        'profile' => $nadclInfo,
+    ];
+    return view('/bigscreen')->with('data', $data);
 });
 
 Route::get('/astronaut', [TeamDisplayController::class, 'Astronaut']);
