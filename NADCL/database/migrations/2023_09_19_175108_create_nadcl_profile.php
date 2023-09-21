@@ -19,6 +19,8 @@ return new class extends Migration
             $table->text('about')->nullable();
             $table->string('siggy')->nullable();
             $table->string('headshot')->nullable();
+            $table->string('hottake')->nullable();
+            
         });
     }
 

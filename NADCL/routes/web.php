@@ -6,6 +6,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TournamentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TeamDisplayController;
+use App\Models\nadcl_profile;
+use App\Models\nadcl_steam;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +22,17 @@ use App\Http\Controllers\TeamDisplayController;
 
 Route::get('/', function () {
     return view('landing');
+});
+
+Route::get('/AboutUs', function () {
+    $adminEmails  = ["davidmejia4215@gmail.com"];
+    $steamInfo = nadcl_steam::find($adminEmails);
+    $nadclInfo = nadcl_profile::find($adminEmails);
+    $data = [
+        'steam' => $steamInfo,
+        'profile' => $nadclInfo,
+    ];
+    return view('/aboutus')->with('data', $data);
 });
 
 Route::get('/astronaut', [TeamDisplayController::class, 'Astronaut']);

@@ -98,6 +98,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label for="nadcl_hottake">Hot Take...</label>
+                                <div>
+                                    <textarea rows='3' style="width:100%;" name="nadcl_hottake" placeholder="my hot take is..."></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label for="nadcl_aboutme">About Me...</label>
                                 <div>
                                     <textarea rows='3' style="width:100%;" name="nadcl_aboutme" placeholder="About me..."></textarea>

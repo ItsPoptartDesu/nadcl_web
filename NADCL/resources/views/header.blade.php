@@ -27,9 +27,10 @@
                         aria-haspopup="true" aria-expanded="false">
                         <a style=""">Tournaments</a>
                     </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{{ URL('/Tournaments/NADCL_Season/4') }}">Season 4</a>
-                    </div>
+                    <button type="button" class="btn btn-outline-info">
+                        <a href={{ url('/AboutUs') }}
+                            class="right-element"style="text-decoration: none;">About Us</a>
+                    </button>
                 </div>
             </div>
         </div>

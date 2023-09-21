@@ -24,12 +24,12 @@ class NADCL_ProfileController extends Controller
     public function Store(Request $request)
     {
         $profile = nadcl_profile::find(auth()->user()->email)->first();
-        $name = $request->file('nadcl_headshot')->getClientOriginalName();
         if ($profile->headshot != null) {
-           // dd(public_path('headshots') . $profile->headshot);
-            File::delete(public_path('headshots') .'/'. $profile->headshot);
+            // dd(public_path('headshots') . $profile->headshot);
+            File::delete(public_path('headshots') . '/' . $profile->headshot);
         }
         if ($request->hasFile('nadcl_headshot')) {
+            $name = $request->file('nadcl_headshot')->getClientOriginalName();
             $path = $request->file('nadcl_headshot')->storeAs('public', $name);
             $request->file('nadcl_headshot')->move(public_path('headshots'), $name);
             $profile->headshot = $name;
@@ -40,6 +40,8 @@ class NADCL_ProfileController extends Controller
             $profile->displayname = $request->nadcl_username;
         if ($request->nadcl_aboutme != null)
             $profile->about = $request->nadcl_aboutme;
+        if ($request->nadcl_hottake != null)
+            $profile->hottake = $request->nadcl_hottake;
         $profile->update();
         return redirect('/user/NADCL_Profile')->with('status', 'Updated Username / About Me');
     }

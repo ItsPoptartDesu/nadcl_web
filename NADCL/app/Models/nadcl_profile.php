@@ -10,7 +10,7 @@ class nadcl_profile extends Model
     use HasFactory;
     protected $table = 'nadcl_profile';
     protected $fillables = [
-        'key', 'displayname', 'about', 'headshot','siggy'
+        'key', 'displayname', 'about', 'headshot', 'siggy', 'hottake'
     ];
     protected $primaryKey = 'key';
 }
