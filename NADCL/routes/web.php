@@ -62,8 +62,9 @@ Route::get('/thv', [TeamDisplayController::class, 'Thv']);
 Route::get('/tko', [TeamDisplayController::class, 'Tko']);
 
 Route::get('/user/dota_profile', [NADCL_SteamController::class, 'Load']);
-
-Route::get('/Tournaments/NADCL_Season/{id}', [TournamentController::class, 'NADCL_SeasonSelection']);
+Route::get('/Tournaments/NADCL_SeasonFive', [TournamentController::class, 'SeasonFiveLoad']);
+Route::get('/Tournaments/NADCL_SeasonFour', [TournamentController::class, 'SeasonFourLoad']);
+Route::get('/Tournaments/NADCL_tournamentjoin', [TournamentController::class, 'NADCL_SeasonJoin'])->middleware('auth');
 
 Route::get('/user/NADCL_Profile', [NADCL_ProfileController::class, 'Load']);
 

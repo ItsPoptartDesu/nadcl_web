@@ -20,7 +20,9 @@ return new class extends Migration
             $table->string('siggy')->nullable();
             $table->string('headshot')->nullable();
             $table->string('hottake')->nullable();
-            
+            $table->int('role')->nullable();
+            $table->string('mmr')->nullable();
+            $table->string('cancaptain')->nullable();
         });
     }
 

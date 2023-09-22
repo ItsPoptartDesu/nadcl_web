@@ -42,6 +42,12 @@ class NADCL_ProfileController extends Controller
             $profile->about = $request->nadcl_aboutme;
         if ($request->nadcl_hottake != null)
             $profile->hottake = $request->nadcl_hottake;
+        if ($request->nadcl_mmr != null)
+            $profile->mmr = $request->nadcl_mmr;
+        if ($request->nadcl_role != null)
+            $profile->role = $request->nadcl_role;
+        if ($request->nadcl_cancaptain != null)
+            $profile->cancaptain = $request->nadcl_cancaptain;
         $profile->update();
         return redirect('/user/NADCL_Profile')->with('status', 'Updated Username / About Me');
     }
