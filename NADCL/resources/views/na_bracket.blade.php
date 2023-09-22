@@ -105,7 +105,7 @@
                         <span class="border border-primary rounded">GRIN Esports</span>
                     </div>
                     <div class="row">
-                        <span class="border border-primary rounded"><b>Paladins</b></span>
+                        <span class="border border-primary rounded">Paladins</span>
                     </div>
                 </div>
                 <div class="col">
@@ -114,16 +114,16 @@
                                 2</b></span>
                     </div>
                     <div class="row"style="padding-top:45px; padding-left:25px;"">
-                        <span class="border border-primary rounded">The Honored Vanguard</span>
+                        <span class="border border-primary rounded">TBD</span>
                     </div>
                     <div class="row">
-                        <span class="border border-primary rounded">Astronaut Esports</span>
-                    </div>
-                    <div class="row" style="padding-top:20px; padding-left:25px;">
                         <span class="border border-primary rounded">Trash Knights Online</span>
                     </div>
+                    <div class="row" style="padding-top:20px; padding-left:25px;">
+                        <span class="border border-primary rounded">TBD</span>
+                    </div>
                     <div class="row">
-                        <span class="border border-primary rounded"><b>TBD</b></span>
+                        <span class="border border-primary rounded">TBD</span>
                     </div>
                 </div>
                 <div class="col">

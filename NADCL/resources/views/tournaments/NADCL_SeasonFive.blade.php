@@ -45,7 +45,7 @@
                             <h3 id="#" class="na_red_text display-3 font-semibold leading-tight">
                                 NADCL Season 5</h3>
                         </div>
-                        @if (!$hasJoined)
+                        @if (!$data['hasJoined'])
                             <div class="col-auto">
                                 <button type="button" class="btn btn-outline-info">
                                     <a href={{ url('/Tournaments/NADCL_tournamentjoin') }}
@@ -272,71 +272,121 @@
             <!-- Participants -->
             <div class="row" id="participants">
                 <div class="col">
-                    <div class="py-12">
-                        <h6 id="#" class="na_red_text display-6 font-semibold leading-tight">
-                            Participants: We Want You!</h6>
-                        <hr style="width:100%;border:2px solid red">
-                        <div class="container"style="padding-top:5px;">
-                            <div class="row">
-                                <!--Astornaut Esports -->
-                                <div class="card na_altTBG" style="width: 18rem;">
-                                    <p class="card-text text-center">
-                                        <b>This is your vibe, no cap</b>
-                                    </p>
-                                    <img src="{{ URL('/img/we_want_you.png') }}">
-                                </div>
-                                <!--Bullish On Gaming -->
-                                <div class="card na_altTBG" style="width: 18rem;">
-                                    <p class="card-text text-center">
-                                        <b>low-key obsessed wihth your potential</b>
-                                    </p>
-                                    <img src="{{ URL('/img/we_want_you.png') }}">
-                                </div>
-                                <!--FryBoys -->
-                                <div class="card na_altTBG" style="width: 18rem;">
-                                    <p class="card-text text-center">
-                                        <b>Stop cookin, come eat</b>
-                                    </p>
-                                    <img src="{{ URL('/img/we_want_you.png') }}">
-                                </div>
-                                <!--GRIN Esports -->
-                                <div class="card na_altTBG" style="width: 18rem;">
-                                    <p class="card-text text-center">
-                                        <b>Your skills are what we are seeking</b>
-                                    </p>
-                                    <img src="{{ URL('/img/we_want_you.png') }}">
-                                </div>
-                                <!--Paladins -->
-                                <div class="card na_altTBG" style="width: 18rem;">
-                                    <p class="card-text text-center">
-                                        <b>Opportunity Knocking?</b>
-                                    </p>
-                                    <img src="{{ URL('/img/we_want_you.png') }}">
-                                </div>
-                                <!--SporkFace Killas -->
-                                <div class="card na_altTBG" style="width: 18rem;">
-                                    <p class="card-text text-center">
-                                        <b>Interested in you!</b>
-                                    </p>
-                                    <img src="{{ URL('/img/we_want_you.png') }}">
-                                </div>
-                                <!--The honored vanguard -->
-                                <div class="card na_altTBG" style="width: 18rem;">
-                                    <p class="card-text text-center">
-                                        <b>We want you!</b>
-                                    </p>
-                                    <img src="{{ URL('/img/we_want_you.png') }}">
-                                </div>
-                                <!--Trash Knighs Online -->
-                                <div class="card na_altTBG" style="width: 18rem;">
-                                    <p class="card-text text-center">
-                                        <b>This could be you!</b>
-                                    </p>
-                                    <img src="{{ URL('/img/we_want_you.png') }}">
+                    <ul class="nav nav-tabs " id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active na_blue btn-outline-primary" id="teams-tab"
+                                data-bs-toggle="tab" data-bs-target="#teams" type="button" role="tab"
+                                aria-controls="teams" aria-selected="true">
+                                Teams: We Want You!
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link na_blue btn-outline-primary" id="entries-tab" data-bs-toggle="tab" data-bs-target="#entries"
+                                type="button" role="tab" aria-controls="entries"
+                                aria-selected="false">Entries</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="teams" role="tabpanel"
+                            aria-labelledby="teams-tab">
+                            <div class="py-12">
+                                <div class="container"style="padding-top:5px;">
+                                    <div class="row">
+                                        <!--Astornaut Esports -->
+                                        <div class="card na_altTBG" style="width: 18rem;">
+                                            <p class="card-text text-center">
+                                                <b>This is your vibe, no cap</b>
+                                            </p>
+                                            <img src="{{ URL('/img/we_want_you.png') }}">
+                                        </div>
+                                        <!--Bullish On Gaming -->
+                                        <div class="card na_altTBG" style="width: 18rem;">
+                                            <p class="card-text text-center">
+                                                <b>low-key obsessed wihth your potential</b>
+                                            </p>
+                                            <img src="{{ URL('/img/we_want_you.png') }}">
+                                        </div>
+                                        <!--FryBoys -->
+                                        <div class="card na_altTBG" style="width: 18rem;">
+                                            <p class="card-text text-center">
+                                                <b>Stop cookin, come eat</b>
+                                            </p>
+                                            <img src="{{ URL('/img/we_want_you.png') }}">
+                                        </div>
+                                        <!--GRIN Esports -->
+                                        <div class="card na_altTBG" style="width: 18rem;">
+                                            <p class="card-text text-center">
+                                                <b>Your skills are what we are seeking</b>
+                                            </p>
+                                            <img src="{{ URL('/img/we_want_you.png') }}">
+                                        </div>
+                                        <!--Paladins -->
+                                        <div class="card na_altTBG" style="width: 18rem;">
+                                            <p class="card-text text-center">
+                                                <b>Opportunity Knocking?</b>
+                                            </p>
+                                            <img src="{{ URL('/img/we_want_you.png') }}">
+                                        </div>
+                                        <!--SporkFace Killas -->
+                                        <div class="card na_altTBG" style="width: 18rem;">
+                                            <p class="card-text text-center">
+                                                <b>Interested in you!</b>
+                                            </p>
+                                            <img src="{{ URL('/img/we_want_you.png') }}">
+                                        </div>
+                                        <!--The honored vanguard -->
+                                        <div class="card na_altTBG" style="width: 18rem;">
+                                            <p class="card-text text-center">
+                                                <b>We want you!</b>
+                                            </p>
+                                            <img src="{{ URL('/img/we_want_you.png') }}">
+                                        </div>
+                                        <!--Trash Knighs Online -->
+                                        <div class="card na_altTBG" style="width: 18rem;">
+                                            <p class="card-text text-center">
+                                                <b>This could be you!</b>
+                                            </p>
+                                            <img src="{{ URL('/img/we_want_you.png') }}">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="tab-pane fade" id="entries" role="tabpanel" aria-labelledby="entries-tab">
+                    <table class="table table-sm na_table"style="width:50%; margin:auto;">
+                        <thead>
+                            <tr>
+                                <th scope="col">NADCL Username</th>
+                                <th scope="col">PersonaName</th>
+                                <th scope="col">MMR</th>
+                                <th scope="col">Role</th>
+                                <th scope="col">Can Captain?</th>
+                                <th scope="col">Steam Profile</th>
+                                <th scope="col">SteamID</th>
+                                <th scope="col">Siggy</th>
+                                <th scope="col">From</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($data['entries'] as $entry)
+                                <tr >
+                                    <td scope="row">{{$entry->displayname}}</td>
+                                    <td>{{$entry->personaname}}</td>
+                                    <td>{{$entry->mmr}}</td>
+                                    <td>{{$entry->role}}</td>
+                                    <td>{{$entry->cancaptain}}</td>
+                                    <td>{{$entry->profileurl}}</td>
+                                    <td>{{$entry->steamid64}}</td>
+                                    <td>{{$entry->siggy}}</td>
+                                    <td>{{$entry->locstatecode}} - {{$entry->loccountrycode}}</td>
+                                    <td></td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <!-- Bracket -->

@@ -19,15 +19,18 @@ class TournamentController extends Controller
     {
         $found = false;
         if (Auth::check()) {
-            $data = nadcl_tournament::find(auth()->user()->email);
-            $found = $data == null ? false : true;
+            $hasEntered = nadcl_tournament::find(auth()->user()->email);
+            $found = $hasEntered == null ? false : true;
         }
-        return view('tournaments/NADCL_SeasonFive')->with('hasJoined', $found);
+        $entries = nadcl_tournament::all();
+        $data = [
+            'hasJoined' =>$found,
+            'entries' => $entries,
+        ];
+        return view('tournaments/NADCL_SeasonFive')->with('data', $data);
     }
     public function NADCL_SeasonJoin()
     {
-        if (!Auth::check()) //if not logged in
-            back();
         $steam = nadcl_steam::find(auth()->user()->email)->first();
         if ($steam == null || $steam->steamid64 == null) //if not stream linked
             back();
