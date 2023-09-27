@@ -23,6 +23,7 @@ class TournamentController extends Controller
             $hasEntered = nadcl_tournament::find(auth()->user()->email);
             $found = $hasEntered == null ? false : true;
         }
+        // Is there a limit to entries? Could get a lot back from this
         $entries = nadcl_tournament::all();
         $data = [
             'hasJoined' => $found,
