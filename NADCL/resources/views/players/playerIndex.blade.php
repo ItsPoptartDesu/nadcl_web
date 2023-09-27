@@ -24,7 +24,7 @@
                 <div class="col-lg">
                     <div class="card na_altTBG" style="width: 18rem;">
                         <p class="card-text text-center">
-                            {{ $data['tPlayer']->displayname }}
+                            Steam Info: {{ $data['tPlayer']->displayname }}
                         </p>
                         <img src="{{ URL($data['tPlayer']->avatarfull) }}">
                         <div class="card-body">
@@ -63,7 +63,7 @@
                 </div>
                 <div class="col-lg">
                     <div class="row" style="padding-top:50px;">
-                        <h1 class="display-2"><b>{{ $data['pPlayer']->displayname }}</b></h1>
+                        <h3 class="h3">NADCL Info: {{ $data['pPlayer']->displayname }}</h3>
                         <div class="col-auto">
                             <img class="header_logo" src="{{ URL('/headshots/' . $data['pPlayer']->headshot) }}"
                                 alt="">

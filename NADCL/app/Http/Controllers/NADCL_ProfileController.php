@@ -14,7 +14,11 @@ class NADCL_ProfileController extends Controller
     public function PlayerIndex($who)
     {
         $player = nadcl_tournament::where("displayname", '=', $who)->first();
+        if ($player == null)
+            return back();
         $profile = nadcl_profile::find($player->key);
+        if ($profile == null)
+            return back();
         $data = [
             'tPlayer' => $player,
             'pPlayer' => $profile
