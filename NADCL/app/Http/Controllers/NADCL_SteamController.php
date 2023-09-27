@@ -20,7 +20,8 @@ class NADCL_SteamController extends Controller
         $login_url_params = [
             'openid.ns'         => 'http://specs.openid.net/auth/2.0',
             'openid.mode'       => 'checkid_setup',
-            'openid.return_to'  => 'http://127.0.0.1:8000/user/process-openId',
+            // This probably will be upset in production, might want to store as an env variable and set local vs prod
+            'openid.return_to'  => 'http://127.0.0.1:8000/user/process-openId', 
             'openid.realm'      => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'],
             'openid.identity'   => 'http://specs.openid.net/auth/2.0/identifier_select',
             'openid.claimed_id' => 'http://specs.openid.net/auth/2.0/identifier_select',
@@ -73,6 +74,7 @@ class NADCL_SteamController extends Controller
             exit();
         }
 
+        // TODO: Move to the `.env` at least and set when you deploy
         $steam_api_key = '1EDC0D204A7716E809F0B2DABE207BE7';
 
         $response = file_get_contents('https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=' . $steam_api_key . '&steamids=' . $steamID64);
