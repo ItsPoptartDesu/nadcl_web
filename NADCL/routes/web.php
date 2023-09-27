@@ -1,16 +1,12 @@
 <?php
 
+use App\Http\Controllers\NADCL_PagesController;
 use App\Http\Controllers\NADCL_ProfileController;
 use App\Http\Controllers\NADCL_SteamController;
 use App\Http\Controllers\NADCL_TournamentPlayerController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\TournamentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TeamDisplayController;
-use App\Models\nadcl_profile;
-use App\Models\nadcl_steam;
-use App\Models\nadcl_tournament;
-use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,30 +18,11 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('landing');
-});
+Route::get('/', [NADCL_PagesController::class, 'Landing']);
 
-Route::get('/AboutUs', function () {
-    $adminEmails  = ["davidmejia4215@gmail.com"];
-    $steamInfo = nadcl_steam::find($adminEmails);
-    $nadclInfo = nadcl_profile::find($adminEmails);
-    $data = [
-        'steam' => $steamInfo,
-        'profile' => $nadclInfo,
-    ];
-    return view('/aboutus')->with('data', $data);
-});
+Route::get('/AboutUs', [NADCL_PagesController::class, 'AboutUs']);
 
-Route::get('/BigScreen', function () {
-    $nadclInfo = null;
-    if (Auth::check())
-        $nadclInfo = nadcl_profile::find(auth()->user()->email);
-    $data = [
-        'profile' => $nadclInfo,
-    ];
-    return view('/bigscreen')->with('data', $data);
-});
+Route::get('/BigScreen',  [NADCL_PagesController::class, 'BigScreen']);
 
 Route::get('/astronaut', [TeamDisplayController::class, 'Astronaut']);
 Route::get('/bullish', [TeamDisplayController::class, 'Bullish']);
