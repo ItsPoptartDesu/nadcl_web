@@ -30,6 +30,9 @@
                         <a href={{ url('/BigScreen') }} class="right-element"style="text-decoration: none;">Big
                             Screen</a>
                     </button>
+                    <button type="button" class="btn btn-outline-info">
+                        <a href={{ url('/players') }} class="right-element"style="text-decoration: none;">NADCL Players</a>
+                    </button>
                 </div>
             </div>
         </div>

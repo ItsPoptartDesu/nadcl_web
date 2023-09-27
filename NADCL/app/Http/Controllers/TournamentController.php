@@ -10,6 +10,7 @@ use App\Models\nadcl_tournament;
 
 class TournamentController extends Controller
 {
+   
     //
     public function SeasonFourLoad()
     {
@@ -24,7 +25,7 @@ class TournamentController extends Controller
         }
         $entries = nadcl_tournament::all();
         $data = [
-            'hasJoined' =>$found,
+            'hasJoined' => $found,
             'entries' => $entries,
         ];
         return view('tournaments/NADCL_SeasonFive')->with('data', $data);
@@ -58,5 +59,14 @@ class TournamentController extends Controller
         $entry->locstatecode = $steam->locstatecode;
         $entry->save();
         return redirect('/Tournaments/NADCL_SeasonFive')->with('status', "Successfully Joined NADCL S5");
+    }
+
+    public function Players()
+    {
+        $tournaments = nadcl_tournament::all();
+        $data = [
+            'tProfile' => $tournaments,
+        ];
+        return view('tournaments/NADCL_showplayers')->with('data', $data);
     }
 }

@@ -5,11 +5,22 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\nadcl_profile;
 use App\Models\nadcl_steam;
+use App\Models\nadcl_tournament;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
 class NADCL_ProfileController extends Controller
 {
+    public function PlayerIndex($who)
+    {
+        $player = nadcl_tournament::where("displayname", '=', $who)->first();
+        $profile = nadcl_profile::find($player->key);
+        $data = [
+            'tPlayer' => $player,
+            'pPlayer' => $profile
+        ];
+        return view('/players/playerindex')->with('data', $data);
+    }
     public function Load()
     {
         $steamInfo = nadcl_steam::find(auth()->user()->email);
@@ -24,11 +35,12 @@ class NADCL_ProfileController extends Controller
     public function Store(Request $request)
     {
         $profile = nadcl_profile::find(auth()->user()->email)->first();
-        if ($profile->headshot != null) {
-            // dd(public_path('headshots') . $profile->headshot);
-            File::delete(public_path('headshots') . '/' . $profile->headshot);
-        }
+
         if ($request->hasFile('nadcl_headshot')) {
+            if ($profile->headshot != null) {
+                // dd(public_path('headshots') . $profile->headshot);
+                File::delete(public_path('headshots') . '/' . $profile->headshot);
+            }
             $name = $request->file('nadcl_headshot')->getClientOriginalName();
             $path = $request->file('nadcl_headshot')->storeAs('public', $name);
             $request->file('nadcl_headshot')->move(public_path('headshots'), $name);

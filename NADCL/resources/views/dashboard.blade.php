@@ -31,12 +31,26 @@
                         </div>
                         <div class="mt-4 text-sm">
                             <div class="mt-1 text-sm text-gray-600">
-                                <b>Connected Steam Name:</b> {{ $data['steam']->personaname }}
+                                <b>Connected Steam Name:</b>
+                                @if ($data['steam'])
+                                    {{ $data['steam']->personaname }}
+                                @endif
                             </div>
                             <div class="mt-1 text-sm text-gray-600">
-                                <b>SteamID:</b> {{ $data['steam']->steamid64 }}
+                                <b>SteamID:</b>
+                                @if ($data['steam'])
+                                    {{ $data['steam']->steamid64 }}
+                                @endif
                             </div>
-                            <img class="text-center" style="display:inline; width:100px;height:100px;" src={{ $data['steam']->avatarfull }}>
+
+                            @if ($data['steam'])
+                                <img class="text-center" style="display:inline; width:100px;height:100px;"
+                                    src={{ $data['steam']->avatarfull }}>
+                            @else
+                                <img class="text-center" style="display:inline; width:100px;height:100px;"
+                                    src={{ URL('/img/we_want_you.png') }}>
+                            @endif
+
                         </div>
                     </div>
                 </div>
@@ -55,8 +69,13 @@
                             <div class="mt-1 text-sm text-gray-600">
                                 <b>Siggy:</b> {{ $data['profile']->siggy }}
                             </div>
-                            <img class="text-center" style="display:inline;width:100px;height:100px;"
-                                src="{{ URL('/headshots/'.$data['profile']->headshot) }}">
+                            @if ($data['profile']->headshot)
+                                <img class="text-center" style="display:inline;width:100px;height:100px;"
+                                    src="{{ URL('/headshots/' . $data['profile']->headshot) }}">
+                            @else
+                                <img class="text-center" style="display:inline; width:100px;height:100px;"
+                                    src={{ URL('/img/we_want_you.png') }}>
+                            @endif
                         </div>
                     </div>
                 </div>

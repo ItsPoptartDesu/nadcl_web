@@ -82,10 +82,10 @@
                     <span class="na_altTBG border border-primary rounded"><b>Grand Finals</b></span>
                 </div>
                 <div class="row"style="padding-top:15px;">
-                    <span class="border border-primary rounded">TBD</span>
+                    <span class="border border-primary rounded">SporkfaceKillas</span>
                 </div>
                 <div class="row">
-                    <span class="border border-primary rounded"><b>TBD</b></span>
+                    <span class="border border-primary rounded"><b>The Honored Vanguard</b></span>
                 </div>
             </div>
             <!-- LOWER BRACKET -->
@@ -99,7 +99,7 @@
                         <span class="border border-primary rounded">Bullish On Gaming</span>
                     </div>
                     <div class="row">
-                        <span class="border border-primary rounded"><b>Trash Knights Online</b></span>
+                        <span class="border border-primary rounded"><b>Astronaut Esports</b></span>
                     </div>
                     <div class="row" style="padding-top:15px;">
                         <span class="border border-primary rounded">GRIN Esports</span>
@@ -114,16 +114,16 @@
                                 2</b></span>
                     </div>
                     <div class="row"style="padding-top:45px; padding-left:25px;"">
-                        <span class="border border-primary rounded">TBD</span>
+                        <span class="border border-primary rounded"><b>The Honored Vanbuard</b></span>
                     </div>
                     <div class="row">
-                        <span class="border border-primary rounded">Trash Knights Online</span>
+                        <span class="border border-primary rounded">Astronaut Esports</span>
                     </div>
                     <div class="row" style="padding-top:20px; padding-left:25px;">
-                        <span class="border border-primary rounded">TBD</span>
+                        <span class="border border-primary rounded"><b>Trash Knights Online</b></span>
                     </div>
                     <div class="row">
-                        <span class="border border-primary rounded">TBD</span>
+                        <span class="border border-primary rounded">Paladins</span>
                     </div>
                 </div>
                 <div class="col">
@@ -132,10 +132,10 @@
                                 Finals</b></span>
                     </div>
                     <div class="row"style="padding-top:80px;">
-                        <span class="border border-primary rounded">TBD</span>
+                        <span class="border border-primary rounded"><b>The Honored Vanguard</b></span>
                     </div>
                     <div class="row">
-                        <span class="border border-primary rounded">TBD</span>
+                        <span class="border border-primary rounded">Trash Knights Online</span>
                     </div>
                 </div>
                 <div class="col">
@@ -144,10 +144,10 @@
                                 Finals</b></span>
                     </div>
                     <div class="row"style="padding-top:45px; padding-left:25px;">
-                        <div class="col border border-primary rounded">TBD</div>
+                        <div class="col border border-primary rounded">FryBoys</div>
                     </div>
                     <div class="row">
-                        <span class="border border-primary rounded"><b>TBD</b></span>
+                        <span class="border border-primary rounded"><b>The Honored Vanguard</b></span>
                     </div>
                 </div>
                 <div class="col">

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <title>FryBoys</title>
+    <title>About Us</title>
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link rel="stylesheet" href="css/style.css" rel="stylesheet">
@@ -26,13 +26,14 @@
                     @foreach ($data['steam'] as $index)
                         <div class="card na_altTBG" style="width: 18rem;">
                             <p class="card-text text-center">
-                                {{ $data['steam'][0]->realname }}
+                                {{ $data['steam'][$count]->realname }}
                             </p>
-                            <img class="text-center" style="display:inline;" src="{{ $data['steam'][0]->avatarfull }}">
+                            <img class="text-center" style="display:inline;"
+                                src="{{ $data['steam'][$count]->avatarfull }}">
                             <div class="card-body">
                                 <table class="table table-sm na_table">
                                     <thead class="na_altTBG">
-                                        <span>{{ $data['steam'][0]->realname . ' is from ' . $data['steam'][0]->loccountrycode }}</span>
+                                        <span>{{ $data['steam'][$count]->realname . ' is from ' . $data['steam'][$count]->loccountrycode }}</span>
                                     </thead>
                                     <tbody>
                                         <tr>
@@ -40,7 +41,7 @@
                                                 SteamID
                                             </td>
                                             <td>
-                                                {{ $data['steam'][0]->personaname }}
+                                                {{ $data['steam'][$count]->personaname }}
 
                                             </td>
                                         </tr>
@@ -81,6 +82,7 @@
                                 </table>
                             </div>
                         </div>
+                        <?php $count++; ?>
                     @endforeach
                 </div>
                 <div class="col-lg">

@@ -80,7 +80,7 @@ class NADCL_SteamController extends Controller
 
 
         $userData = $response['response']['players'][0];
-        $isFound = nadcl_steam::find(auth()->user()->email)->first();
+        $isFound = nadcl_steam::find(auth()->user()->email);
         if ($isFound) {
             $isFound->steamid64 = $userData['steamid'];
             $isFound->personaname = $userData['personaname'];

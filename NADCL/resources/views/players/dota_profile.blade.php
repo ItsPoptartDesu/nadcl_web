@@ -26,7 +26,9 @@
                             </div>
                             <div class="px-4 sm:px-0">
                                 <p class="mt-1 text-sm text-gray-600">
-                                    {{ $steam->personaname }}
+                                    @if ($steam)
+                                        {{ $steam->personaname }}
+                                    @endif
                                 </p>
                             </div>
                         </div>
@@ -36,7 +38,9 @@
                             </div>
                             <div class="px-4 sm:px-0">
                                 <p class="mt-1 text-sm text-gray-600">
-                                    {{ $steam->steamid64 }}
+                                    @if ($steam)
+                                        {{ $steam->steamid64 }}
+                                    @endif
                                 </p>
                             </div>
                         </div>
@@ -46,7 +50,11 @@
                             </div>
                             <div class="px-4 sm:px-0">
                                 <p class="mt-1 text-sm text-gray-600">
-                                    <img src={{ $steam->avatar }}>
+                                    @if ($steam)
+                                        <img src={{ $steam->avatar }}>
+                                    @else
+                                        <img class="header_logo" src={{ URL('/img/we_want_you.png') }}>
+                                    @endif
                                 </p>
                             </div>
                         </div>

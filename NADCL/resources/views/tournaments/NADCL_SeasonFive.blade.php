@@ -281,9 +281,9 @@
                             </button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link na_blue btn-outline-primary" id="entries-tab" data-bs-toggle="tab" data-bs-target="#entries"
-                                type="button" role="tab" aria-controls="entries"
-                                aria-selected="false">Entries</button>
+                            <button class="nav-link na_blue btn-outline-primary" id="entries-tab"
+                                data-bs-toggle="tab" data-bs-target="#entries" type="button" role="tab"
+                                aria-controls="entries" aria-selected="false">Entries</button>
                         </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
@@ -372,16 +372,16 @@
                         </thead>
                         <tbody>
                             @foreach ($data['entries'] as $entry)
-                                <tr >
-                                    <td scope="row">{{$entry->displayname}}</td>
-                                    <td>{{$entry->personaname}}</td>
-                                    <td>{{$entry->mmr}}</td>
-                                    <td>{{$entry->role}}</td>
-                                    <td>{{$entry->cancaptain}}</td>
-                                    <td>{{$entry->profileurl}}</td>
-                                    <td>{{$entry->steamid64}}</td>
-                                    <td>{{$entry->siggy}}</td>
-                                    <td>{{$entry->locstatecode}} - {{$entry->loccountrycode}}</td>
+                                <tr>
+                                    <td scope="row">{{ $entry->displayname }}</td>
+                                    <td>{{ $entry->personaname }}</td>
+                                    <td>{{ $entry->mmr }}</td>
+                                    <td>{{ $entry->role }}</td>
+                                    <td>{{ $entry->cancaptain }}</td>
+                                    <td><a class="na_red_text" target="_blank" href={{ $entry->profileurl }}>Steam Profile Link</a></td>
+                                    <td>{{ $entry->steamid64 }}</td>
+                                    <td>{{ $entry->siggy }}</td>
+                                    <td>{{ $entry->locstatecode }} - {{ $entry->loccountrycode }}</td>
                                     <td></td>
                                 </tr>
                             @endforeach

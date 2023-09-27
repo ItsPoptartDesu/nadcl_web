@@ -14,12 +14,14 @@ header h1 {
     padding-top: 15px;
 }
 
-footer {
-    clear: left;
-    width: 100%;
-    text-align: center;
-    padding: 4px 0;
-}
+/* .footer {
+    position: relative;
+    margin-top: -150px;
+     negative value of footer height 
+    height: 150px;
+    clear: both;
+    padding-top: 20px;
+} */
 
 #wrapper {
     overflow: hidden;
@@ -239,6 +241,10 @@ nav ul {
     color: red;
 }
 
+.na_blue_text {
+    color: rgb(0, 98, 294);
+}
+
 .bracket {
     width: 500px;
     margin: 0 auto;
@@ -258,10 +264,10 @@ nav ul {
 }
 
 .video_panel {
-    display:flex;
+    display: flex;
     flex-direction: column;
     flex-grow: 1;
-    height:100vh;
+    height: 100vh;
 }
 
 .player {
