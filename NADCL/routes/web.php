@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\NADCL_ProfileController;
 use App\Http\Controllers\NADCL_SteamController;
+use App\Http\Controllers\NADCL_TournamentPlayerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TournamentController;
 use Illuminate\Support\Facades\Route;
@@ -59,10 +60,10 @@ Route::get('/user/dota_profile', [NADCL_SteamController::class, 'Load']);
 Route::get('/user/process-openId', [NADCL_SteamController::class, 'Store']);
 Route::get('/user/init-openId', [NADCL_SteamController::class, 'ToSteam']);
 
-Route::get('/Tournaments/NADCL_SeasonFive', [TournamentController::class, 'SeasonFiveLoad']);
-Route::get('/Tournaments/NADCL_SeasonFour', [TournamentController::class, 'SeasonFourLoad']);
-Route::get('/Tournaments/NADCL_tournamentjoin', [TournamentController::class, 'NADCL_SeasonJoin'])->middleware('auth');
-Route::get('/players', [TournamentController::class, 'Players']);
+Route::get('/Tournaments/NADCL_SeasonFive', [NADCL_TournamentPlayerController::class, 'SeasonFiveLoad']);
+Route::get('/Tournaments/NADCL_SeasonFour', [NADCL_TournamentPlayerController::class, 'SeasonFourLoad']);
+Route::get('/Tournaments/NADCL_tournamentjoin', [NADCL_TournamentPlayerController::class, 'NADCL_SeasonJoin'])->middleware('auth');
+Route::get('/players', [NADCL_TournamentPlayerController::class, 'Players']);
 
 Route::get('/dashboard', [NADCL_ProfileController::class, 'Dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/user/NADCL_Profile', [NADCL_ProfileController::class, 'Load']);

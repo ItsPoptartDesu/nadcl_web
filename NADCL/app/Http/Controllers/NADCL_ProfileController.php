@@ -5,15 +5,15 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\nadcl_profile;
 use App\Models\nadcl_steam;
-use App\Models\nadcl_tournament;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use App\Models\nadcl_tournamentplayer;
 
 class NADCL_ProfileController extends Controller
 {
     public function PlayerIndex($who)
     {
-        $player = nadcl_tournament::where("displayname", '=', $who)->first();
+        $player = nadcl_tournamentplayer::where("displayname", '=', $who)->first();
         if ($player == null)
             return back();
         $profile = nadcl_profile::find($player->key);

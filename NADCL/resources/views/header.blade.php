@@ -24,7 +24,8 @@
                         <a class="dropdown-item" href="{{ URL('/Tournaments/NADCL_SeasonFive') }}">Season 5</a>
                     </div>
                     <button type="button" class="btn btn-outline-info">
-                        <a href={{ url('/AboutUs') }} class="right-element"style="text-decoration: none;">About Us</a>
+                        <a href="https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=w0dqlh6ukpw8fignhmg6wx8keiqpjt&redirect_uri=http://localhost:8000&scope=channel%3Amanage%3Apolls+channel%3Aread%3Apolls&state=c3ab8aa609ea11e793ae92361f002671">Connect with Twitch</a>
+                        {{-- <a href={{ url('/AboutUs') }} class="right-element"style="text-decoration: none;">About Us</a> --}}
                     </button>
                     <button type="button" class="btn btn-outline-info">
                         <a href={{ url('/BigScreen') }} class="right-element"style="text-decoration: none;">Big

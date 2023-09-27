@@ -3,15 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use App\Models\nadcl_profile;
 use App\Models\nadcl_steam;
-use App\Models\nadcl_tournament;
+use App\Models\nadcl_tournamentplayer;
+use Illuminate\Support\Facades\Auth;
 
-class TournamentController extends Controller
+class NADCL_TournamentPlayerController extends Controller
 {
-
-    //
     public function SeasonFourLoad()
     {
         return view('/tournaments/NADCL_SeasonFour');
@@ -20,10 +18,10 @@ class TournamentController extends Controller
     {
         $found = false;
         if (Auth::check()) {
-            $hasEntered = nadcl_tournament::find(auth()->user()->email);
+            $hasEntered = nadcl_tournamentplayer::find(auth()->user()->email);
             $found = $hasEntered == null ? false : true;
         }
-        $entries = nadcl_tournament::all();
+        $entries = nadcl_tournamentplayer::all();
         $data = [
             'hasJoined' => $found,
             'entries' => $entries,
@@ -43,7 +41,7 @@ class TournamentController extends Controller
         ) // haven't set key info for NADCL profile
             return back();
 
-        $entry = new nadcl_tournament();
+        $entry = new nadcl_tournamentplayer();
         $entry->key = auth()->user()->email;
         $entry->displayname = $profile->displayname;
         $entry->siggy = $profile->siggy;
@@ -63,10 +61,10 @@ class TournamentController extends Controller
 
     public function Players()
     {
-        $tournaments = nadcl_tournament::all();
+        $tournaments = nadcl_tournamentplayer::all();
         $data = [
             'tProfile' => $tournaments,
         ];
         return view('tournaments/NADCL_showplayers')->with('data', $data);
-    }
+    } //
 }

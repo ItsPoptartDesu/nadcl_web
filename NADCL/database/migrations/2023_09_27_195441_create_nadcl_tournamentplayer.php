@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('nadcl_tournament', function (Blueprint $table) {
+        Schema::create('nadcl_tournamentplayer', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('key');
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('nadcl_tournament');
+        Schema::dropIfExists('nadcl_tournamentplayer');
     }
 };
