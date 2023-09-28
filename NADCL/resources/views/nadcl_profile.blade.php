@@ -78,122 +78,123 @@
                 <div class="md:mt-0 md:col-span-2">
                     <div class="px-4 py-5 bg-white sm:p-6 shadow sm:rounded sm:rounded">
                         <h2 class='h2'>NADCL Info</h2>
-
-                        <form style="padding-top:10px;"method="POST" action="{{ URL('/dashboard/NADCL_Profile') }}"
-                            enctype="multipart/form-data">
-                            @csrf
-                            @method('PUT')
-                            <div>
-                                <div class="form-group container">
-                                    <span>
-                                        <h3>Needed for NADCL Tournaments<svg style="display:inline;"
-                                                xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd"
-                                                    d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
-                                            </svg>
+                        <div class="container">
+                            <form style="padding-top:10px;"method="POST" action="{{ URL('/dashboard/NADCL_Profile') }}"
+                                enctype="multipart/form-data">
+                                @csrf
+                                @method('PUT')
+                                <div>
+                                    <div class="form-group">
+                                        <span>
+                                            <h3>Needed for NADCL Tournaments<svg style="display:inline;"
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd"
+                                                        d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                                                </svg>
+                                                <hr style="width:100%;border:3px solid red">
+                                            </h3>
+                                        </span>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="nadcl_username">NADCL Username</label>
+                                                    <div>
+                                                        <input type="text" name="nadcl_username"
+                                                            placeholder="NA_DOTA_RULES_420"
+                                                            class="@error('title') is-invalid @enderror">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <label for="nadcl_headshot" class="form-label">Player Headshot</label>
+                                                <input name="nadcl_headshot" id="nadcl_headshot" type="file"
+                                                    class="form-control form-control-sm" />
+                                            </div>
+                                            <div class="col">
+                                                <label for="nadcl_mmr">MMR?</label>
+                                                <div>
+                                                    <input type="text" name="nadcl_mmr" placeholder="mmr..."
+                                                        class="@error('title') is-invalid @enderror">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row ">
+                                            <div class="col">
+                                                <div class="form-group ">
+                                                    @include('code_injects/siggyselection')
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <label for="nadcl_role">What is your role?</label>
+                                                <select name="nadcl_role" class="form-select form-select-sm"
+                                                    aria-label=".form-select-sm example">
+                                                    <option value="none" selected disabled hidden>What is your role?
+                                                    </option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                </select>
+                                            </div>
+                                            <div class="col">
+                                                <label for="nadcl_cancaptain">Are you a Captain?</label>
+                                                <select name="nadcl_cancaptain" class="form-select form-select-sm"
+                                                    aria-label=".form-select-sm example">
+                                                    <option value="none" selected disabled hidden>Captain?
+                                                    </option>
+                                                    <option value="yes">yes</option>
+                                                    <option value="no">no</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <span>
+                                            <h3>Not needed for NADCL Tournaments<svg style="display:inline;"
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd"
+                                                        d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                                                </svg></h3>
                                             <hr style="width:100%;border:3px solid red">
-                                        </h3>
-                                    </span>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="form-group">
-                                                <label for="nadcl_username">NADCL Username</label>
+                                        </span>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="nadcl_mmr">X?</label>
+                                                    <div>
+                                                        <input type="text" name="nadcl_x" placeholder="X..."
+                                                            class="@error('title') is-invalid @enderror">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <label for="nadcl_role">Twitch?</label>
                                                 <div>
-                                                    <input type="text" name="nadcl_username"
-                                                        placeholder="NA_DOTA_RULES_420"
+                                                    <input type="text" name="nadcl_twitch" placeholder="Twitch..."
                                                         class="@error('title') is-invalid @enderror">
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col">
-                                            <label for="nadcl_headshot" class="form-label">Player Headshot</label>
-                                            <input name="nadcl_headshot" id="nadcl_headshot" type="file"
-                                                class="form-control form-control-sm" />
-                                        </div>
-                                        <div class="col">
-                                            <label for="nadcl_mmr">MMR?</label>
-                                            <div>
-                                                <input type="text" name="nadcl_mmr" placeholder="mmr..."
-                                                    class="@error('title') is-invalid @enderror">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="form-group">
-                                                @include('code_injects/siggyselection')
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <label for="nadcl_role">What is your role?</label>
-                                            <select name="nadcl_role" class="form-select form-select-sm"
-                                                aria-label=".form-select-sm example">
-                                                <option value="none" selected disabled hidden>What is your role?
-                                                </option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                            </select>
-                                        </div>
-                                        <div class="col">
-                                            <label for="nadcl_cancaptain">Are you a Captain?</label>
-                                            <select name="nadcl_cancaptain" class="form-select form-select-sm"
-                                                aria-label=".form-select-sm example">
-                                                <option value="none" selected disabled hidden>Captain?
-                                                </option>
-                                                <option value="yes">yes</option>
-                                                <option value="no">no</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <span>
-                                        <h3>Not needed for NADCL Tournaments<svg style="display:inline;"
-                                                xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd"
-                                                    d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
-                                            </svg></h3>
-                                        <hr style="width:100%;border:3px solid red">
-                                    </span>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="form-group">
-                                                <label for="nadcl_mmr">X?</label>
-                                                <div>
-                                                    <input type="text" name="nadcl_x" placeholder="X..."
-                                                        class="@error('title') is-invalid @enderror">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <label for="nadcl_role">Twitch?</label>
-                                            <div>
-                                                <input type="text" name="nadcl_twitch" placeholder="Twitch..."
-                                                    class="@error('title') is-invalid @enderror">
-                                            </div>
-                                        </div>
-                                        <div class="col">
+                                            <div class="col">
 
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="nadcl_hottake">Hot Take...</label>
-                                    <div>
-                                        <textarea rows='3' style="width:100%;" name="nadcl_hottake" placeholder="my hot take is..."></textarea>
+                                    <div class="form-group">
+                                        <label for="nadcl_hottake">Hot Take...</label>
+                                        <div>
+                                            <textarea rows='3' style="width:100%;" name="nadcl_hottake" placeholder="my hot take is..."></textarea>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="nadcl_aboutme">About Me...</label>
-                                    <div>
-                                        <textarea rows='3' style="width:100%;" name="nadcl_aboutme" placeholder="About me..."></textarea>
+                                    <div class="form-group">
+                                        <label for="nadcl_aboutme">About Me...</label>
+                                        <div>
+                                            <textarea rows='3' style="width:100%;" name="nadcl_aboutme" placeholder="About me..."></textarea>
+                                        </div>
                                     </div>
-                                </div>
-                                <button type="submit" class="btn btn-outline-primary">Save</button>
-                        </form>
+                                    <button type="submit" class="btn btn-outline-primary">Save</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
