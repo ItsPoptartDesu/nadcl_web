@@ -1,14 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-$videoURL1 = 'https://www.youtube.com/watch?v=cFBWl1lefQI';
-$videoURL2 = 'https://www.youtube.com/watch?v=8DFjoiDQmyk';
-$videoURL3 = 'https://www.youtube.com/watch?v=jOmmH1z-SfU';
-//"https://www.youtube.com/embed/cFBWl1lefQI?si=KKa5CpyK_gD63yjA"
-$video1 = str_replace('watch?v', 'embed/', $videoURL1);
-$video2 = str_replace('watch?v', 'embed/', $videoURL2);
-$video3 = str_replace('watch?v', 'embed/', $videoURL3);
-?>
 
 <head>
     <title>NADCL</title>
@@ -16,7 +7,7 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link rel="stylesheet" href="css/style.css" rel="stylesheet">
@@ -135,7 +126,7 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
         <br>
         <br>
         <!-- Youtube -->
-        <div class="container na_red_text" id="youtube" >
+        <div class="container na_red_text" id="youtube">
             <h1 style="font-size: 2em">
                 <b>Youtube</b>
             </h1>
@@ -155,7 +146,7 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <div class="d-block w-100" alt="...">
-                                    <iframe width="100%" height="480" src="<?php echo $video1; ?>"
+                                    <iframe width="100%" height="480" src="<?php echo $data['youtube'][0]; ?>"
                                         title="YouTube video player" frameborder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                         allowfullscreen>
@@ -168,7 +159,7 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
                             </div>
                             <div class="carousel-item">
                                 <div class="d-block w-100" alt="...">
-                                    <iframe width="100%" height="480" src="<?php echo $video2; ?>"
+                                    <iframe width="100%" height="480" src="<?php echo $data['youtube'][1]; ?>"
                                         title="YouTube video player" frameborder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                         allowfullscreen>
@@ -181,7 +172,7 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
                             </div>
                             <div class="carousel-item">
                                 <div class="d-block w-100" alt="...">
-                                    <iframe width="100%" height="480" src="<?php echo $video3; ?>"
+                                    <iframe width="100%" height="480" src="<?php echo $data['youtube'][2]; ?>"
                                         title="YouTube video player" frameborder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                         allowfullscreen>
@@ -227,8 +218,8 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
                             <div class="carousel-item active">
                                 <div class="d-block w-100" alt="...">
                                     <blockquote class="tiktok-embed"
-                                        cite="https://www.tiktok.com/@nadotachallengersleague/video/7276485795760950570"
-                                        data-video-id="7276485795760950570"
+                                        cite="https://www.tiktok.com/@nadotachallengersleague/video/"{{ $data['tiktok'][0] }}
+                                        data-video-id={{ $data['tiktok'][0] }}
                                         style="max-width: 605px;min-width: 325px;">
                                         <section>
                                             <a target="_blank"
@@ -242,8 +233,8 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
                             <div class="carousel-item">
                                 <div class="d-block w-100" alt="...">
                                     <blockquote class="tiktok-embed"
-                                        cite="https://www.tiktok.com/@nadotachallengersleague/video/7269875187913329962"
-                                        data-video-id="7269875187913329962"
+                                        cite="https://www.tiktok.com/@nadotachallengersleague/video/"{{ $data['tiktok'][1] }}
+                                        data-video-id={{ $data['tiktok'][1] }}
                                         style="max-width: 605px;min-width: 325px;">
                                         <section> <a target="_blank" title="@nadotachallengersleague"
                                                 href="https://www.tiktok.com/@nadotachallengersleague?refer=embed">@nadotachallengersleague</a>
@@ -255,8 +246,8 @@ $video3 = str_replace('watch?v', 'embed/', $videoURL3);
                             <div class="carousel-item">
                                 <div class="d-block w-100" alt="...">
                                     <blockquote class="tiktok-embed"
-                                        cite="https://www.tiktok.com/@nadotachallengersleague/video/7269058694548081963"
-                                        data-video-id="7269058694548081963"
+                                        cite="https://www.tiktok.com/@nadotachallengersleague/video/"{{ $data['tiktok'][2] }}
+                                        data-video-id={{ $data['tiktok'][2] }}
                                         style="max-width: 605px;min-width: 325px;">
                                         <section>
                                             <a target="_blank" title="@nadotachallengersleague"

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('nadcl_profile', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('key');
+            $table->string('key')->index();
             $table->string('displayname')->nullable();
             $table->text('about')->nullable();
             $table->string('siggy')->nullable();

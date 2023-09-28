@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('nadcl_tournamentplayer', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('key');
+            $table->string('key')->index();
             $table->string('displayname');
             $table->string('siggy');
             $table->integer('role');

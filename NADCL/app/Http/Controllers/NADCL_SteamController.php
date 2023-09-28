@@ -17,10 +17,11 @@ class NADCL_SteamController extends Controller
 
     public function ToSteam()
     {
+        $param = app()->environment(['production']) ? 'https://nadcl.xxx/user/process-openID' : 'http://127.0.0.1:8000/user/process-openId';
         $login_url_params = [
             'openid.ns'         => 'http://specs.openid.net/auth/2.0',
             'openid.mode'       => 'checkid_setup',
-            'openid.return_to'  => 'http://127.0.0.1:8000/user/process-openId',
+            'openid.return_to'  => $param,
             'openid.realm'      => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'],
             'openid.identity'   => 'http://specs.openid.net/auth/2.0/identifier_select',
             'openid.claimed_id' => 'http://specs.openid.net/auth/2.0/identifier_select',
@@ -32,7 +33,7 @@ class NADCL_SteamController extends Controller
     }
     public function Store()
     {
-        
+
 
         $params = [
             'openid.assoc_handle' => $_GET['openid_assoc_handle'],
@@ -73,9 +74,7 @@ class NADCL_SteamController extends Controller
             exit();
         }
 
-        $steam_api_key = '1EDC0D204A7716E809F0B2DABE207BE7';
-
-        $response = file_get_contents('https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=' . $steam_api_key . '&steamids=' . $steamID64);
+        $response = file_get_contents('https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=' . env('STEAM_API_KEY') . '&steamids=' . $steamID64);
         $response = json_decode($response, true);
 
 

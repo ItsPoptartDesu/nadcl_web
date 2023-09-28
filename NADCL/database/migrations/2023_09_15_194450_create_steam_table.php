@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('steam', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('key');
+            $table->string('key')->index();
             $table->bigInteger('steamid64');
             $table->string('personaname');
             $table->string('profileurl');

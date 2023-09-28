@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\nadcl_constants;
 use App\Models\nadcl_profile;
 use App\Models\nadcl_steam;
 use Illuminate\Support\Facades\Auth;
@@ -35,6 +36,18 @@ class NADCL_PagesController extends Controller
 
     public function Landing()
     {
-        return view('landing');
+        $raw = nadcl_constants::all();
+        $you = explode(',', $raw[0]->youtube);
+        $count = 0;
+        foreach ($you as $y) {
+            $you[$count] = str_replace('watch?v', 'embed/', $y);
+            $count++;
+        }
+        $tik = explode(',', $raw[0]->tiktok);
+        $data = [
+            'youtube' => $you,
+            'tiktok' => $tik
+        ];
+        return view('landing')->with('data', $data);
     }
 }
