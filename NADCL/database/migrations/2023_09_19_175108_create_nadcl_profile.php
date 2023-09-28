@@ -23,6 +23,8 @@ return new class extends Migration
             $table->int('role')->nullable();
             $table->string('mmr')->nullable();
             $table->string('cancaptain')->nullable();
+            $table->string('x')->nullable();
+            $table->string('twitch')->nullable();
         });
     }
 

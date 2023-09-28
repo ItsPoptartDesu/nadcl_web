@@ -33,7 +33,7 @@ Route::get('/sporkface', [TeamDisplayController::class, 'Sporkface']);
 Route::get('/thv', [TeamDisplayController::class, 'Thv']);
 Route::get('/tko', [TeamDisplayController::class, 'Tko']);
 
-Route::get('/user/dota_profile', [NADCL_SteamController::class, 'Load']);
+Route::get('/dashboard/dota_profile', [NADCL_SteamController::class, 'Load']);
 Route::get('/user/process-openId', [NADCL_SteamController::class, 'Store']);
 Route::get('/user/init-openId', [NADCL_SteamController::class, 'ToSteam']);
 
@@ -43,8 +43,8 @@ Route::get('/Tournaments/NADCL_tournamentjoin', [NADCL_TournamentPlayerControlle
 Route::get('/players', [NADCL_TournamentPlayerController::class, 'Players']);
 
 Route::get('/dashboard', [NADCL_ProfileController::class, 'Dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('/user/NADCL_Profile', [NADCL_ProfileController::class, 'Load']);
-Route::put('/user/NADCL_Profile', [NADCL_ProfileController::class, 'Store']);
+Route::get('/dashboard/NADCL_Profile', [NADCL_ProfileController::class, 'Load']);
+Route::put('/dashboard/NADCL_Profile', [NADCL_ProfileController::class, 'Store']);
 Route::get('/players/{who}', [NADCL_ProfileController::class, 'PlayerIndex']);
 
 Route::middleware('auth')->group(function () {

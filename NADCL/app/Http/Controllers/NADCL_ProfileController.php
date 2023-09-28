@@ -52,8 +52,13 @@ class NADCL_ProfileController extends Controller
         }
         if ($request->nadcl_siggy != null)
             $profile->siggy = $request->nadcl_siggy;
-        if ($request->nadcl_username != null)
+        if ($request->nadcl_username != null) {
+            if ($profile->altnames == '')
+                $profile->altnames = $profile->displayname;
+            else
+                $profile->altnames = $profile->altnames . ',' . $profile->displayname;
             $profile->displayname = $request->nadcl_username;
+        }
         if ($request->nadcl_aboutme != null)
             $profile->about = $request->nadcl_aboutme;
         if ($request->nadcl_hottake != null)
@@ -64,8 +69,12 @@ class NADCL_ProfileController extends Controller
             $profile->role = $request->nadcl_role;
         if ($request->nadcl_cancaptain != null)
             $profile->cancaptain = $request->nadcl_cancaptain;
+        if ($request->nadcl_x != null)
+            $profile->x = $request->nadcl_x;
+        if ($request->nadcl_twitch != null)
+            $profile->twitch = $request->nadcl_twitch;
         $profile->update();
-        return redirect('/user/NADCL_Profile')->with('status', 'Updated Username / About Me');
+        return redirect('/dashboard/NADCL_Profile')->with('status', 'Updated Username / About Me');
     }
     public function Dashboard()
     {
