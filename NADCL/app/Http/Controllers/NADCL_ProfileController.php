@@ -73,6 +73,10 @@ class NADCL_ProfileController extends Controller
             $profile->x = $request->nadcl_x;
         if ($request->nadcl_twitch != null)
             $profile->twitch = $request->nadcl_twitch;
+        if ($request->nadcl_youtube != null)
+            $profile->youtube = $request->nadcl_youtube;
+        if ($request->nadcl_tiktok != null)
+            $profile->tiktok = $request->nadcl_tiktok;
         $profile->update();
         return redirect('/dashboard/NADCL_Profile')->with('status', 'Updated Username / About Me');
     }

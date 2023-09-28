@@ -163,20 +163,34 @@
                                                 <div class="form-group">
                                                     <label for="nadcl_mmr">X?</label>
                                                     <div>
-                                                        <input type="text" name="nadcl_x" placeholder="X..."
+                                                        <input type="text" name="nadcl_x" placeholder="X.com/..."
                                                             class="@error('title') is-invalid @enderror">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col">
-                                                <label for="nadcl_role">Twitch?</label>
+                                                <label for="nadcl_twitch">Twitch?</label>
                                                 <div>
-                                                    <input type="text" name="nadcl_twitch" placeholder="Twitch..."
+                                                    <input type="text" name="nadcl_twitch"
+                                                        placeholder="Twitch.tv/..."
                                                         class="@error('title') is-invalid @enderror">
                                                 </div>
                                             </div>
                                             <div class="col">
-
+                                                <label for="nadcl_youtube">Youtube?</label>
+                                                <div>
+                                                    <input type="text" name="nadcl_youtube"
+                                                        placeholder="youtube.com/..."
+                                                        class="@error('title') is-invalid @enderror">
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <label for="nadcl_tiktok">TikTok?</label>
+                                                <div>
+                                                    <input type="text" name="nadcl_tiktok"
+                                                        placeholder="tiktok.com/..."
+                                                        class="@error('title') is-invalid @enderror">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

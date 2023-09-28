@@ -12,7 +12,7 @@ class nadcl_profile extends Model
     protected $fillables = [
         'key', 'displayname', 'about', 'headshot',
         'siggy', 'hottake', 'role', 'mmr', 'cancaptain',
-        'x', 'twitch'
+        'x', 'twitch', 'youtube', 'tiktok'
     ];
     protected $primaryKey = 'key';
 }

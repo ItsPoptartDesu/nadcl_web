@@ -32,6 +32,8 @@ class NADCL_TournamentPlayerController extends Controller
     }
     public function NADCL_SeasonJoin()
     {
+        if (!Auth::check())
+            return back();
         $steam = nadcl_steam::find(auth()->user()->email)->first();
         if ($steam == null || $steam->steamid64 == null) //if not stream linked
             return back();
