@@ -24,7 +24,7 @@
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                         <h2 class="ml-3 text-xl font-semibold text-gray-900">
-                            <a href={{ URL('/dashboard/dota_profile') }}>Dota Profile</a>
+                            <a href={{ URL('/dashboard/dota_profile') }}>Linked Steam Account</a>
                         </h2>
                         <div class="mt-4 text-gray-500 text-sm leading-relaxed">
                             Connected Steam info For Tournaments

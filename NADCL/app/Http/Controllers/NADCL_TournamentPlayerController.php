@@ -34,16 +34,16 @@ class NADCL_TournamentPlayerController extends Controller
     {
         if (!Auth::check())
             return back();
-        $steam = nadcl_steam::find(auth()->user()->email)->first();
+        $steam = nadcl_steam::find(auth()->user()->email);
         if ($steam == null || $steam->steamid64 == null) //if not stream linked
-            return back();
+            return back()->with('statusError', "Please link your STEAM account");
         $profile = nadcl_profile::find(auth()->user()->email)->first();
         if (
             $profile->role == null || $profile->siggy == null ||
             $profile->mmr == null || $profile->displayname == null ||
             $profile->cancaptain == null
         ) // haven't set key info for NADCL profile
-            return back();
+            return back()->with('statusError', "Please fill out NADCL required Info");
 
         $entry = new nadcl_tournamentplayer();
         $entry->key = auth()->user()->email;

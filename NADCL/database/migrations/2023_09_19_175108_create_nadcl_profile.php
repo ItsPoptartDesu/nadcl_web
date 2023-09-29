@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('twitch')->nullable();
             $table->string('youtube')->nullable();
             $table->string('tiktok')->nullable();
+            $table->text('altnames')->nullable();
             $table->boolean('isteamowner');
         });
     }

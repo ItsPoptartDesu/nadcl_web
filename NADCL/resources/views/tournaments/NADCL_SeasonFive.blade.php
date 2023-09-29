@@ -18,6 +18,16 @@
 </head>
 
 <body class="na_white_text na_blue">
+    @if (session('statusError'))
+        <div class="alert alert-danger">
+            {{ session('statusError') }}
+        </div>
+    @endif
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
     <!-- Sidebar/menu -->
     <nav class="na_sidebar_noBG" style="z-index:3;font-weight:bold;" id="mySidebar"><br>
         <div class="container row na_red_text">
@@ -378,7 +388,8 @@
                                     <td>{{ $entry->mmr }}</td>
                                     <td>{{ $entry->role }}</td>
                                     <td>{{ $entry->cancaptain }}</td>
-                                    <td><a class="na_red_text" target="_blank" href={{ $entry->profileurl }}>Steam Profile Link</a></td>
+                                    <td><a class="na_red_text" target="_blank" href={{ $entry->profileurl }}>Steam
+                                            Profile Link</a></td>
                                     <td>{{ $entry->steamid64 }}</td>
                                     <td>{{ $entry->siggy }}</td>
                                     <td>{{ $entry->locstatecode }} - {{ $entry->loccountrycode }}</td>
