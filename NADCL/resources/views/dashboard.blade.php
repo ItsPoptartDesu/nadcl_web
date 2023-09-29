@@ -79,35 +79,32 @@
                         </div>
                     </div>
                 </div>
-                @if ($data['profile']->isteamowner)
-                    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                            <h2 class="ml-3 text-xl font-semibold text-gray-900">
-                                <a href="{{ url('/dashboard/NADCL_Profile') }}">NADCL Team Owner</a>
-                            </h2>
-                            <div class="mt-4 text-gray-500 text-sm leading-relaxed">
-                                Information Displayed Across NADCL site
-                            </div>
-                            <div class="mt-4 text-sm">
-                                <div class="mt-1 text-sm text-gray-600">
-                                    <b>Connected Steam Name:</b> {{ $data['profile']->displayname }}
-                                </div>
-                                <div class="mt-1 text-sm text-gray-600">
-                                    <b>Siggy:</b> {{ $data['profile']->siggy }}
-                                </div>
-                                @if ($data['profile']->headshot)
-                                    <img class="text-center" style="display:inline;width:100px;height:100px;"
-                                        src="{{ URL('/headshots/' . $data['profile']->headshot) }}">
-                                @else
-                                    <img class="text-center" style="display:inline; width:100px;height:100px;"
-                                        src={{ URL('/img/we_want_you.png') }}>
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                        <h2 class="ml-3 text-xl font-semibold text-gray-900">
+                            <a href="{{ url('/dashboard/NADCL_CreateTeam') }}">NADCL Team Owner</a>
+                        </h2>
+                        <div class="mt-4 text-gray-500 text-sm leading-relaxed">
+                            Your Team Info
+                        </div>
+                        <div class="mt-4 text-sm">
+                            <div class="mt-1 text-sm text-gray-600">
+                                <b>Team Name:</b>
+                                @if ($data['team'])
+                                    {{ $data['team']->teamname }}
                                 @endif
                             </div>
+                            @if ($data['team'])
+                                <img class="text-center" style="display:inline;width:100px;height:100px;"
+                                    src="{{ URL('/headshots/' . $data['team']->teamlogo) }}">
+                            @else
+                                <img class="text-center" style="display:inline; width:100px;height:100px;"
+                                    src={{ URL('/img/we_want_you.png') }}>
+                            @endif
                         </div>
                     </div>
-                @endif
+                </div>
             </div>
-
         </div>
     </div>
 </x-app-layout>

@@ -10,7 +10,8 @@ class nadcl_team extends Model
     use HasFactory;
     protected $table = 'nadcl_team';
     protected $fillables = [
-        'about', 'players', 'pastplayers', 'teamlogo',
+        'key', 'about', 'players', 'pastplayers', 'teamlogo',
         'manager', 'externalsite', 'x', 'youtube', 'totalwinnings',
     ];
+    protected $primaryKey = 'key';
 }

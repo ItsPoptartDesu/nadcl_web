@@ -43,37 +43,11 @@
                 <div class="jumbotron na_blue">
                     <h1 class="display-1">North American Dota 2 Challenger's League</h1>
             </h1>
-            <h2 style="font-size: 2em"><b>Our Teams</b></h2>
+            <h2 style="font-size: 2em"><b>Our Season 4 Teams</b></h2>
             <hr style="width:100%;border:5px solid red">
         </div>
-
         <!-- Team Photos -->
-        <div id="test" class="grid-container">
-            <a href="{{ url('/astronaut') }}">
-                <img class="grid_item" src="{{ URL('/img/team_logos/astronauts.png') }}">
-            </a>
-            <a href="{{ url('/bullish') }}">
-                <img class="grid_item" src="{{ URL('/img/team_logos/bullish.png') }}">
-            </a>
-            <a href="{{ url('/fryboys') }}">
-                <img class="grid_item" src="{{ URL('/img/team_logos/fryboys.png') }}">
-            </a>
-            <a href="{{ url('/grin') }}">
-                <img class="grid_item" src="{{ URL('/img/team_logos/grin.png') }}">
-            </a>
-            <a href="{{ url('/paladins') }}">
-                <img class="grid_item" src="{{ URL('/img/team_logos/paladins.png') }}">
-            </a>
-            <a href="{{ url('/sporkface') }}">
-                <img class="grid_item" src="{{ URL('/img/team_logos/sporkface.png') }}">
-            </a>
-            <a href="{{ url('/thv') }}">
-                <img class="grid_item" src="{{ URL('/img/team_logos/thv.png') }}">
-            </a>
-            <a href="{{ url('/tko') }}">
-                <img class="grid_item" src="{{ URL('/img/team_logos/tko.png') }}">
-            </a>
-        </div>
+        @include('code_injects/season4teams')
         <br>
         <br>
         <br>
@@ -136,8 +110,8 @@
                     <!-- Youtube Carousel -->
                     <div id="youtubeCarousel" class="carousel slide" data-interval="false">
                         <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#youtubeCarousel" data-bs-slide-to="0"
-                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#youtubeCarousel" data-bs-slide-to="0" class="active"
+                                aria-current="true" aria-label="Slide 1"></button>
                             <button type="button" data-bs-target="#youtubeCarousel" data-bs-slide-to="1"
                                 aria-label="Slide 2"></button>
                             <button type="button" data-bs-target="#youtubeCarousel" data-bs-slide-to="2"

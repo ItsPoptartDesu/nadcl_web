@@ -7,12 +7,8 @@
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <div clas="row">
-
-    </div>
-    </h5>
     <div class="row">
-        <div class="col">
+        <div class="col-auto">
             <div class="dropdown show">
                 <div style="display: flex; justify-content: flex-start;">
                     <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown"
@@ -20,23 +16,40 @@
                         <a style="">Tournaments</a>
                     </button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{{ URL('/Tournaments/NADCL_SeasonFour') }}">Season 4</a>
-                        <a class="dropdown-item" href="{{ URL('/Tournaments/NADCL_SeasonFive') }}">Season 5</a>
+                        <a style="text-decoration: red underline" class="dropdown-item"
+                            href="{{ URL('/Tournaments/NADCL_SeasonFour') }}">Season 4</a>
+                        <a style="text-decoration: red underline" class="dropdown-item"
+                            href="{{ URL('/Tournaments/NADCL_SeasonFive') }}">Season 5</a>
                     </div>
-                    <button type="button" class="btn btn-outline-info">
-                        <a href={{ url('/AboutUs') }} class="right-element"style="text-decoration: none;">About Us</a>
-                    </button>
-                    <button type="button" class="btn btn-outline-info">
-                        <a href={{ url('/BigScreen') }} class="right-element"style="text-decoration: none;">Big
-                            Screen</a>
-                    </button>
-                    <button type="button" class="btn btn-outline-info">
-                        <a href={{ url('/players') }} class="right-element"style="text-decoration: none;">NADCL Players</a>
-                    </button>
                 </div>
             </div>
         </div>
         <div class="col-auto">
+            <button type="button" class="btn btn-outline-info">
+                <a href={{ url('/AboutUs') }} style="text-decoration: none;">About Us</a>
+            </button>
+        </div>
+        <div class="col-auto">
+            <div class="dropdown">
+                <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <a style="">NADCL Community</a>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href={{ URL('/players') }} style="text-decoration: red underline">NADCL
+                            Players</a></li>
+                    <li><a href={{ URL('/Teams') }} style="text-decoration: red underline">NADCL
+                            Teams</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-auto">
+            <button type="button" class="btn btn-outline-info">
+                <a href={{ url('/BigScreen') }} style="text-decoration: none;">Big
+                    Screen</a>
+            </button>
+        </div>
+        <div class="col">
             <div class="header_logo">
                 <a href="/">
                     <img src="{{ URL('/img/nadcl_logo.png') }}">
@@ -56,22 +69,24 @@
         </div>
         <div class="col">
             <div style="display: flex; justify-content: flex-end;">
-                <button type="button" class="btn btn-outline-info"> <a
-                        href="https://nadcl.us/pages/nadclshop"style="text-decoration: none;">Merch </a>
-                </button>
+                <div class="col">
+                    <button type="button" class="btn btn-outline-info"> <a
+                            href="https://nadcl.us/pages/nadclshop"style="text-decoration: none;">Merch </a>
+                    </button>
+                </div>
                 @if (Route::has('login'))
                     @auth
                         <button type="button" class="btn btn-outline-info">
-                            <a href={{ url('/dashboard') }}
-                                class="right-element"style="text-decoration: none;">Dashboard</a>
+                            <a href={{ url('/dashboard') }} style="text-decoration: none;">Dashboard</a>
                         </button>
                     @else
                         <button type="button" class="btn btn-outline-info">
-                            <a href="{{ route('login') }}" class="right-element"style="text-decoration: none;">Log in</a>
+                            <a href="{{ route('login') }}" style="text-decoration: none;">Log
+                                in</a>
                         </button>
                         @if (Route::has('register'))
                             <button type="button" class="btn btn-outline-info"> <a style="text-decoration: none;"
-                                    href="{{ route('register') }}" class="right-element">Register</a></button>
+                                    href="{{ route('register') }}">Register</a></button>
                         @endif
                     @endauth
                 @endif

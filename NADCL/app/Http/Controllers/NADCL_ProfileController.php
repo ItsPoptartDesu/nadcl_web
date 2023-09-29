@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\nadcl_profile;
 use App\Models\nadcl_steam;
+use App\Models\nadcl_team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Models\nadcl_tournamentplayer;
@@ -84,9 +85,11 @@ class NADCL_ProfileController extends Controller
     {
         $steamInfo = nadcl_steam::find(auth()->user()->email);
         $nadclInfo = nadcl_profile::find(auth()->user()->email);
+        $teamInfo = nadcl_team::find(auth()->user()->email);
         $data = [
             'steam' => $steamInfo,
             'profile' => $nadclInfo,
+            'team' => $teamInfo
         ];
         //dd($data);
         return view('/dashboard')->with('data', $data);
@@ -94,8 +97,57 @@ class NADCL_ProfileController extends Controller
 
     public function TeamLoad()
     {
+        $teamInfo = nadcl_team::find(auth()->user()->email);
+        $nadclInfo = nadcl_profile::find(auth()->user()->email);
+        $data = [
+            'team' => $teamInfo,
+            'profile' => $nadclInfo,
+        ];
+        return view('/nadclteams/createteam')->with('data', $data);
     }
-    public function TeamStore()
+    public function TeamStore(Request $request)
     {
+        $profile = nadcl_team::find(auth()->user()->email);
+        $flag = false;
+        if ($profile == null) {
+            $profile = new nadcl_team();
+            $flag = true;
+        }
+        if ($request->nadcl_teamname != null)
+            $profile->teamname = $request->nadcl_teamname;
+        if ($request->hasFile('img/team_logos')) {
+            if ($profile->teamlogo != null) {
+                // dd(public_path('headshots') . $profile->headshot);
+                File::delete(public_path('img/team_logos') . '/' . $profile->teamlogo);
+            }
+            $name = $request->file('nadcl_teamlogo')->getClientOriginalName();
+            $path = $request->file('nadcl_teamlogo')->storeAs('public', $name);
+            $request->file('nadcl_teamlogo')->move(public_path('img/team_logos'), $name);
+            $profile->teamlogo = $name;
+        }
+        if ($request->nadcl_aboutteam != null)
+            $profile->about = $request->nadcl_aboutteam;
+
+        if ($request->nadcl_players != null) {
+            if ($profile->pastplayers == '')
+                $profile->pastplayers = $profile->players;
+            else
+                $profile->pastplayers = $profile->pastplayers . ',' . $profile->players;
+            $profile->players = $request->nadcl_players;
+        }
+        if ($request->nadcl_manager != null)
+            $profile->manager = $request->nadcl_manager;
+        if ($request->nadcl_site != null)
+            $profile->externalsite = $request->nadcl_site;
+        if ($request->nadcl_youtube != null)
+            $profile->youtube = $request->nadcl_youtube;
+        if ($request->Winnings != null)
+            $profile->totalwinnings = $request->Winnings;
+        $profile->key = auth()->user()->email;
+        if ($flag)
+            $profile->save();
+        else
+            $profile->update();
+        return redirect('/dashboard/NADCL_CreateTeam')->with('status', 'Updated Username / About Me');
     }
 }

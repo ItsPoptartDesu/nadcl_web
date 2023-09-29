@@ -2,10 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\nadcl_team;
 use Illuminate\Http\Request;
 
 class TeamDisplayController extends Controller
 {
+    public function Index($request)
+    {
+        $team = nadcl_team::where('teamname', '=', $request)->first();
+        return view('/nadclteams/nadcl_teamindex')->with('team', $team);
+    }
+    public function Teams()
+    {
+        $teams = nadcl_team::All();
+        return view('/nadclteams/nadcl_teams')->with('teams', $teams);
+    }
     public function Astronaut()
     {
         return view('/nadclteams/astronaut');
@@ -25,7 +36,7 @@ class TeamDisplayController extends Controller
     public function Paladins()
     {
         return view('/nadclteams/paladins');
-    }    
+    }
     public function Sporkface()
     {
         return view('/nadclteams/sporkface');

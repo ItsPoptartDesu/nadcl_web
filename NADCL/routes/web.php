@@ -23,7 +23,8 @@ Route::get('/', [NADCL_PagesController::class, 'Landing']);
 Route::get('/AboutUs', [NADCL_PagesController::class, 'AboutUs']);
 
 Route::get('/BigScreen',  [NADCL_PagesController::class, 'BigScreen']);
-
+Route::get('/Teams/{id}', [TeamDisplayController::class, 'Index']);
+Route::get('/Teams', [TeamDisplayController::class, 'Teams']);
 Route::get('/astronaut', [TeamDisplayController::class, 'Astronaut']);
 Route::get('/bullish', [TeamDisplayController::class, 'Bullish']);
 Route::get('/fryboys', [TeamDisplayController::class, 'Fryboys']);

@@ -15,15 +15,16 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->text('key')->index();
-            $table->text('about');
-            $table->text('players');
-            $table->text('pastplayers');
+            $table->string('teamname');
             $table->string('teamlogo');
-            $table->string('manager');
-            $table->string('externalsite');
-            $table->string('x');
-            $table->string('youtube');
-            $table->bigInteger('totalwinnings');
+            $table->text('about');
+            $table->text('players')->nullable();
+            $table->text('pastplayers')->nullable();
+            $table->string('manager')->nullable();
+            $table->string('externalsite')->nullable();
+            $table->string('x')->nullable();
+            $table->string('youtube')->nullable();
+            $table->bigInteger('totalwinnings')->nullable();
         });
     }
 
