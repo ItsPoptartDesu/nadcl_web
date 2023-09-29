@@ -91,4 +91,11 @@ class NADCL_ProfileController extends Controller
         //dd($data);
         return view('/dashboard')->with('data', $data);
     }
+
+    public function TeamLoad()
+    {
+    }
+    public function TeamStore()
+    {
+    }
 }

@@ -34,8 +34,8 @@ Route::get('/thv', [TeamDisplayController::class, 'Thv']);
 Route::get('/tko', [TeamDisplayController::class, 'Tko']);
 
 Route::get('/dashboard/dota_profile', [NADCL_SteamController::class, 'Load']);
-Route::get('/user/process-openId', [NADCL_SteamController::class, 'Store']);
-Route::get('/user/init-openId', [NADCL_SteamController::class, 'ToSteam']);
+Route::get('/dashboard/process-openId', [NADCL_SteamController::class, 'Store']);
+Route::get('/dashboard/init-openId', [NADCL_SteamController::class, 'ToSteam']);
 
 Route::get('/Tournaments/NADCL_SeasonFive', [NADCL_TournamentPlayerController::class, 'SeasonFiveLoad']);
 Route::get('/Tournaments/NADCL_SeasonFour', [NADCL_TournamentPlayerController::class, 'SeasonFourLoad']);
@@ -45,6 +45,8 @@ Route::get('/players', [NADCL_TournamentPlayerController::class, 'Players']);
 Route::get('/dashboard', [NADCL_ProfileController::class, 'Dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/dashboard/NADCL_Profile', [NADCL_ProfileController::class, 'Load']);
 Route::put('/dashboard/NADCL_Profile', [NADCL_ProfileController::class, 'Store']);
+Route::get('/dashboard/NADCL_CreateTeam', [NADCL_ProfileController::class, 'TeamLoad']);
+Route::put('/dashboard/NADCL_CreateTeam', [NADCL_ProfileController::class, 'TeamStore']);
 Route::get('/players/{who}', [NADCL_ProfileController::class, 'PlayerIndex']);
 
 Route::middleware('auth')->group(function () {

@@ -20,11 +20,14 @@ return new class extends Migration
             $table->string('siggy')->nullable();
             $table->string('headshot')->nullable();
             $table->string('hottake')->nullable();
-            $table->int('role')->nullable();
+            $table->integer('role')->nullable();
             $table->string('mmr')->nullable();
             $table->string('cancaptain')->nullable();
             $table->string('x')->nullable();
             $table->string('twitch')->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('tiktok')->nullable();
+            $table->boolean('isteamowner');
         });
     }
 

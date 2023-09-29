@@ -17,7 +17,7 @@ class NADCL_SteamController extends Controller
 
     public function ToSteam()
     {
-        $param = app()->environment(['production']) ? 'https://nadcl.xxx/user/process-openID' : 'http://127.0.0.1:8000/user/process-openId';
+        $param = app()->environment(['production']) ? 'https://nadcl.xxx/user/process-openID' : 'http://127.0.0.1:8000/dashboard/process-openId';
         $login_url_params = [
             'openid.ns'         => 'http://specs.openid.net/auth/2.0',
             'openid.mode'       => 'checkid_setup',

@@ -33,7 +33,7 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -47,7 +47,8 @@ class RegisteredUserController extends Controller
 
         $nadcl_profile = new nadcl_profile;
         $nadcl_profile->key = $user->email;
-        $nadcl_profile->save();        
+        $nadcl_profile->isteamowner = false;
+        $nadcl_profile->save();
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
