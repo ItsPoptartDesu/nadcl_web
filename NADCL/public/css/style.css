@@ -81,6 +81,17 @@ nav ul {
     object-position: center center;
 }
 
+.team_logo {
+    display: block;
+    object-fit: contain;
+    margin: auto;
+    height: 450px;
+    width: 450px;
+    max-width: 450px;
+    max-height: none;
+    object-position: center center;
+}
+
 .middle-bar {
     flex-basis: 100%;
     max-width: 100%;

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <title>FryBoys</title>
+    <title>NADCL Teams</title>
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link rel="stylesheet" href="css/style.css" rel="stylesheet">
@@ -20,7 +20,10 @@
     <div class="main">
         @include('header')
         <div class="container">
+            @include('/code_injects/joinus')
             <div class="row">
+                <h2 class="na_red_text" style="font-size: 2em"><b>Our Current Teams</b></h2>
+                <hr style="width:100%;border:5px solid red">
                 @foreach ($teams as $team)
                     <div id="test" class="grid-container">
                         <a href="{{ url('/Teams/' . $team->teamname) }}">
@@ -31,7 +34,8 @@
             </div>
             <div class="row">
                 <h2 class="na_red_text" style="font-size: 2em"><b>Our Season 4 Teams</b></h2>
-                <hr style="width:100%;border:5px solid red"> @include('/code_injects/season4teams')
+                <hr style="width:100%;border:5px solid red">
+                @include('/code_injects/season4teams')
             </div>
             @include('/footer')
         </div>
