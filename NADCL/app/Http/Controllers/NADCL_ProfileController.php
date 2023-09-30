@@ -129,11 +129,17 @@ class NADCL_ProfileController extends Controller
             $profile->about = $request->nadcl_aboutteam;
 
         if ($request->nadcl_players != null) {
-            if ($profile->pastplayers == '')
-                $profile->pastplayers = $profile->players;
-            else
-                $profile->pastplayers = $profile->pastplayers . ',' . $profile->players;
-            $profile->players = $request->nadcl_players;
+            $players = explode(',', $request->nadcl_players);
+            foreach ($players as $player) {
+                $tournament_player = nadcl_tournamentplayer::find($player);
+                if (!$tournament_player) {
+                    return back()->with("statusError", "invalid player email. please have the player fully register");
+                }
+                if ($profile->players == null)
+                    $profile->players = $player;
+                else
+                    $profile->players = $profile->players . ',' . $player;
+            }
         }
         if ($request->nadcl_manager != null)
             $profile->manager = $request->nadcl_manager;

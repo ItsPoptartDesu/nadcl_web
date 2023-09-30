@@ -40,12 +40,12 @@
                             <div class="block px-4 py-2 text-xs text-gray-400">
                                 {{ __('Manage Account') }}
                             </div>
-                            <x-dropdown-link href="{{ url('/user/NADCL_Profile') }}">
+                            <x-dropdown-link href="{{ url('/dashboard/NADCL_Profile') }}">
                                 NADCL Profile
                             </x-dropdown-link>
                             <div class="border-t border-gray-200"></div>
 
-                            <x-dropdown-link href="{{ url('/user/dota_profile') }}">
+                            <x-dropdown-link href="{{ url('/dashboard/dota_profile') }}">
                                 Dota Profile
                             </x-dropdown-link>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\nadcl_team;
+use App\Models\nadcl_tournamentplayer;
 use Illuminate\Http\Request;
 
 class TeamDisplayController extends Controller
@@ -10,7 +11,17 @@ class TeamDisplayController extends Controller
     public function Index($request)
     {
         $team = nadcl_team::where('teamname', '=', $request)->first();
-        return view('/nadclteams/nadcl_teamindex')->with('team', $team);
+        $players = explode(',', $team->players);
+        $tPlayer = [];
+        foreach ($players as $player) {
+            $p = nadcl_tournamentplayer::find($player);
+            array_push($tPlayer, $p);
+        }
+        $data = [
+            'team' => $team,
+            'tPlayers' => $tPlayer
+        ];
+        return view('/nadclteams/nadcl_teamindex')->with('data', $data);
     }
     public function Teams()
     {

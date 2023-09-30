@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <title>{{ $team->teamname }}</title>
+    <title>{{ $data['team']->teamname }}</title>
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link rel="stylesheet" href="../css/style.css" rel="stylesheet">
@@ -20,64 +20,58 @@
         @include('header')
         <div class="container">
             <div class="row">
-                <div class="col-lg">
-                    <div class="card na_altTBG" style="width: 18rem;">
+                <div class="col-auto">
+                    <div class="card na_altTBG">
                         <p class="card-text text-center">
-                            {{ $team->teamname }}
+                            {{ $data['team']->teamname }}
                         </p>
-                        <img src="{{ URL('/img/team_logos/' . $team->teamlogo) }}">
+                        {{-- <?php dd($data['tPlayers']); ?> --}}
+                        <img src="{{ URL('/img/team_logos/' . $data['team']->teamlogo) }}">
                         <div class="card-body">
                             <table class="table table-sm na_table">
                                 <thead class="na_altTBG">
                                     <tr>
+                                        <th scope="col">Avatar</th>
                                         <th scope="col">Name</th>
+                                        <th schope="col">Position</th>
+                                        <th schope="col">SteamID</th>
+                                        <th schope="col">MMR</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            Gunga ginga
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Pingu
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            ReM
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            LGTK
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Moozy
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Bungus
-                                        </td>
-                                    </tr>
+                                    @foreach ($data['tPlayers'] as $player)
+                                        <tr>
+                                            <td>
+                                                <img class="header_logo" src="{{ $player->avatarfull }}" alt="">
+                                            </td>
+                                            <td>
+                                                {{ $player->displayname }}
+                                            </td>
+                                            <td>
+                                                {{ $player->role }}
+                                            </td>
+                                            <td>
+                                                <a class="na_red_text"
+                                                    href="{{ $player->profileurl }}">{{ $player->steamid64 }}</a>
+                                            </td>
+                                            <td>
+                                                {{ $player->mmr }}
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
                         <div class="container">
                             <div class="row">
-                                @if ($team->externalsite)
+                                @if ($data['team']->externalsite)
                                     <div class="col">
-                                        <a href="{{ $team->exernalsite }}">External Site</a>
+                                        <a href="{{ $data['team']->exernalsite }}">External Site</a>
                                     </div>
                                 @endif
-                                @if ($team->x)
+                                @if ($data['team']->x)
                                     <div class="col-auto">
-                                        <a href="https://x.com/"{{ $team->x }} target="_blank">
+                                        <a href="https://x.com/"{{ $data['team']->x }} target="_blank">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
                                                 <path
@@ -86,9 +80,9 @@
                                         </a>
                                     </div>
                                 @endif
-                                @if ($team->youtube)
+                                @if ($data['team']->youtube)
                                     <div class="col-auto">
-                                        <a href="https://youtube.com/"{{ $team->youtube }} target="_blank">
+                                        <a href="https://youtube.com/"{{ $data['team']->youtube }} target="_blank">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
                                                 <path
@@ -103,10 +97,10 @@
                 </div>
                 <div class="col-lg">
                     <div class="row" style="padding-top:50px;">
-                        <h1 class="display-2"><b> {{ $team->teamname }}
+                        <h1 class="display-2"><b> {{ $data['team']->teamname }}
                             </b></h1>
                         <p class="h4">
-                            {{ $team->about }}
+                            {{ $data['team']->about }}
                         </p>
                     </div>
                 </div>
