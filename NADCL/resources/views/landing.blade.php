@@ -89,7 +89,7 @@
                         <div class="card-body">
                             <h5 class="card-title na_red_text"><b>We Want You</b></h5>
                             <p class="card-text">...to become a Team Supporter!</p>
-                            <a href="https://nadcl.us/pages/supporters" class="btn btn-primary" style="width:100%;"
+                            <a href="{{ URL('/Teams') }}" class="btn btn-primary" style="width:100%;"
                                 target="_blank">Join A Team</a>
                         </div>
                     </div>
