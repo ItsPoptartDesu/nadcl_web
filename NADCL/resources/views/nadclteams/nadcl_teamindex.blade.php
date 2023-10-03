@@ -45,7 +45,8 @@
                                                 <img class="header_logo" src="{{ $player->avatarfull }}" alt="">
                                             </td>
                                             <td>
-                                                {{ $player->displayname }}
+                                                <a class="na_red_text"
+                                                    href="{{ URL('/players/' . $player->displayname) }}">{{ $player->displayname }}</a>
                                             </td>
                                             <td>
                                                 {{ $player->role }}
