@@ -101,7 +101,7 @@
                                                     <label for="nadcl_username">NADCL Username</label>
                                                     <div>
                                                         <input type="text" name="nadcl_username"
-                                                            placeholder="NA_DOTA_RULES_420"
+                                                            placeholder={{ $data['profile']->displayname == null ? 'TotalWinnings...' : $data['profile']->displayname }}
                                                             class="@error('title') is-invalid @enderror">
                                                     </div>
                                                 </div>
@@ -114,7 +114,8 @@
                                             <div class="col">
                                                 <label for="nadcl_mmr">MMR?</label>
                                                 <div>
-                                                    <input type="text" name="nadcl_mmr" placeholder="mmr..."
+                                                    <input type="text" name="nadcl_mmr"
+                                                        placeholder={{ $data['profile']->mmr == null ? 'mmr...' : $data['profile']->mmr }}
                                                         class="@error('title') is-invalid @enderror">
                                                 </div>
                                             </div>
@@ -163,7 +164,8 @@
                                                 <div class="form-group">
                                                     <label for="nadcl_mmr">X?</label>
                                                     <div>
-                                                        <input type="text" name="nadcl_x" placeholder="X.com/..."
+                                                        <input type="text" name="nadcl_x"
+                                                            placeholder={{ $data['profile']->x == null ? 'x.com/...' : $data['profile']->displayname }}
                                                             class="@error('title') is-invalid @enderror">
                                                     </div>
                                                 </div>
@@ -172,7 +174,7 @@
                                                 <label for="nadcl_twitch">Twitch?</label>
                                                 <div>
                                                     <input type="text" name="nadcl_twitch"
-                                                        placeholder="Twitch.tv/..."
+                                                        placeholder={{ $data['profile']->twitch == null ? 'twitch.tv/...' : $data['profile']->twitch }}
                                                         class="@error('title') is-invalid @enderror">
                                                 </div>
                                             </div>
@@ -180,7 +182,7 @@
                                                 <label for="nadcl_youtube">Youtube?</label>
                                                 <div>
                                                     <input type="text" name="nadcl_youtube"
-                                                        placeholder="youtube.com/..."
+                                                        placeholder={{ $data['profile']->youtube == null ? 'youtube.com/...' : $data['profile']->youtube }}
                                                         class="@error('title') is-invalid @enderror">
                                                 </div>
                                             </div>
@@ -188,7 +190,7 @@
                                                 <label for="nadcl_tiktok">TikTok?</label>
                                                 <div>
                                                     <input type="text" name="nadcl_tiktok"
-                                                        placeholder="tiktok.com/..."
+                                                        placeholder={{ $data['profile']->tiktok == null ? 'tiktok.com/...' : $data['profile']->tiktok }}
                                                         class="@error('title') is-invalid @enderror">
                                                 </div>
                                             </div>
@@ -197,13 +199,13 @@
                                     <div class="form-group">
                                         <label for="nadcl_hottake">Hot Take...</label>
                                         <div>
-                                            <textarea rows='3' style="width:100%;" name="nadcl_hottake" placeholder="my hot take is..."></textarea>
+                                            <textarea rows='3' style="width:100%;" name="nadcl_hottake" placeholder={{ $data['profile']->hottake == null ? 'Tinker_needs_a_buff:)' : $data['profile']->hottake }}></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="nadcl_aboutme">About Me...</label>
                                         <div>
-                                            <textarea rows='3' style="width:100%;" name="nadcl_aboutme" placeholder="About me..."></textarea>
+                                            <textarea rows='3' style="width:100%;" name="nadcl_aboutme" placeholder={{ $data['profile']->aboutme == null ? 'I_like_long_walks_on_the_beach' : $data['profile']->aboutme }}></textarea>
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-outline-primary">Save</button>

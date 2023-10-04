@@ -48,7 +48,7 @@
                                                     <label for="nadcl_teamname">Team Name</label>
                                                     <div>
                                                         <input type="text" name="nadcl_teamname"
-                                                            placeholder="placeholder..."
+                                                            placeholder={{ $data['team']->teamname == '' ? 'placeholder...' : $data['team']->teamname }}
                                                             class="@error('title') is-invalid @enderror">
                                                     </div>
                                                 </div>
@@ -67,7 +67,8 @@
                                                 <div class="form-group">
                                                     <label for="nadcl_aboutteam">About Team...</label>
                                                     <div>
-                                                        <textarea rows='5' style="width:100%;" name="nadcl_aboutteam" placeholder="About Team..."></textarea>
+                                                        <textarea rows='5' style="width:100%;" name="nadcl_aboutteam"
+                                                            placeholder={{ $data['team']->teamname == '' ? 'About Team...' : $data['team']->about }}></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -87,7 +88,7 @@
                                                     <label for="nadcl_players">Add your player(s) email seperated by a
                                                         ','</label>
                                                     <div>
-                                                        <input type="text" name="nadcl_players"
+                                                        <input size="50";type="text" name="nadcl_players"
                                                             placeholder="Player(s)..."
                                                             class="@error('title') is-invalid @enderror">
                                                     </div>
@@ -108,14 +109,15 @@
                                                     <label for="nadcl_manager">Manager?</label>
                                                     <div>
                                                         <input type="text" name="nadcl_manager"
-                                                            placeholder="Manager?"
+                                                            placeholder={{ $data['team']->manager == '' ? 'Manager...' : $data['team']->manager }}
                                                             class="@error('title') is-invalid @enderror">
                                                     </div>
                                                 </div>
                                                 <div class="col">
                                                     <label for="nadcl_site">External Site?</label>
                                                     <div>
-                                                        <input type="text" name="nadcl_site" placeholder="Team Site"
+                                                        <input type="text" name="nadcl_site"
+                                                            placeholder={{ $data['team']->site == '' ? 'Site...' : $data['team']->site }}
                                                             class="@error('title') is-invalid @enderror">
                                                     </div>
                                                 </div>
@@ -123,7 +125,7 @@
                                                     <label for="nadcl_youtube">Youtube?</label>
                                                     <div>
                                                         <input type="text" name="nadcl_youtube"
-                                                            placeholder="youtube.com/..."
+                                                            placeholder={{ $data['team']->youtube == '' ? 'Youtube...' : $data['team']->youtube }}
                                                             class="@error('title') is-invalid @enderror">
                                                     </div>
                                                 </div>
@@ -131,7 +133,7 @@
                                                     <label for="nadcl_winnings">Winnings?</label>
                                                     <div>
                                                         <input type="text" name="nadcl_winnings"
-                                                            placeholder="Winnings?"
+                                                            placeholder={{ $data['team']->totalwinnings == null ? 'TotalWinnings...' : $data['team']->totalwinnings }}
                                                             class="@error('title') is-invalid @enderror">
                                                     </div>
                                                 </div>
