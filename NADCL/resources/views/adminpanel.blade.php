@@ -1,120 +1,153 @@
-<!doctype html>
-<html lang="en">
+<x-app-layout>
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
+    @if (session('statusError'))
+        <div class="alert alert-danger">
+            {{ session('statusError') }}
+        </div>
+    @endif
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('NADCL Team Profile') }}
+        </h2>
+    </x-slot>
+    <!-- UPDATE NADCL Team Info -->
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+            <div class="md:grid md:grid-cols-3 md:gap-6">
+                <div class="md:col-span-1 flex justify-between">
+                    <div class="px-4 sm:px-0">
+                        <h3 class="text-lg font-medium text-gray-900">Update Team Info</h3>
+                    </div>
+                </div>
+                <div class="md:mt-0 md:col-span-2">
+                    <div class="px-4 py-5 bg-white sm:p-6 shadow sm:rounded sm:rounded">
+                        <h2 class='h2'>Team Info</h2>
+                        <div class="container">
+                            <form style="padding-top:10px;"method="POST"
+                                action="{{ URL('/dashboard/NADCL_CreateTeam') }}" enctype="multipart/form-data">
+                                @csrf
+                                @method('PUT')
+                                <div>
+                                    <span>
+                                        <h3>Basic Info Needed<svg style="display:inline;"
+                                                xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd"
+                                                    d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                                            </svg></h3>
+                                        <hr style="width:100%;border:3px solid red">
+                                    </span>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="nadcl_teamname">Team Name</label>
+                                                    <div>
+                                                        <input type="text" name="nadcl_teamname"
+                                                            placeholder={{ $data['team']->teamname == '' ? 'placeholder...' : $data['team']->teamname }}
+                                                            class="@error('title') is-invalid @enderror">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <label for="nadcl_teamlogo" class="form-label">Team Logo</label>
+                                                <input name="nadcl_teamlogo" id="nadcl_teamlogo" type="file"
+                                                    class="form-control form-control-sm" />
+                                            </div>
+                                            <div class="col">
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="nadcl_aboutteam">About Team...</label>
+                                                    <div>
+                                                        <textarea rows='5' style="width:100%;" name="nadcl_aboutteam"
+                                                            placeholder={{ $data['team']->teamname == '' ? 'About Team...' : $data['team']->about }}></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span>
+                                            <h3>Add A Player To Your Team<svg style="display:inline;"
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd"
+                                                        d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                                                </svg></h3>
+                                            <hr style="width:100%;border:3px solid red">
+                                        </span>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="nadcl_players">Add your player(s) email seperated by a
+                                                        ','</label>
+                                                    <div>
+                                                        <input size="50";type="text" name="nadcl_players"
+                                                            placeholder="Player(s)..."
+                                                            class="@error('title') is-invalid @enderror">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <span>
+                                                <h3>Not needed for NADCL Tournaments<svg style="display:inline;"
+                                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        fill="currentColor" class="bi bi-arrow-down"
+                                                        viewBox="0 0 16 16">
+                                                        <path fill-rule="evenodd"
+                                                            d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                                                    </svg></h3>
+                                                <hr style="width:100%;border:3px solid red">
+                                            </span>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label for="nadcl_manager">Manager?</label>
+                                                    <div>
+                                                        <input type="text" name="nadcl_manager"
+                                                            placeholder={{ $data['team']->manager == '' ? 'Manager...' : $data['team']->manager }}
+                                                            class="@error('title') is-invalid @enderror">
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <label for="nadcl_site">External Site?</label>
+                                                    <div>
+                                                        <input type="text" name="nadcl_site"
+                                                            placeholder={{ $data['team']->site == '' ? 'Site...' : $data['team']->site }}
+                                                            class="@error('title') is-invalid @enderror">
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <label for="nadcl_youtube">Youtube?</label>
+                                                    <div>
+                                                        <input type="text" name="nadcl_youtube"
+                                                            placeholder={{ $data['team']->youtube == '' ? 'Youtube...' : $data['team']->youtube }}
+                                                            class="@error('title') is-invalid @enderror">
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <label for="nadcl_winnings">Winnings?</label>
+                                                    <div>
+                                                        <input type="text" name="nadcl_winnings"
+                                                            placeholder={{ $data['team']->totalwinnings == null ? 'TotalWinnings...' : $data['team']->totalwinnings }}
+                                                            class="@error('title') is-invalid @enderror">
+                                                    </div>
+                                                </div>
+                                                <div class="col">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-    <title>FryBoys</title>
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <link rel="stylesheet" href="css/style.css" rel="stylesheet">
-</head>
-
-<body class="na_white_text na_blue">
-    <div class="main">
-        @include('header')
-        <div class="container">
-            <div class="row">
-                <div class="col-lg">
-                    <div class="card na_altTBG" style="width: 18rem;">
-                        <p class="card-text text-center">
-                            FryBoys
-                        </p>
-                        <a href="{{ url('/fryboys') }}">
-                            <img src="{{ URL('/img/team_logos/FryBoys.png') }}">
-                        </a>
-                        <div class="card-body">
-                            <table class="table table-sm na_table">
-                                <thead class="na_altTBG">
-                                    <tr>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Position</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            Gunga ginga
-                                        </td>
-                                        <td>
-                                            2
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Pingu
-                                        </td>
-                                        <td>
-                                            3
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            ReM
-                                        </td>
-                                        <td>
-                                            1
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            LGTK
-                                        </td>
-                                        <td>
-                                            4
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Moozy
-                                        </td>
-                                        <td>
-                                            2/3
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Bungus
-                                        </td>
-                                        <td>
-                                            Sub
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-outline-primary">Save</button>
+                            </form>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg">
-                    <div class="row" style="padding-top:50px;">
-                        <h1 class="display-2"><b>FryBoys</b></h1>
-                        <p class="h4">
-                            We Like Fries.
-                        </p>
-                    </div>
-                    
-                </div>
             </div>
-            @include('/footer')
         </div>
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
-            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
-            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
-        </script>
-</body>
-
-</html>
+    </div>
+</x-app-layout>

@@ -159,6 +159,16 @@ class NADCL_ProfileController extends Controller
 
     public function AdminLoad()
     {
+        $steamInfo = nadcl_steam::find(auth()->user()->email);
+        $nadclInfo = nadcl_profile::find(auth()->user()->email);
+        $teamInfo = nadcl_team::find(auth()->user()->email);
+        $data = [
+            'steam' => $steamInfo,
+            'profile' => $nadclInfo,
+            'team' => $teamInfo
+        ];
+        //dd($data);
+        return view("adminpanel")->with('data', $data);
     }
 
     public function AdminStore()
