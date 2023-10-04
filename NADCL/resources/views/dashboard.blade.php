@@ -48,7 +48,7 @@
                                     src={{ $data['steam']->avatarfull }}>
                             @else
                                 <img class="text-center" style="display:inline; width:100px;height:100px;"
-                                    src={{ URL('/img/we_want_you.png') }}>
+                                    src={{ asset('/img/we_want_you.png') }}>
                             @endif
 
                         </div>
@@ -71,10 +71,10 @@
                             </div>
                             @if ($data['profile']->headshot)
                                 <img class="text-center" style="display:inline;width:100px;height:100px;"
-                                    src="{{ URL('/headshots/' . $data['profile']->headshot) }}">
+                                    src="{{ asset('/headshots/' . $data['profile']->headshot) }}">
                             @else
                                 <img class="text-center" style="display:inline; width:100px;height:100px;"
-                                    src={{ URL('/img/we_want_you.png') }}>
+                                    src={{ asset('/img/we_want_you.png') }}>
                             @endif
                         </div>
                     </div>
@@ -96,7 +96,7 @@
                             </div>
                             @if ($data['team'])
                                 <img class="text-center" style="display:inline;width:100px;height:100px;"
-                                    src="{{ URL('/headshots/' . $data['team']->teamlogo) }}">
+                                    src="{{ asset('img/team_logos/' . $data['team']->teamlogo) }}">
                             @else
                                 <img class="text-center" style="display:inline; width:100px;height:100px;"
                                     src={{ URL('/img/we_want_you.png') }}>

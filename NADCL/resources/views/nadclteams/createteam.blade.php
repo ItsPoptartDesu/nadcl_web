@@ -25,7 +25,7 @@
                 </div>
                 <div class="md:mt-0 md:col-span-2">
                     <div class="px-4 py-5 bg-white sm:p-6 shadow sm:rounded sm:rounded">
-                        <h2 class='h2'>NADCL Info</h2>
+                        <h2 class='h2'>Team Info</h2>
                         <div class="container">
                             <form style="padding-top:10px;"method="POST"
                                 action="{{ URL('/dashboard/NADCL_CreateTeam') }}" enctype="multipart/form-data">

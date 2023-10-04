@@ -115,7 +115,7 @@ class NADCL_ProfileController extends Controller
         }
         if ($request->nadcl_teamname != null)
             $profile->teamname = $request->nadcl_teamname;
-        if ($request->hasFile('img/team_logos')) {
+        if ($request->hasFile('nadcl_teamlogo')) {
             if ($profile->teamlogo != null) {
                 // dd(public_path('headshots') . $profile->headshot);
                 File::delete(public_path('img/team_logos') . '/' . $profile->teamlogo);
@@ -155,5 +155,13 @@ class NADCL_ProfileController extends Controller
         else
             $profile->update();
         return redirect('/dashboard/NADCL_CreateTeam')->with('status', 'Updated Username / About Me');
+    }
+
+    public function AdminLoad()
+    {
+    }
+
+    public function AdminStore()
+    {
     }
 }
