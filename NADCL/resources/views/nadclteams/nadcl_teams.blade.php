@@ -28,6 +28,7 @@
                     <div id="test" class="grid-container">
                         <a href="{{ url('/Teams/' . $team->teamname) }}">
                             <img class="grid_item" src="{{ URL('/img/team_logos/' . $team->teamlogo) }}">
+                            <h3 class="text-center">{{ $team->teamname }}</h3>
                         </a>
                     </div>
                 @endforeach
