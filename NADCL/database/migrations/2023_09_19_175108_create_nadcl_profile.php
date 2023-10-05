@@ -28,7 +28,9 @@ return new class extends Migration
             $table->string('youtube')->nullable();
             $table->string('tiktok')->nullable();
             $table->text('altnames')->nullable();
+            $table->text('accolades')->nullable();
             $table->boolean('isteamowner');
+            $table->boolean('isadmin');
         });
     }
 

@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <title> {{ $data['tPlayer']->displayname }}</title>
     <!-- Scripts -->
@@ -23,9 +25,11 @@
             <div class="row">
                 <div class="col-lg">
                     <div class="card na_altTBG" style="width: 18rem;">
+
                         <p class="card-text text-center">
                             Steam Info: {{ $data['tPlayer']->displayname }}
                         </p>
+
                         <img src="{{ URL($data['tPlayer']->avatarfull) }}">
                         <div class="card-body">
                             <table>
@@ -55,6 +59,19 @@
                                     <tr>
                                         <th>Siggy </th>
                                         <td>{{ $data['tPlayer']->siggy }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Accolades</th>
+                                        <td>
+                                            <div class="row">
+                                                @foreach ($data['accolades'] as $acc)
+                                                    <img style="width:41px; height:41px; padding:0px;"
+                                                        src="{{ asset('/img/accolades/' . $acc->img) }}"
+                                                        class="btn btn-secondary" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top" data-bs-title="{{ $acc->about }}">
+                                                @endforeach
+                                            </div>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th>Socials</th>
@@ -133,17 +150,31 @@
                         <div class="col">
                             <p class="h4">
                                 {{ $data['pPlayer']->about }}
+                            </p>
                         </div>
-                        </p>
                     </div>
-
                 </div>
             </div>
             @include('/footer')
         </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
+        </script>
+        <script>
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+            const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+            $(document).ready(function() {
+                $('[data-bs-toggle="tooltip"]').tooltip();
+            });
+        </script>{{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
         </script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
@@ -151,7 +182,7 @@
         </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
-        </script>
+        </script> --}}
 </body>
 
 </html>

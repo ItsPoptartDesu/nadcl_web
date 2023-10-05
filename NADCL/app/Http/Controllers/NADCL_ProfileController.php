@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\nadcl_accolade;
 use App\Models\nadcl_profile;
 use App\Models\nadcl_steam;
 use App\Models\nadcl_team;
@@ -20,9 +21,16 @@ class NADCL_ProfileController extends Controller
         $profile = nadcl_profile::find($player->key);
         if ($profile == null)
             return back();
+        $accolade = explode(',', $profile->accolades);
+        $foundAccolades = [];
+        foreach ($accolade as $a) {
+            $aIndex = nadcl_accolade::find($a);
+            array_push($foundAccolades, $aIndex);
+        }
         $data = [
             'tPlayer' => $player,
-            'pPlayer' => $profile
+            'pPlayer' => $profile,
+            'accolades' => $foundAccolades
         ];
         return view('/players/playerindex')->with('data', $data);
     }
@@ -171,7 +179,21 @@ class NADCL_ProfileController extends Controller
         return view("adminpanel")->with('data', $data);
     }
 
-    public function AdminStore()
+    public function AdminStore(Request $request)
     {
+        $accolade = new nadcl_accolade();
+        if ($request->nadcl_name != null)
+            $accolade->key = $request->nadcl_name;
+
+        if ($request->hasFile('nadcl_img')) {
+            $name = $request->file('nadcl_img')->getClientOriginalName();
+            $path = $request->file('nadcl_img')->storeAs('public', $name);
+            $request->file('nadcl_img')->move(public_path('img/accolades'), $name);
+            $accolade->img = $name;
+        }
+        if ($request->nadcl_about != null)
+            $accolade->about = $request->nadcl_about;
+        $accolade->save();
+        return redirect('/dashboard/AdminPanel')->with('status', 'Updated Username / About Me');
     }
 }

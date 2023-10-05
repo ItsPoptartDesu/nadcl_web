@@ -82,11 +82,11 @@
                         Prize Pool</h6>
                     <hr style="width:100%;border:2px solid red">
                     <div class="container" style="padding-top:5px;width:80%;">
-                        <div class="card na_TBG">
+                        <div class="card na_TBG"style="width:50%; margin:auto;">
                             <h5 class="h5 text-center"style="padding-top:10px;">$2,000 USD are spread among the
                                 participants as seen below:</h5>
                             <div class="card-body">
-                                <table class="table table-sm na_table"style="width:50%; margin:auto;">
+                                <table class="table table-sm na_table">
                                     <thead>
                                         <tr>
                                             <th scope="col">Place</th>

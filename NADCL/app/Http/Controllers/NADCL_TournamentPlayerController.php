@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\nadcl_accolade;
 use App\Models\nadcl_profile;
 use App\Models\nadcl_steam;
 use App\Models\nadcl_tournamentplayer;
@@ -66,8 +67,10 @@ class NADCL_TournamentPlayerController extends Controller
     public function Players()
     {
         $tournaments = nadcl_tournamentplayer::all();
+        $accolades = nadcl_accolade::all();
         $data = [
             'tProfile' => $tournaments,
+            'accolades' => $accolades
         ];
         return view('tournaments/NADCL_showplayers')->with('data', $data);
     } //

@@ -44,10 +44,10 @@
             </div>
         </div>
         <div class="col-auto">
-            <button type="button" class="btn btn-outline-info">
+            {{-- <button type="button" class="btn btn-outline-info">
                 <a href={{ url('/BigScreen') }} style="text-decoration: none;">Big
                     Screen</a>
-            </button>
+            </button> --}}
         </div>
         <div class="col">
             <div class="header_logo">
