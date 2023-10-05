@@ -21,7 +21,7 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', [NADCL_PagesController::class, 'Landing']);
-
+Route::get('/Tournaments/NADCL_SeasonFour', [NADCL_PagesController::class, 'SeasonFourLoad']);
 Route::get('/AboutUs', [NADCL_PagesController::class, 'AboutUs']);
 
 Route::get('/BigScreen',  [NADCL_PagesController::class, 'BigScreen']);
@@ -41,7 +41,6 @@ Route::get('/dashboard/process-openId', [NADCL_SteamController::class, 'Store'])
 Route::get('/dashboard/init-openId', [NADCL_SteamController::class, 'ToSteam']);
 
 Route::get('/Tournaments/NADCL_SeasonFive', [NADCL_TournamentPlayerController::class, 'SeasonFiveLoad']);
-Route::get('/Tournaments/NADCL_SeasonFour', [NADCL_TournamentPlayerController::class, 'SeasonFourLoad']);
 Route::get('/Tournaments/NADCL_tournamentjoin', [NADCL_TournamentPlayerController::class, 'NADCL_SeasonJoin'])->middleware('auth');
 Route::get('/players', [NADCL_TournamentPlayerController::class, 'Players']);
 

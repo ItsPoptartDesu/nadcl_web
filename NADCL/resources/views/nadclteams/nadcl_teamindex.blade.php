@@ -26,7 +26,7 @@
                             {{ $data['team']->teamname }}
                         </p>
                         {{-- <?php dd($data['tPlayers']); ?> --}}
-                        <img src="{{ URL('/img/team_logos/' . $data['team']->teamlogo) }}">
+                        <img style="width:600px;height:400px;" src="{{ URL('/img/team_logos/' . $data['team']->teamlogo) }}">
                         <div class="card-body">
                             <table class="table table-sm na_table">
                                 <thead class="na_altTBG">
@@ -45,14 +45,14 @@
                                                 <img class="header_logo" src="{{ $player->avatarfull }}" alt="">
                                             </td>
                                             <td>
-                                                <a class="na_red_text"
-                                                    href="{{ URL('/players/' . $player->displayname) }}">{{ $player->displayname }}</a>
+                                                <a class=""
+                                                    href="{{ URL('/players/' . $player->displayname) }}"><b>{{ $player->displayname }}</b></a>
                                             </td>
                                             <td>
                                                 {{ $player->role }}
                                             </td>
                                             <td>
-                                                <a class="na_red_text"
+                                                <a class=""
                                                     href="{{ $player->profileurl }}">{{ $player->steamid64 }}</a>
                                             </td>
                                             <td>

@@ -14,6 +14,7 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link rel="stylesheet" href="css/style.css" rel="stylesheet">
+
 </head>
 
 <body class="na_white_text na_blue">

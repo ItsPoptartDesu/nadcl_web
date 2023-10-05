@@ -11,10 +11,6 @@ use Illuminate\Support\Facades\Auth;
 
 class NADCL_TournamentPlayerController extends Controller
 {
-    public function SeasonFourLoad()
-    {
-        return view('/tournaments/NADCL_SeasonFour');
-    }
     public function SeasonFiveLoad()
     {
         $found = false;
@@ -67,10 +63,8 @@ class NADCL_TournamentPlayerController extends Controller
     public function Players()
     {
         $tournaments = nadcl_tournamentplayer::all();
-        $accolades = nadcl_accolade::all();
         $data = [
             'tProfile' => $tournaments,
-            'accolades' => $accolades
         ];
         return view('tournaments/NADCL_showplayers')->with('data', $data);
     } //

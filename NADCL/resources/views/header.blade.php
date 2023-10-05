@@ -70,10 +70,11 @@
         <div class="col">
             <div style="display: flex; justify-content: flex-end;">
                 <div class="col">
-                    <button type="button" class="btn btn-outline-info"> <a
-                            href="https://nadcl.us/pages/nadclshop"style="text-decoration: none;">Merch </a>
-                    </button>
+
                 </div>
+                <button type="button" class="btn btn-outline-info"> <a
+                        href="https://nadcl.us/pages/nadclshop"style="text-decoration: none;">Merch </a>
+                </button>
                 @if (Route::has('login'))
                     @auth
                         <button type="button" class="btn btn-outline-info">

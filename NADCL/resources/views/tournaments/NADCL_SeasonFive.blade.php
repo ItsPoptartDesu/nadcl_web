@@ -180,7 +180,7 @@
                                             Sponsors:
                                         </div>
                                         <div class="col">
-                                            GamerGains
+                                            YOU?!
                                         </div>
                                     </div>
                                 </li>
@@ -240,7 +240,7 @@
                                             Start Date:
                                         </div>
                                         <div class="col">
-                                            20-23-09-14
+                                            
                                         </div>
                                     </div>
                                 </li>
@@ -250,7 +250,7 @@
                                             End Date:
                                         </div>
                                         <div class="col">
-                                            20-23-09-24
+                                            
                                         </div>
                                     </div>
                                 </li>
@@ -260,7 +260,7 @@
                                             Version:
                                         </div>
                                         <div class="col">
-                                            7.34
+                                            
                                         </div>
                                     </div>
                                 </li>
@@ -270,7 +270,7 @@
                                             Teams:
                                         </div>
                                         <div class="col">
-                                            8
+                                            
                                         </div>
                                     </div>
                                 </li>

@@ -50,4 +50,8 @@ class NADCL_PagesController extends Controller
         ];
         return view('landing')->with('data', $data);
     }
+    public function SeasonFourLoad()
+    {
+        return view('/tournaments/NADCL_SeasonFour');
+    }
 }
