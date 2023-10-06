@@ -9,7 +9,7 @@
     </div>
     <div class="row">
         <div class="col-auto">
-            <div class="dropdown show">
+            {{-- <div class="dropdown show">
                 <div style="display: flex; justify-content: flex-start;">
                     <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -22,6 +22,18 @@
                             href="{{ URL('/Tournaments/NADCL_SeasonFive') }}">Season 5</a>
                     </div>
                 </div>
+            </div> --}}
+            <div class="dropdown">
+                <button class="btn btn-outline-info dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Tournaments
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a style="text-decoration: red underline" class="dropdown-item"
+                            href="{{ URL('/Tournaments/NADCL_SeasonFour') }}">Season 4</a></li>
+                    <li><a style="text-decoration: red underline" class="dropdown-item"
+                            href="{{ URL('/Tournaments/NADCL_SeasonFive') }}">Season 5</a></li>
+                </ul>
             </div>
         </div>
         <div class="col-auto">
@@ -31,14 +43,14 @@
         </div>
         <div class="col-auto">
             <div class="dropdown">
-                <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    <a style="">NADCL Community</a>
+                <button type="button" class="btn btn-outline-info dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    NADCL Community
                 </button>
-                <ul class="dropdown-menu">
-                    <li><a href={{ URL('/players') }} style="text-decoration: red underline">NADCL
+                <ul class="dropdown-menu" style="text-decoration: red underline">
+                    <li><a class="dropdown-item" href={{ URL('/players') }}>NADCL
                             Players</a></li>
-                    <li><a href={{ URL('/Teams') }} style="text-decoration: red underline">NADCL
+                    <li><a class="dropdown-item" href={{ URL('/Teams') }}>NADCL
                             Teams</a></li>
                 </ul>
             </div>
