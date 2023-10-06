@@ -20,6 +20,17 @@
     <div class="main">
         @include('header')
         <div class="container">
+            <div class="card na_white_text na_blue">
+                <div class="card-hearder pb-0 border-0">
+                    <h5>Enter a Players NADCL Username</h5>
+                </div>
+                <div class="card-body">
+                    <form action="{{ URL('/players') }}" method="GET">
+                        <input name="search" placeholder="NADCL Username"class="form-control w-100" type="text">
+                        <button class="btn btn-outline-info">Search</button>
+                    </form>
+                </div>
+            </div>
             <table class="table">
                 <thead>
                     <tr>

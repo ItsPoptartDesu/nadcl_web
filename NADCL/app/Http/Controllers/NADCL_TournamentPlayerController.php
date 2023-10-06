@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\nadcl_accolade;
 use App\Models\nadcl_profile;
 use App\Models\nadcl_steam;
+use App\Models\nadcl_tournamentdesc;
 use App\Models\nadcl_tournamentplayer;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class NADCL_TournamentPlayerController extends Controller
@@ -62,7 +64,15 @@ class NADCL_TournamentPlayerController extends Controller
 
     public function Players()
     {
-        $tournaments = nadcl_tournamentplayer::all();
+        $tournaments = null;
+        if (request()->has('search')) {
+            $search = Request()->get('search', '');
+            if ($search != null) {
+                $tournaments = nadcl_tournamentplayer::where('displayname', 'like', '%' . $search . '%')->get();
+            }
+        }
+        if ($tournaments == null)
+            $tournaments = nadcl_tournamentplayer::all();
         $data = [
             'tProfile' => $tournaments,
         ];
