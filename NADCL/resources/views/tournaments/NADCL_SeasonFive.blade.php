@@ -59,7 +59,7 @@
                             <div class="col-auto">
                                 <button type="button" class="btn btn-outline-info">
                                     <a href={{ url('/Tournaments/NADCL_tournamentjoin') }}
-                                        class="right-element"style="text-decoration: none;">Enter</a>
+                                        class="right-element"style="text-decoration: none;">Enter Combine</a>
                                 </button>
                             </div>
                         @endif

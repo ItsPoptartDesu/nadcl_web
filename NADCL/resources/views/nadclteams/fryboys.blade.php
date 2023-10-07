@@ -27,7 +27,7 @@
                             FryBoys
                         </p>
                         <a href="{{ url('/fryboys') }}">
-                            <img src="{{ URL('/img/team_logos/FryBoys.png') }}">
+                            <img src="{{ URL('/img/team_logos/fryboys.png') }}">
                         </a>
                         <div class="card-body">
                             <table class="table table-sm na_table">

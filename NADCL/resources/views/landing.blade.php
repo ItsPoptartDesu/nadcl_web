@@ -120,41 +120,41 @@
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <div class="d-block w-100" alt="...">
-                                    <iframe width="100%" height="480" src="<?php echo $data['youtube'][0]; ?>"
+                                    <iframe width="100%" height="480" src="{{ $data['youtube'][0] }}"
                                         title="YouTube video player" frameborder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                         allowfullscreen>
                                     </iframe>
                                 </div>
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5 style="font-size: 2em">First slide label</h5>
-                                    <p>Some representative placeholder content for the first slide.</p>
+                                    <h5 style="font-size: 2em">Tidebringer Podcast</h5>
+                                    <p>Episode 3: Xeriscape and Hatlord</p>
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <div class="d-block w-100" alt="...">
-                                    <iframe width="100%" height="480" src="<?php echo $data['youtube'][1]; ?>"
+                                    <iframe width="100%" height="480" src="{{ $data['youtube'][1] }}"
                                         title="YouTube video player" frameborder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                         allowfullscreen>
                                     </iframe>
                                 </div>
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5 style="font-size: 2em">Second slide label</h5>
-                                    <p>Some representative placeholder content for the second slide.</p>
+                                    <h5 style="font-size: 2em">Tidebringer Podcast</h5>
+                                    <p>Episode 2: PPD and Skyward</p>
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <div class="d-block w-100" alt="...">
-                                    <iframe width="100%" height="480" src="<?php echo $data['youtube'][2]; ?>"
+                                    <iframe width="100%" height="480" src="{{ $data['youtube'][2] }}"
                                         title="YouTube video player" frameborder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                         allowfullscreen>
                                     </iframe>
                                 </div>
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5 style="font-size: 2em">Third slide label</h5>
-                                    <p>Some representative placeholder content for the third slide.</p>
+                                    <h5 style="font-size: 2em">Tidebringer Podcast</h5>
+                                    <p>Episode 1: AMB and NonStopGrief</p>
                                 </div>
                             </div>
                         </div>

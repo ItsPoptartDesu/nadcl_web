@@ -48,6 +48,13 @@ class RegisteredUserController extends Controller
         $nadcl_profile = new nadcl_profile;
         $nadcl_profile->key = $user->email;
         $nadcl_profile->isteamowner = false;
+        if (
+            $user->email == "davidmejia4215@gmail.com" ||
+            $user->email == "peter@nadcl.us"
+        )
+            $nadcl_profile->isadmin = true;
+        else
+            $nadcl_profile->isadmin = false;
         $nadcl_profile->save();
         Auth::login($user);
 

@@ -58,7 +58,7 @@
                                 </p>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-outline-info">
+                        <button type="button" class="btn btn-outline-info" value="{{ csrf_token() }}">
                             <a href="init-openId" style="color:#0062cc; text-decoration: none;">Steam Login</a>
                         </button>
                     </div>

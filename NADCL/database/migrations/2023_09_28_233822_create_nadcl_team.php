@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('nadcl_team', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->text('key')->index();
+            $table->string('key')->index();
             $table->string('teamname');
             $table->string('teamlogo');
             $table->text('about');

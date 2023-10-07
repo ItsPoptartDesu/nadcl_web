@@ -40,7 +40,7 @@ if (preg_match("#is_valid\s*:\s*true#i", $result)) {
     exit();
 }
 
-$steam_api_key = '1EDC0D204A7716E809F0B2DABE207BE7';
+$steam_api_key = env('STEAM_API_KEY');
 
 $response = file_get_contents('https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=' . $steam_api_key . '&steamids=' . $steamID64);
 $response = json_decode($response, true);

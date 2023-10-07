@@ -40,7 +40,7 @@ class NADCL_PagesController extends Controller
         $you = explode(',', $raw[0]->youtube);
         $count = 0;
         foreach ($you as $y) {
-            $you[$count] = str_replace('watch?v', 'embed/', $y);
+            $you[$count] = str_replace('watch?v=', 'embed/', $y);
             $count++;
         }
         $tik = explode(',', $raw[0]->tiktok);
