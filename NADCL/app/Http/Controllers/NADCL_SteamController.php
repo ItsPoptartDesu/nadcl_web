@@ -4,20 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\nadcl_steam;
+use App\Models\nadcl_profile;
 
 class NADCL_SteamController extends Controller
 {
     public function Load()
     {
         //$steamInfo =  nadcl_steam::where('key', '=', auth()->user()->email);
-        $steamInfo = nadcl_steam::find(auth()->user()->email);
+        $steamInfo = nadcl_profile::find(auth()->user()->email);
         return view('/players/dota_profile')->with('steam', $steamInfo);
     }
 
     public function ToSteam()
     {
-        $param = app()->environment(['production']) ? 'https://nadcl.xxx/user/process-openID' : 'http://127.0.0.1:8000/dashboard/process-openId';
+        $param = app()->environment(['production']) ? 'https://nadotaesports.us/user/process-openID' : 'http://127.0.0.1:8000/dashboard/process-openId';
         $login_url_params = [
             'openid.ns'         => 'http://specs.openid.net/auth/2.0',
             'openid.mode'       => 'checkid_setup',
@@ -33,8 +33,6 @@ class NADCL_SteamController extends Controller
     }
     public function Store()
     {
-
-
         $params = [
             'openid.assoc_handle' => $_GET['openid_assoc_handle'],
             'openid.signed'       => $_GET['openid_signed'],
@@ -77,34 +75,19 @@ class NADCL_SteamController extends Controller
         $response = file_get_contents('https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=' . env('STEAM_API_KEY') . '&steamids=' . $steamID64);
         $response = json_decode($response, true);
 
-
         $userData = $response['response']['players'][0];
-        $isFound = nadcl_steam::find(auth()->user()->email);
-        if ($isFound) {
-            $isFound->steamid64 = $userData['steamid'];
-            $isFound->personaname = $userData['personaname'];
-            $isFound->profileurl = $userData['profileurl'];
-            $isFound->avatarmedium = $userData['avatarmedium'];
-            $isFound->avatar = $userData['avatar'];
-            $isFound->avatarfull = $userData['avatarfull'];
-            $isFound->realname = $userData['realname'];
-            $isFound->loccountrycode = $userData['loccountrycode'];
-            $isFound->locstatecode = $userData['locstatecode'];
-            $isFound->update();
-        } else {
-            $steam = new nadcl_steam;
-            $steam->key = auth()->user()->email;
-            $steam->steamid64 = $userData['steamid'];
-            $steam->personaname = $userData['personaname'];
-            $steam->profileurl = $userData['profileurl'];
-            $steam->avatarmedium = $userData['avatarmedium'];
-            $steam->avatar = $userData['avatar'];
-            $steam->avatarfull = $userData['avatarfull'];
-            $steam->realname = $userData['realname'];
-            $steam->loccountrycode = $userData['loccountrycode'];
-            $steam->locstatecode = $userData['locstatecode'];
-            $steam->save();
-        }
+        $isFound = nadcl_profile::find(auth()->user()->email);
+        $isFound->steamid64 = $userData['steamid'];
+        $isFound->personaname = $userData['personaname'];
+        $isFound->profileurl = $userData['profileurl'];
+        $isFound->avatarmedium = $userData['avatarmedium'];
+        $isFound->avatar = $userData['avatar'];
+        $isFound->avatarfull = $userData['avatarfull'];
+        $isFound->realname = $userData['realname'];
+        $isFound->loccountrycode = $userData['loccountrycode'];
+        $isFound->locstatecode = $userData['locstatecode'];
+        $isFound->update();
+
         $redirect_url = "NADCL_Profile";
         header("Location: $redirect_url");
         exit();

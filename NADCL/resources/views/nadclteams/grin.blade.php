@@ -12,12 +12,12 @@
     <link rel="stylesheet" href="css/style.css" rel="stylesheet">
 </head>
 
-<body class="na_white_text na_blue">
+<body class="bg-gray-100">
     <div class="main">
-        @include('header')
+        @include('/code_injects/nadcl_header')
         <div class="container">
             <div class="row">
-                <div class="col-lg">
+                <div class="col-auto">
                     <div class="card na_altTBG" style="width: 18rem;">
                         <p class="card-text text-center">
                             GRIN Esports
@@ -88,9 +88,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg">
+                <div class="col container shadow">
                     <div class="row" style="padding-top:50px;">
-                        <h2 class="display-2">GRIN Esports</h2>
+                        <h2 class="display-2 text-center">GRIN Esports</h2>
                         <div class="h4">
                             <p>Grin Esports, an esteemed DOTA2 organization, has recently gained attention
                                 for their challenging journey in the NA DPC Division II, where they faced a
@@ -109,7 +109,7 @@
 
                 </div>
             </div>
-            @include('/footer')
+            @include('/code_injects/footer')
         </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

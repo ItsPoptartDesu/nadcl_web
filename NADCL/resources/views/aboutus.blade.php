@@ -16,33 +16,32 @@
     <link rel="stylesheet" href="css/style.css" rel="stylesheet">
 </head>
 
-<body class="na_white_text na_blue">
-    <div class="main">
-        @include('header')
+<body>
+    <div class="main bg-gray-100">
+        @include('/code_injects/nadcl_header')
         <div class="container">
             <div class="row">
-                <div class="col-lg">
+                <div class="col-auto">
                     <?php $count = 0; ?>
-                    @foreach ($data['steam'] as $index)
+                    @foreach ($data['profile'] as $index)
                         <div class="card na_altTBG" style="width: 18rem;">
                             <p class="card-text text-center">
-                                {{ $data['steam'][$count]->realname }}
+                                {{ $data['profile'][$count]->realname }}
                             </p>
                             <img class="text-center" style="display:inline;"
-                                src="{{ $data['steam'][$count]->avatarfull }}">
+                                src="{{ $data['profile'][$count]->avatarfull }}">
                             <div class="card-body">
                                 <table class="table table-sm na_table">
                                     <thead class="na_altTBG">
-                                        <span>{{ $data['steam'][$count]->realname . ' is from ' . $data['steam'][$count]->loccountrycode }}</span>
+                                        <span>{{ $data['profile'][$count]->realname . ' is from ' . $data['profile'][$count]->loccountrycode }}</span>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>
-                                                SteamID
+                                                Steam Name
                                             </td>
                                             <td>
-                                                {{ $data['steam'][$count]->personaname }}
-
+                                                {{ $data['profile'][$count]->personaname }}
                                             </td>
                                         </tr>
                                         <tr>
@@ -51,14 +50,6 @@
                                             </td>
                                             <td>
                                                 {{ $data['profile'][$count]->siggy }}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Number of Combine Games...
-                                            </td>
-                                            <td>
-                                                TBD
                                             </td>
                                         </tr>
                                         <tr>
@@ -86,8 +77,8 @@
                     @endforeach
                 </div>
                 <div class="col-lg">
-                    <div class="row" style="padding-top:50px;">
-                        <h1 class="display-2"><b>We are NADCL</b></h1>
+                    <div class="row shadow" style="padding-top:50px;">
+                        <h1 class="display-2"><b>We Are North American Dota 2 Esports</b></h1>
                         <p class="h4">
                             "Catchy slogan"
                         </p>
@@ -95,7 +86,7 @@
 
                 </div>
             </div>
-            @include('/footer')
+            @include('/code_injects/footer')
         </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

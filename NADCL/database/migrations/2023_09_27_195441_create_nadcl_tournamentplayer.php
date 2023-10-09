@@ -16,6 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('key')->index();
             $table->string('displayname');
+            $table->string('discord');
             $table->string('siggy');
             $table->integer('role');
             $table->string('mmr');

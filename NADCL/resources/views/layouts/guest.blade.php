@@ -13,18 +13,34 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
     <!-- Scripts -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <link rel="stylesheet" href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href={{ URL('/css/style.css') }} rel="stylesheet">
     <!-- Styles -->
     @livewireStyles
 </head>
 
 <body>
-    <div class="font-sans text-gray-900 antialiased">
-        {{ $slot }}
+    <div class="min-h-screen bg-gray-100">
+        @if (isset($livewire))
+            @livewire('navigation-menu')
+        @endif
+        <!-- Page Heading -->
+        @if (isset($header))
+            <header class="bg-white shadow">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    {{ $header }}
+                </div>
+            </header>
+        @endif
+        @if (isset($customheader))
+            <header>
+                {{ $customheader }}
+            </header>
+        @endif
+        <!-- Page Content -->
+        <main>
+            {{ $slot }}
+        </main>
     </div>
 
     @livewireScripts

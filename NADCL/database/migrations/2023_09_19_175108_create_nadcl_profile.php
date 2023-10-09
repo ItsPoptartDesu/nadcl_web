@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('mmr')->nullable();
             $table->string('cancaptain')->nullable();
             $table->string('x')->nullable();
+            $table->string('discord')->nullable();
             $table->string('twitch')->nullable();
             $table->string('youtube')->nullable();
             $table->string('tiktok')->nullable();
@@ -31,6 +32,16 @@ return new class extends Migration
             $table->text('accolades')->nullable();
             $table->boolean('isteamowner');
             $table->boolean('isadmin');
+
+            $table->bigInteger('steamid64')->nullable();
+            $table->string('personaname')->nullable();
+            $table->string('profileurl')->nullable();
+            $table->string('avatar')->nullable();
+            $table->string('avatarmedium')->nullable();
+            $table->string('avatarfull')->nullable();
+            $table->string('realname')->nullable();
+            $table->string('loccountrycode')->nullable();
+            $table->string('locstatecode')->nullable();
         });
     }
 

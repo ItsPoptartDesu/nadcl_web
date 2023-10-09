@@ -18,9 +18,8 @@
         <!-- Sidebar/menu -->
         <nav class="na_sidebar " style="z-index:3;font-weight:bold;" id="mySidebar"><br>
             <div class="container row na_red_text">
-                <h1 style="font-size: 2.5em">
+                <h1 style="font-size: 2em">
                     <b>NADCL</b>
-                    <hr style="width:100%;border:5px solid  red ">
                 </h1>
             </div>
             <div class="container">
@@ -44,12 +43,14 @@
                     <div class="jumbotron">
                         <h1 class="display-1">North American Dota 2 Challenger's League</h1>
                 </h1>
-            </div>
-            <div class="container na_red_text shadow"style="padding-top:20px; margin-top:20px;">
                 <h2 style="font-size: 2em"><b>Our Season 4 Teams</b></h2>
-                <hr style="width:100%;border:5px solid red ">
+                <hr style="width:100%;border:5px solid red">
                 @include('code_injects/season4teams')
             </div>
+            <!-- Team Photos -->
+            <br>
+            <br>
+            <br>
             <!-- Sponsors -->
             <div class="container na_red_text shadow" style="padding-top:20px; margin-top:20px;">
                 <h1 style="font-size: 2em">
@@ -95,10 +96,13 @@
                     </div>
                 </div>
             </div>
+            <br>
+            <br>
+            <br>
             <!-- Youtube -->
             <div class="container na_red_text shadow" style="padding-top:20px; margin-top:20px;" id="youtube">
                 <h1 style="font-size: 2em">
-                    <b>YouTube</b>
+                    <b>Youtube</b>
                 </h1>
                 <hr style="margin-bottom:7px;width:100%;border:5px solid red">
                 <div class="row">
@@ -122,7 +126,7 @@
                                             allowfullscreen>
                                         </iframe>
                                     </div>
-                                    <div class="carousel-caption d-none d-md-block" >
+                                    <div class="carousel-caption d-none d-md-block">
                                         <h5 style="font-size: 2em">Tidebringer Podcast</h5>
                                         <p>Episode 3: Xeriscape and Hatlord</p>
                                     </div>
@@ -235,14 +239,12 @@
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#tiktokCarsousel"
                                 data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon"style="background-color:red"
-                                    aria-hidden="true"></span>
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
                             <button class="carousel-control-next" type="button" data-bs-target="#tiktokCarsousel"
                                 data-bs-slide="next">
-                                <span class="carousel-control-next-icon" style="background-color:red"
-                                    aria-hidden="true"></span>
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
@@ -268,6 +270,7 @@
                     <hr style="width:100%;border:5px solid red">
                     @include('/code_injects/nadcl_bracket')
                 </div>
+
             </div>
             <div class="text-center" style="padding-top:25px;">
                 <h2 style="font-size: 2em">Season 4</h2>
@@ -278,6 +281,10 @@
                 <br>
                 <h4 style="font-size: 2em">Saturday: 3, 6, & 9 PM Eastern Time</h4>
             </div>
+            <!-- End page content -->
+            <br>
+            <br>
+            <br>
             @include('/code_injects/footer')
             {{-- </div> --}}
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

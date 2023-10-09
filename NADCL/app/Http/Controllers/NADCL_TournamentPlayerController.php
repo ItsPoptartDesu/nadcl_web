@@ -10,6 +10,7 @@ use App\Models\nadcl_tournamentdesc;
 use App\Models\nadcl_tournamentplayer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class NADCL_TournamentPlayerController extends Controller
 {
@@ -33,14 +34,11 @@ class NADCL_TournamentPlayerController extends Controller
     {
         if (!Auth::check())
             return back();
-        $steam = nadcl_steam::find(auth()->user()->email);
-        if ($steam == null || $steam->steamid64 == null) //if not stream linked
-            return back()->with('statusError', "Please link your STEAM account");
         $profile = nadcl_profile::find(auth()->user()->email)->first();
         if (
             $profile->role == null || $profile->siggy == null ||
             $profile->mmr == null || $profile->displayname == null ||
-            $profile->cancaptain == null
+            $profile->cancaptain == null || $profile->steamid64
         ) // haven't set key info for NADCL profile
             return back()->with('statusError', "Please fill out NADCL required Info");
 
@@ -51,31 +49,14 @@ class NADCL_TournamentPlayerController extends Controller
         $entry->role = $profile->role;
         $entry->mmr = $profile->mmr;
         $entry->cancaptain = $profile->cancaptain;
-        $entry->steamid64 = $steam->steamid64;
-        $entry->personaname = $steam->personaname;
-        $entry->profileurl = $steam->profileurl;
-        $entry->avatarfull = $steam->avatarfull;
-        $entry->realname = $steam->realname;
-        $entry->loccountrycode = $steam->loccountrycode;
-        $entry->locstatecode = $steam->locstatecode;
+        // $entry->steamid64 = $steam->steamid64;
+        // $entry->personaname = $steam->personaname;
+        // $entry->profileurl = $steam->profileurl;
+        // $entry->avatarfull = $steam->avatarfull;
+        // $entry->realname = $steam->realname;
+        // $entry->loccountrycode = $steam->loccountrycode;
+        // $entry->locstatecode = $steam->locstatecode;
         $entry->save();
         return redirect('/Tournaments/NADCL_SeasonFive')->with('status', "Successfully Joined NADCL S5");
     }
-
-    public function Players()
-    {
-        $tournaments = null;
-        if (request()->has('search')) {
-            $search = Request()->get('search', '');
-            if ($search != null) {
-                $tournaments = nadcl_tournamentplayer::where('displayname', 'like', '%' . $search . '%')->get();
-            }
-        }
-        if ($tournaments == null)
-            $tournaments = nadcl_tournamentplayer::all();
-        $data = [
-            'tProfile' => $tournaments,
-        ];
-        return view('tournaments/NADCL_showplayers')->with('data', $data);
-    } //
 }

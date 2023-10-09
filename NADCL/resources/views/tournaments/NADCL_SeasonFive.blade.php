@@ -402,8 +402,8 @@
             </div>
             <!-- Bracket -->
             @include('na_bracket')
-            @include('footer')
         </div>
+        @include('/code_injects/footer')
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

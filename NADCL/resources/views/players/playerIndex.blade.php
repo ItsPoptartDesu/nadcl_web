@@ -10,74 +10,75 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-    <title> {{ $data['tPlayer']->displayname }}</title>
+    <title> {{ $data['profile']->displayname }}</title>
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link rel="stylesheet" href="../css/style.css" rel="stylesheet">
 </head>
 
-<body class="na_white_text na_blue">
-    <div class="main">
-        @include('header')
+<body class="bg-gray-100">
+
+    <div>
+        @include('/code_injects/nadcl_header')
         <div class="container">
             <div class="row">
-                <div class="col-lg">
+                <div class="col-auto">
                     <div class="card na_altTBG" style="width: 18rem;">
-
                         <p class="card-text text-center">
-                            Steam Info: {{ $data['tPlayer']->displayname }}
+                            Steam Info: {{ $data['profile']->displayname }}
                         </p>
-
-                        <img src="{{ URL($data['tPlayer']->avatarfull) }}">
+                        <img src="{{ URL($data['profile']->avatarfull) }}">
                         <div class="card-body">
                             <table>
                                 <tbody>
                                     <tr>
                                         <th>Name </th>
-                                        <td>{{ $data['tPlayer']->realname }}</td>
+                                        <td>{{ $data['profile']->realname }}</td>
                                     </tr>
                                     <tr>
                                         <th>Role </th>
-                                        <td>{{ $data['tPlayer']->role }}</td>
+                                        <td>{{ $data['profile']->role }}</td>
                                     </tr>
                                     <tr>
                                         <th>MMR </th>
-                                        <td>{{ $data['tPlayer']->mmr }}</td>
+                                        <td>{{ $data['profile']->mmr }}</td>
                                     </tr>
                                     <tr>
                                         <th>Can Captain </th>
-                                        <td>{{ $data['tPlayer']->cancaptain }}</td>
+                                        <td>{{ $data['profile']->cancaptain }}</td>
                                     </tr>
                                     <tr>
                                         <th>Steam ID </th>
-                                        <td><a target="_blank" class="na_red_text"
-                                                href={{ $data['tPlayer']->profileurl }}>Steam
+                                        <td><a target="_blank" href={{ $data['profile']->profileurl }}>Steam
                                                 Profile</a></td>
                                     </tr>
                                     <tr>
                                         <th>Siggy </th>
-                                        <td>{{ $data['tPlayer']->siggy }}</td>
+                                        <td>{{ $data['profile']->siggy }}</td>
                                     </tr>
                                     <tr>
                                         <th>Accolades</th>
                                         <td>
-                                            <div class="row">
-                                                @foreach ($data['accolades'] as $acc)
-                                                    <img style="width:41px; height:41px; padding:0px;"
-                                                        src="{{ asset('/img/accolades/' . $acc->img) }}"
-                                                        class="btn btn-secondary" data-bs-toggle="tooltip"
-                                                        data-bs-placement="top" data-bs-title="{{ $acc->about }}">
-                                                @endforeach
-                                            </div>
+                                            @if ($data['accolades'] != null)
+                                                @if ($data['accolades'][0] != null)
+                                                    @foreach ($data['accolades'] as $acc)
+                                                        <img style="width:41px; height:41px; padding:0px;"
+                                                            src="{{ asset('/img/accolades/' . $acc->img) }}"
+                                                            class="btn btn-secondary" data-bs-toggle="tooltip"
+                                                            data-bs-placement="top"
+                                                            data-bs-title="{{ $acc->about }}">
+                                                    @endforeach
+                                                @endif
+                                            @endif
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Socials</th>
                                         <td>
                                             <div class="row">
-                                                @if ($data['pPlayer']->x != null)
+                                                @if ($data['profile']->x != null)
                                                     <div class="col-auto">
-                                                        <a href="https://x.com/{{ $data['pPlayer']->x }}"
+                                                        <a href="https://x.com/{{ $data['profile']->x }}"
                                                             target="_blank">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                                 height="16" fill="currentColor"
@@ -88,9 +89,9 @@
                                                         </a>
                                                     </div>
                                                 @endif
-                                                @if ($data['pPlayer']->youtube != null)
+                                                @if ($data['profile']->youtube != null)
                                                     <div class="col-auto">
-                                                        <a href="https://youtube.com/{{ $data['pPlayer']->youtube }}"
+                                                        <a href="https://youtube.com/{{ $data['profile']->youtube }}"
                                                             target="_blank">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                                 height="16" fill="currentColor" class="bi bi-youtube"
@@ -101,9 +102,9 @@
                                                         </a>
                                                     </div>
                                                 @endif
-                                                @if ($data['pPlayer']->twitch != null)
+                                                @if ($data['profile']->twitch != null)
                                                     <div class="col-auto">
-                                                        <a href="https://twitch.tv/{{ $data['pPlayer']->twitch }}"
+                                                        <a href="https://twitch.tv/{{ $data['profile']->twitch }}"
                                                             target="_blank">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                                 height="16" fill="currentColor" class="bi bi-twitch"
@@ -116,9 +117,9 @@
                                                         </a>
                                                     </div>
                                                 @endif
-                                                @if ($data['pPlayer']->tiktok != null)
+                                                @if ($data['profile']->tiktok != null)
                                                     <div class="col-auto">
-                                                        <a href="https://www.tiktok.com/{{ $data['pPlayer']->tiktok }}"
+                                                        <a href="https://www.tiktok.com/{{ $data['profile']->tiktok }}"
                                                             target="_blank">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                                 height="16" fill="currentColor" class="bi bi-tiktok"
@@ -140,20 +141,26 @@
                 </div>
                 <div class="col-lg">
                     <div class="row" style="padding-top:50px;">
-                        <h3 class="h3">NADCL Info: {{ $data['pPlayer']->displayname }}</h3>
-                        <div class="col-auto">
-                            <img class="header_logo" src="{{ URL('/headshots/' . $data['pPlayer']->headshot) }}"
-                                alt="">
-                        </div>
-                        <div class="col">
-                            <p class="h4">
-                                {{ $data['pPlayer']->about }}
-                            </p>
+                        <div class="shadow">
+                            <div class="row">
+                                <h3 class="h3">NADCL Info: {{ $data['profile']->displayname }}</h3>
+                                <div class="col-auto">
+                                    <div class="float-left">
+                                        <img class="header_logo"
+                                            src="{{ URL('/headshots/' . $data['profile']->headshot) }}" alt="">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <p class="h4">
+                                        {{ $data['profile']->about }}
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            @include('/footer')
+            @include('/code_injects/footer')
         </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -170,6 +177,7 @@
             const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
             const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
         </script>
+    </div>
 </body>
 
 </html>

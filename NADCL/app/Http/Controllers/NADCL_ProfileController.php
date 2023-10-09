@@ -10,15 +10,13 @@ use App\Models\nadcl_team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Models\nadcl_tournamentplayer;
+use Illuminate\Support\Facades\DB;
 
 class NADCL_ProfileController extends Controller
 {
     public function PlayerIndex($who)
     {
-        $player = nadcl_tournamentplayer::where("displayname", '=', $who)->first();
-        if ($player == null)
-            return back();
-        $profile = nadcl_profile::find($player->key);
+        $profile = nadcl_profile::where("personaname", '=', $who)->first();
         if ($profile == null)
             return back();
         $accolade = explode(',', $profile->accolades);
@@ -28,18 +26,40 @@ class NADCL_ProfileController extends Controller
             array_push($foundAccolades, $aIndex);
         }
         $data = [
-            'tPlayer' => $player,
-            'pPlayer' => $profile,
+            'profile' => $profile,
             'accolades' => $foundAccolades
         ];
         return view('/players/playerindex')->with('data', $data);
     }
+    public function Players()
+    {
+        $profile = null;
+        if (request()->has('search')) {
+            $search = Request()->get('search', '');
+            if ($search != null) {
+                $profile = nadcl_profile::where('displayname', 'like', '%' . $search . '%')->get();
+            }
+        }
+        if ($profile == null) {
+            $profile = DB::table('nadcl_profile')->paginate(10);
+            //$tournaments = nadcl_profile::orderBy("displayname", 'desc')->paginate(10);
+        }
+        $accolades = nadcl_accolade::all();
+        $acc = array();
+        foreach ($accolades as $a) {
+            $acc[$a->key] = $a;
+        }
+        $data = [
+            'profile' => compact('profile'),
+            'accolades' => $acc,
+        ];
+        //dd($data['profile']['tournaments'][0]);
+        return view('tournaments/NADCL_showplayers')->with('data', $data);
+    } //
     public function Load()
     {
-        $steamInfo = nadcl_steam::find(auth()->user()->email);
         $nadclInfo = nadcl_profile::find(auth()->user()->email);
         $data = [
-            'steam' => $steamInfo,
             'profile' => $nadclInfo,
         ];
         return view('/nadcl_profile')->with('data', $data);
@@ -91,11 +111,9 @@ class NADCL_ProfileController extends Controller
     }
     public function Dashboard()
     {
-        $steamInfo = nadcl_steam::find(auth()->user()->email);
         $nadclInfo = nadcl_profile::find(auth()->user()->email);
         $teamInfo = nadcl_team::find(auth()->user()->email);
         $data = [
-            'steam' => $steamInfo,
             'profile' => $nadclInfo,
             'team' => $teamInfo
         ];
@@ -167,11 +185,9 @@ class NADCL_ProfileController extends Controller
 
     public function AdminLoad()
     {
-        $steamInfo = nadcl_steam::find(auth()->user()->email);
         $nadclInfo = nadcl_profile::find(auth()->user()->email);
         $teamInfo = nadcl_team::find(auth()->user()->email);
         $data = [
-            'steam' => $steamInfo,
             'profile' => $nadclInfo,
             'team' => $teamInfo
         ];

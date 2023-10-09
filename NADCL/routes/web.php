@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 Auth::routes();
+Route::get('/sandbox', [NADCL_PagesController::class, 'sandbox']);
 
 Route::get('/', [NADCL_PagesController::class, 'Landing']);
 Route::get('/Tournaments/NADCL_SeasonFour', [NADCL_PagesController::class, 'SeasonFourLoad']);
@@ -45,7 +46,7 @@ Route::get('/dashboard/init-openId', [NADCL_SteamController::class, 'ToSteam']);
 
 Route::get('/Tournaments/NADCL_SeasonFive', [NADCL_TournamentPlayerController::class, 'SeasonFiveLoad']);
 Route::get('/Tournaments/NADCL_tournamentjoin', [NADCL_TournamentPlayerController::class, 'NADCL_SeasonJoin'])->middleware('auth');
-Route::get('/players', [NADCL_TournamentPlayerController::class, 'Players']);
+Route::get('/players', [NADCL_ProfileController::class, 'Players']);
 
 Route::get('/dashboard', [NADCL_ProfileController::class, 'Dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/dashboard/NADCL_Profile', [NADCL_ProfileController::class, 'Load']);

@@ -12,7 +12,10 @@ class nadcl_profile extends Model
     protected $fillables = [
         'key', 'displayname', 'about', 'headshot',
         'siggy', 'hottake', 'role', 'mmr', 'cancaptain',
-        'x', 'twitch', 'youtube', 'tiktok', 'isteamowner'
+        'x', 'twitch', 'youtube', 'tiktok', 'isteamowner',
+        'steamid64', 'personaname', 'profileurl', 'avatar',
+        'avatarmedium', 'avatarfull', 'realname', 'loccountrycode',
+        'locstatecode'
     ];
     protected $primaryKey = 'key';
 }

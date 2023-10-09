@@ -16,13 +16,13 @@
     <link rel="stylesheet" href="../css/style.css" rel="stylesheet">
 </head>
 
-<body class="na_white_text na_blue">
+<body class="bg-gray-100">
     <div class="main">
-        @include('header')
-        <div class="container">
-            <div class="card na_white_text na_blue">
+        @include('/code_injects/nadcl_header')
+        <div class="container"style="margin-top:20px;">
+            <div class="card">
                 <div class="card-hearder pb-0 border-0">
-                    <h5>Enter a Players NADCL Username</h5>
+                    <h5 style="margin-top:10px;margin-left:10px;">Enter a Players NADCL Username</h5>
                 </div>
                 <div class="card-body">
                     <form action="{{ URL('/players') }}" method="GET">
@@ -31,35 +31,57 @@
                     </form>
                 </div>
             </div>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Headshot</th>
-                        <th scope="col">NADCL Name</th>
-                        <th scope="col">Steam Name</th>
-                        <th scope="col">Siggy</th>
-                        <th scope="col">MMR</th>
-                        <th scope="col">Steam Profile</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($data['tProfile'] as $player)
+            <div class="shadow" style="margin-top:20px;">
+                <table class="table">
+                    <thead>
                         <tr>
-                            <th scope="row"><img class='header_logo' src={{ $player->avatarfull }}
-                                    style="margin:0px;"></th>
-                            <td><a class="na_red_text"
-                                    href="{{ URL('/players/' . $player->displayname) }}">{{ $player->displayname }}</a>
-                            </td>
-                            <td>{{ $player->personaname }}</td>
-                            <td>{{ $player->siggy }}</td>
-                            <td>{{ $player->mmr }}</td>
-                            <td><a class="na_red_text" href={{ $player->profileurl }}>Steam Profile</a></td>
+                            <th scope="col">Headshot</th>
+                            <th scope="col">NADCL Name</th>
+                            <th scope="col">Steam Name</th>
+                            <th scope="col">Siggy</th>
+                            <th scope="col">MMR</th>
+                            <th scope="col">Steam Profile</th>
+                            <th scope="col">Accolades</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($data['profile']['profile'] as $player)
+                            <tr>
+                                <th scope="row">
+                                    @if ($player->headshot)
+                                        <img class='header_logo' src="{{ asset('/headshots/' . $player->headshot) }}"
+                                            style="margin:0px;">
+                                    @endif
+                                </th>
+                                <td><a class="na_red_text"
+                                        href="{{ URL('/players/' . $player->displayname) }}">{{ $player->displayname }}</a>
+                                </td>
+                                <td>{{ $player->personaname }}</td>
+                                <td>{{ $player->siggy }}</td>
+                                <td>{{ $player->mmr }}</td>
+                                <td><a class="na_red_text" href={{ $player->profileurl }} target="_blank">Steam
+                                        Profile</a></td>
+                                <td>
+                                    <?php $accolade = explode(',', $player->accolades);
+                                    foreach ($accolade as $acc) {
+                                        $f = DB::table('nadcl_accolade')->where('key',$acc)->first();
+?>
+                                    <img style="width:41px; height:41px; padding:0px;"
+                                        src="{{ asset('/img/accolades/' . $f->img) }}" class="btn btn-secondary"
+                                        data-bs-toggle="tooltip" data-bs-placement="top"
+                                        data-bs-title="{{ $f->about }}">
+                                    <?php
+                                    }
+                                    ?>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
-        @include('/footer')
+
+        @include('/code_injects/footer')
     </div>
     {{-- </div> --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

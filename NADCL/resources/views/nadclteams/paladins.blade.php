@@ -18,12 +18,12 @@
 
 <html>
 
-<body class="na_white_text na_blue">
+<body class="bg-gray-100">
     <div class="main">
-        @include('header')
+        @include('/code_injects/nadcl_header')
         <div class="container">
             <div class="row">
-                <div class="col-lg">
+                <div class="col-auto">
                     <div class="card na_altTBG" style="width: 18rem;">
                         <p class="card-text text-center">
                             Paladins
@@ -94,9 +94,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg">
+                <div class="col container shadow">
                     <div class="row" style="padding-top:50px;">
-                        <h2 class="display-2">Paladins</h2>
+                        <h2 class="display-2 text-center">Paladins</h2>
                         <p class="h4">
                             <span>
                                 Paladins is a gaming organization that is looking to solve some of the
@@ -107,7 +107,7 @@
                     </div>
                 </div>
             </div>
-            @include('/footer')
+            @include('/code_injects/footer')
         </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

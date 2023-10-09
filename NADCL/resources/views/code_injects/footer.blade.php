@@ -1,7 +1,6 @@
-<footer class=" container fixed-bottom">
+<footer class="container">
     <div class="row">
         <div class="col-sm">
-            <p class="text-center">Powered by Our Supporters</a></p>
         </div>
         <div class="col-md-auto">
             <div class="row">

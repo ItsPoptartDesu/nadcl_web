@@ -1,8 +1,14 @@
+@font-face {
+    font-family: GT_America_Regular;
+    src: url('../fonts/GT_America_Regular.tff');
+}
+
 body {
+    font-family: GT_America_Regular;
     margin: 0;
     padding: 0;
-    font-family: Sans-Serif;
     line-height: 1.5em;
+    font-size: medium;
 }
 
 header {
@@ -58,13 +64,6 @@ nav ul {
     background-color: rgb(8, 10, 49) !important;
 }
 
-.d {
-    background-color: transparent;
-}
-
-#nav {
-    color: white;
-}
 
 .white {
     color: white;
@@ -180,11 +179,16 @@ nav ul {
     margin-left: 8px;
 }
 
-#a {
-    transition: all 200ms;
-    color: white;
-    text-decoration: none;
-    background-color: transparent;
+a {
+    color: red;
+}
+
+.na_sidebar {
+    height: 100%;
+    width: 200px;
+    position: fixed !important;
+    z-index: 1;
+    overflow: auto;
 }
 
 .na-sidebar {
@@ -223,6 +227,11 @@ nav ul {
     color: white;
 }
 
+.na_bracketcell {
+    background-color: transparent;
+    color: black;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -244,12 +253,20 @@ nav ul {
     display: none;
 }
 
+#btn-danger {
+    background-color: #dc3545;
+}
+
 .na_white_text {
     color: white;
 }
 
 .na_red_text {
     color: red;
+}
+
+.na_black_text {
+    color: black;
 }
 
 .na_blue_text {
@@ -314,3 +331,7 @@ nav ul {
     row-gap: 10px;
     column-gap: 20px;
 }
+
+/* #outline{
+    --bs-card-border-color:
+} */

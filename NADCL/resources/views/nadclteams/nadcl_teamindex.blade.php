@@ -106,7 +106,7 @@
                     </div>
                 </div>
             </div>
-            @include('/footer')
+            @include('/code_injects/footer')
         </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

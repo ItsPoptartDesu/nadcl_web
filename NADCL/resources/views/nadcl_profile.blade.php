@@ -4,6 +4,8 @@
             {{ session('status') }}
         </div>
     @endif
+    <x-slot name="livewire">
+    </x-slot>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Player Profile') }}
@@ -20,14 +22,14 @@
                 <div class="md:mt-0 md:col-span-2">
                     <div class="px-4 py-5 bg-white sm:p-6 shadow sm:rounded sm:rounded">
                         <h2 class='h2'> Steam Info</h2>
-                        @if ($data['steam'] != null)
+                        @if ($data['profile']->steamid64 != null)
                             <div class="md:col-span-1 flex justify-between">
                                 <div class="px-4 sm:px-0">
                                     <h3 class="text-lg font-medium text-gray-900">Steam Name</h3>
                                 </div>
                                 <div class="px-4 sm:px-0">
                                     <p class="mt-1 text-sm text-gray-600">
-                                        {{ $data['steam']->personaname }}
+                                        {{ $data['profile']->personaname }}
                                     </p>
                                 </div>
                             </div>
@@ -37,7 +39,7 @@
                                 </div>
                                 <div class="px-4 sm:px-0">
                                     <p class="mt-1 text-sm text-gray-600">
-                                        {{ $data['steam']->steamid64 }}
+                                        {{ $data['profile']->steamid64 }}
                                     </p>
                                 </div>
                             </div>
@@ -47,7 +49,7 @@
                                 </div>
                                 <div class="px-4 sm:px-0">
                                     <p class="mt-1 text-sm text-gray-600">
-                                        <img src={{ $data['steam']->avatar }}>
+                                        <img src={{ $data['profile']->avatar }}>
                                     </p>
                                 </div>
                             </div>
@@ -165,7 +167,7 @@
                                                     <label for="nadcl_mmr">X?</label>
                                                     <div>
                                                         <input type="text" name="nadcl_x"
-                                                            placeholder={{ $data['profile']->x == null ? 'x.com/...' : $data['profile']->displayname }}
+                                                            placeholder={{ $data['profile']->x == null ? 'x.com/...' : $data['profile']->x }}
                                                             class="@error('title') is-invalid @enderror">
                                                     </div>
                                                 </div>
@@ -199,13 +201,15 @@
                                     <div class="form-group">
                                         <label for="nadcl_hottake">Hot Take...</label>
                                         <div>
-                                            <textarea rows='3' style="width:100%;" name="nadcl_hottake" placeholder={{ $data['profile']->hottake == null ? 'Tinker_needs_a_buff:)' : $data['profile']->hottake }}></textarea>
+                                            <textarea rows='3' style="width:100%;" name="nadcl_hottake"
+                                                placeholder="{{ $data['profile']->hottake == null ? 'Tinker needs a buff:)' : $data['profile']->hottake }}"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="nadcl_aboutme">About Me...</label>
                                         <div>
-                                            <textarea rows='3' style="width:100%;" name="nadcl_aboutme" placeholder={{ $data['profile']->aboutme == null ? 'I_like_long_walks_on_the_beach' : $data['profile']->aboutme }}></textarea>
+                                            <textarea rows='3' style="width:100%;" name="nadcl_aboutme"
+                                                placeholder="{{ $data['profile']->aboutme == null ? 'I like long walks on the beach' : $data['profile']->aboutme }}"></textarea>
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-outline-primary">Save</button>

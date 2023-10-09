@@ -1,4 +1,6 @@
 <x-app-layout>
+    <x-slot name="livewire">
+    </x-slot>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
@@ -32,20 +34,20 @@
                         <div class="mt-4 text-sm">
                             <div class="mt-1 text-sm text-gray-600">
                                 <b>Connected Steam Name:</b>
-                                @if ($data['steam'])
-                                    {{ $data['steam']->personaname }}
+                                @if ($data['profile']->steamid64 != null)
+                                    {{ $data['profile']->personaname }}
                                 @endif
                             </div>
                             <div class="mt-1 text-sm text-gray-600">
                                 <b>SteamID:</b>
-                                @if ($data['steam'])
-                                    {{ $data['steam']->steamid64 }}
+                                @if ($data['profile']->steamid64 != null)
+                                    {{ $data['profile']->steamid64 }}
                                 @endif
                             </div>
 
-                            @if ($data['steam'])
+                            @if ($data['profile']->steamid64 != null)
                                 <img class="text-center" style="display:inline; width:100px;height:100px;"
-                                    src={{ $data['steam']->avatarfull }}>
+                                    src={{ $data['profile']->avatarfull }}>
                             @else
                                 <img class="text-center" style="display:inline; width:100px;height:100px;"
                                     src={{ asset('/img/we_want_you.png') }}>

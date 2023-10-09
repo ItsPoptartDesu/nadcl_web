@@ -18,12 +18,12 @@
 
 <html>
 
-<body class="na_white_text na_blue">
-    <div class="main" >
-        @include('header')
+<body class="bg-gray-100">
+    <div class="main">
+        @include('/code_injects/nadcl_header')
         <div class="container">
             <div class="row">
-                <div class="col-lg">
+                <div class="col-auto">
                     <div class="card na_altTBG" style="width: 18rem;">
                         <p class="card-text text-center">
                             SporkFace Killas
@@ -94,9 +94,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg">
+                <div class="col container shadow">
                     <div class="row" style="padding-top:50px;">
-                        <h2 class="display-2">The Honored Vanguard</h2>
+                        <h2 class="display-2 text-center">The Honored Vanguard</h2>
                         <div class="h4">
                             <p>
                                 Hey there, we're The Honored Vanguard, and together with the NADCL, we're shaking up the
@@ -116,7 +116,7 @@
                     </div>
                 </div>
             </div>
-            @include('/footer')
+            @include('/code_injects/footer')
         </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

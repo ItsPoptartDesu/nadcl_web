@@ -828,7 +828,7 @@
             </div>
             <!-- Bracket -->
             @include('na_bracket')
-            @include('footer')
+            @include('/code_injects/footer')
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
