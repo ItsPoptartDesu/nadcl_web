@@ -10,6 +10,6 @@ class nadcl_constants extends Model
     use HasFactory;
     protected $table = 'nadcl_constants';
     protected $fillables = [
-        'youtube', 'tiktok'
+        'youtube', 'tiktok','admins'
     ];
 }

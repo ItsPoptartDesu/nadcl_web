@@ -1,4 +1,4 @@
-<label for="nadcl_siggy">Who is your siggy?</label>
+<label for="nadcl_siggy">Who is your Siggy?</label>
 <select name="nadcl_siggy" class="form-select form-select-sm" aria-label=".form-select-sm example" >
     <option value="none" selected disabled hidden>Who is your Siggy?</option>
     <option value="Abaddon">Abaddon</option>

@@ -20,20 +20,28 @@
     <div class="main bg-gray-100">
         @include('/code_injects/nadcl_header')
         <div class="container">
+            <div class="row" style="padding-bottom:20px;">
+                <div class="col-lg">
+                    <div class="row shadow" style="padding-top:50px;">
+                        <h1 class="display-2 text-center"><b>We Are North American Dota 2 Esports</b></h1>
+                        <p class="h4">
+                            "Catchy slogan"
+                        </p>
+                    </div>
+                </div>
+            </div>
             <div class="row">
-                <div class="col-auto">
-                    <?php $count = 0; ?>
+                @if ($data['profile'] != null)
                     @foreach ($data['profile'] as $index)
                         <div class="card na_altTBG" style="width: 18rem;">
                             <p class="card-text text-center">
-                                {{ $data['profile'][$count]->realname }}
+                                {{ $index['realname'] }}
                             </p>
-                            <img class="text-center" style="display:inline;"
-                                src="{{ $data['profile'][$count]->avatarfull }}">
+                            <img class="text-center" style="display:inline;" src="{{ $index->avatarfull }}">
                             <div class="card-body">
                                 <table class="table table-sm na_table">
                                     <thead class="na_altTBG">
-                                        <span>{{ $data['profile'][$count]->realname . ' is from ' . $data['profile'][$count]->loccountrycode }}</span>
+                                        <span>{{ $index->realname . ' is from ' . $index->loccountrycode }}</span>
                                     </thead>
                                     <tbody>
                                         <tr>
@@ -41,7 +49,7 @@
                                                 Steam Name
                                             </td>
                                             <td>
-                                                {{ $data['profile'][$count]->personaname }}
+                                                {{ $index->personaname }}
                                             </td>
                                         </tr>
                                         <tr>
@@ -49,7 +57,7 @@
                                                 My Siggy is...
                                             </td>
                                             <td>
-                                                {{ $data['profile'][$count]->siggy }}
+                                                {{ $index->siggy }}
                                             </td>
                                         </tr>
                                         <tr>
@@ -57,7 +65,7 @@
                                                 Hot take...
                                             </td>
                                             <td>
-                                                {{ $data['profile'][$count]->hottake }}
+                                                {{ $index->hottake }}
 
                                             </td>
                                         </tr>
@@ -66,25 +74,16 @@
                                                 About
                                             </td>
                                             <td>
-                                                {{ $data['profile'][$count]->about }}
+                                                {{ $index->about }}
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        <?php $count++; ?>
                     @endforeach
-                </div>
-                <div class="col-lg">
-                    <div class="row shadow" style="padding-top:50px;">
-                        <h1 class="display-2"><b>We Are North American Dota 2 Esports</b></h1>
-                        <p class="h4">
-                            "Catchy slogan"
-                        </p>
-                    </div>
+                @endif
 
-                </div>
             </div>
             @include('/code_injects/footer')
         </div>

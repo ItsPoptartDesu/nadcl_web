@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -12,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('updates', function (Blueprint $table) {
+        Schema::create('na_accolade', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->integer('playerid')->index();
+            $table->string('name');
+            $table->text('about');
+            $table->string('img');
         });
-        DB::table('nadcl_constants')->insert(['youtube' => 'https://www.youtube.com/watch?v=G_-OCwyBHQw,https://www.youtube.com/watch?v=cFBWl1lefQI,https://www.youtube.com/watch?v=DayJlV2szaA', 'tiktok' => '7283932911332543786,7276485795760950570,7257622405781179690']);
     }
 
     /**
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('updates');
+        Schema::dropIfExists('na_accolade');
     }
 };

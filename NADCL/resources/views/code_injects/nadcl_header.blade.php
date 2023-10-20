@@ -1,9 +1,9 @@
 <div style="margin-left:20px; margin-right:20px; padding-top: 10px;">
-    <div class="text-center alert alert-warning alert-dismissible fade show" role="alert">
+    <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
         <strong>Crimson Witnesses + NADCL @ TI12</strong> <a class="na_red_text hyperlink"
             href="https://www.eventbrite.ie/e/crimson-witnesses-ti12-finals-party-featuring-nadcl-turbo-mode-tickets-657850286917"
             class="alert-link">Get your tickets NOW!</a>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     <div class="row">
         <div class="col-auto">
@@ -15,17 +15,12 @@
                 <ul class="dropdown-menu">
                     <li><a style="text-decoration: red underline" class="dropdown-item"
                             href="{{ URL('/Tournaments/NADCL_SeasonFour') }}">Season 4</a></li>
-                    {{-- <li><a style="text-decoration: red underline" class="dropdown-item"
-                            href="{{ URL('/Tournaments/NADCL_SeasonFive') }}">Season 5</a></li> --}}
+                    <li><a style="text-decoration: red underline" class="dropdown-item"
+                            href="{{ URL('/Season/5') }}">Season 5</a></li>
                 </ul>
             </div>
         </div>
         <div class="col-auto">
-            <button type="button" class="btn btn-danger" id="btn-danger">
-                <a style=" color:white; text-decoration: none;" href={{ url('/AboutUs') }}>About Us</a>
-            </button>
-        </div>
-        <div class="col">
             <div class="dropdown">
                 <button type="button" id="btn-danger"class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false">
@@ -39,35 +34,42 @@
                 </ul>
             </div>
         </div>
-        <div class="col-auto">
-            {{-- <button type="button" id="btn-danger"class="btn btn-outline-info">
+        {{-- <div class="col-auto">
+            <button type="button" id="btn-danger"class="btn btn-outline-info">
                 <a href={{ url('/BigScreen') }} style="text-decoration: none;">Big
                     Screen</a>
-            </button> --}}
-        </div>
-        <div class="col-auto">
-            <a href="/">
-                <img class="header_logo" src="{{ URL('/img/nadcl_logo.png') }}">
-            </a>
-        </div>
-        <div class="col-auto">
-            <h6 class="center-element">
-                NADCL Player Combine has begun! Watch live on
-                <a class="na_red_text hyperlink" href="https://www.youtube.com/@NADCLeague/streams"
-                    target="_blank">Youtube</a>
-                and
-                <a class="na_red_text hyperlink" href="https://www.twitch.tv/NADCLeague" target="_blank"> Twitch</a>
-                <div clas="row">
-                    Series 1: 6pm EST | Series 2: 9pm EST |
-                    Thursday, Friday, and Saturday!
+            </button>
+        </div> --}}
+        <div class="col ">
+            <div class="row justify-center">
+                <div class="col-auto">
+                    <a href="/">
+                        <img class="header_logo" src="{{ URL('/img/nadcl_logo.png') }}">
+                    </a>
                 </div>
-            </h6>
+                <div class="col-auto">
+                    <h6 class="center-element">
+                        NADCL Player Combine has begun! Watch live on
+                        <a class="na_red_text hyperlink" href="https://www.youtube.com/@NADCLeague/streams"
+                            target="_blank">Youtube</a>
+                        and
+                        <a class="na_red_text hyperlink" href="https://www.twitch.tv/NADCLeague" target="_blank">
+                            Twitch</a>
+                        <div clas="row">
+                            Series 1: 6pm EST | Series 2: 9pm EST |
+                            Thursday, Friday, and Saturday!
+                        </div>
+                    </h6>
+                </div>
+            </div>
+
         </div>
-        <div class="col">
+
+        <div class="col-auto"><button type="button"id="btn-danger" class="btn btn-danger">
+                <a style=" color:white; text-decoration: none;" href="https://nadcl.us/pages/nadclshop">Merch </a>
+            </button></div>
+        <div class="col-auto">
             <div style="display: flex; justify-content: flex-end;">
-                <button type="button"id="btn-danger" class="btn btn-danger">
-                    <a style=" color:white; text-decoration: none;" href="https://nadcl.us/pages/nadclshop">Merch </a>
-                </button>
                 @if (Route::has('login'))
                     @auth
                         <button type="button" id="btn-danger"class="btn btn-danger">

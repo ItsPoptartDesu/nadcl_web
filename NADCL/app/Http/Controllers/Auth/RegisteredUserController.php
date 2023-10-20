@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\na_steam;
+use App\Models\nadcl_constants;
 use App\Models\nadcl_profile;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -34,30 +36,24 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
+            'username' => ['required', 'string', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'username' => $request->username,
+            'isteamowner' => $request->email == 'davidmejia4215@gmail.com' ? 1 : 0,
+            'isadmin' => $request->email == 'davidmejia4215@gmail.com' ? 1 : 0,
+            'issteamlinked' => 0
         ]);
 
         event(new Registered($user));
-
-        $nadcl_profile = new nadcl_profile;
-        $nadcl_profile->key = $user->email;
-        $nadcl_profile->isteamowner = false;
-        if (
-            $user->email == "davidmejia4215@gmail.com" ||
-            $user->email == "peter@nadcl.us"
-        )
-            $nadcl_profile->isadmin = true;
-        else
-            $nadcl_profile->isadmin = false;
-        $nadcl_profile->save();
         Auth::login($user);
-
+        $steam = new na_steam();
+        $steam->ownerid = $user->id;
+        $steam->save();
         return redirect(RouteServiceProvider::HOME);
     }
 }

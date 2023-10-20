@@ -12,9 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('nadcl_team', function (Blueprint $table) {
-            $table->id();
+            $table->id()->index();
             $table->timestamps();
-            $table->string('key')->index();
             $table->string('teamname');
             $table->string('teamlogo');
             $table->text('about');
@@ -25,6 +24,11 @@ return new class extends Migration
             $table->string('x')->nullable();
             $table->string('youtube')->nullable();
             $table->bigInteger('totalwinnings')->nullable();
+            $table->integer('pos1')->nullable();
+            $table->integer('pos2')->nullable();
+            $table->integer('pos3')->nullable();
+            $table->integer('pos4')->nullable();
+            $table->integer('pos5')->nullable();
         });
     }
 

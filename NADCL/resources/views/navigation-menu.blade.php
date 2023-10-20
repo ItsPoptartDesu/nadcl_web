@@ -45,10 +45,6 @@
                             </x-dropdown-link>
                             <div class="border-t border-gray-200"></div>
 
-                            <x-dropdown-link href="{{ url('/dashboard/dota_profile') }}">
-                                Dota Profile
-                            </x-dropdown-link>
-
                             <div class="border-t border-gray-200"></div>
                             <x-dropdown-link href="{{ route('profile.show') }}">
                                 {{ __('Personal Info') }}

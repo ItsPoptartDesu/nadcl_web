@@ -3,21 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\nadcl_profile;
-
+use App\Models\na_steam;
+use App\Models\User;
 class NADCL_SteamController extends Controller
 {
     public function Load()
     {
-        //$steamInfo =  nadcl_steam::where('key', '=', auth()->user()->email);
-        $steamInfo = nadcl_profile::find(auth()->user()->email);
+        $steamInfo = na_steam::find(auth()->user()->id);
         return view('/players/dota_profile')->with('steam', $steamInfo);
     }
 
     public function ToSteam()
     {
-        $param = app()->environment(['production']) ? 'https://nadotaesports.us/user/process-openID' : 'http://127.0.0.1:8000/dashboard/process-openId';
+        $param = env('APP_DEBUG') == false ? 'http://nadotaesports.us/dashboard/process-openId' : 'http://127.0.0.1:8000/dashboard/process-openId';
         $login_url_params = [
             'openid.ns'         => 'http://specs.openid.net/auth/2.0',
             'openid.mode'       => 'checkid_setup',
@@ -76,7 +74,7 @@ class NADCL_SteamController extends Controller
         $response = json_decode($response, true);
 
         $userData = $response['response']['players'][0];
-        $isFound = nadcl_profile::find(auth()->user()->email);
+        $isFound = na_steam::find(auth()->user()->id);
         $isFound->steamid64 = $userData['steamid'];
         $isFound->personaname = $userData['personaname'];
         $isFound->profileurl = $userData['profileurl'];
@@ -86,8 +84,10 @@ class NADCL_SteamController extends Controller
         $isFound->realname = $userData['realname'];
         $isFound->loccountrycode = $userData['loccountrycode'];
         $isFound->locstatecode = $userData['locstatecode'];
+        $player = User::find(auth()->user()->id);
+        $player->issteamlinked = true;
         $isFound->update();
-
+        $player->update();
         $redirect_url = "NADCL_Profile";
         header("Location: $redirect_url");
         exit();

@@ -1,6 +1,6 @@
 @font-face {
     font-family: GT_America_Regular;
-    src: url('../fonts/GT_America_Regular.tff');
+    src: asset('/fonts/GT_America_Regular.tff');
 }
 
 body {
@@ -20,27 +20,16 @@ header h1 {
     padding-top: 15px;
 }
 
-/* .footer {
-    position: relative;
-    margin-top: -150px;
-     negative value of footer height 
-    height: 150px;
-    clear: both;
-    padding-top: 20px;
-} */
-
 #wrapper {
     overflow: hidden;
 }
 
 #content {
     margin-right: 230px;
-    /* Same as 'nav' width */
 }
 
 .innertube {
     margin: 15px;
-    /* Padding for content */
     margin-top: 0;
 }
 
@@ -157,7 +146,7 @@ nav ul {
 }
 
 .header__link {
-    font-family: "Josefin Sans";
+    font-family: GT_America_Regular;
     line-height: 1.2;
     font-weight: 400;
     font-style: normal;
@@ -331,7 +320,3 @@ a {
     row-gap: 10px;
     column-gap: 20px;
 }
-
-/* #outline{
-    --bs-card-border-color:
-} */

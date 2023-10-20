@@ -18,7 +18,7 @@ class NADCL_TournamentPlayerController extends Controller
     {
         $found = false;
         if (Auth::check()) {
-            $hasEntered = nadcl_tournamentplayer::find(auth()->user()->email);
+            $hasEntered = nadcl_tournamentplayer::find(auth()->user()->id);
             $found = $hasEntered == null ? false : true;
         }
         // Is there a limit to entries? Could get a lot back from this
@@ -37,26 +37,19 @@ class NADCL_TournamentPlayerController extends Controller
         $profile = nadcl_profile::find(auth()->user()->email)->first();
         if (
             $profile->role == null || $profile->siggy == null ||
-            $profile->mmr == null || $profile->displayname == null ||
-            $profile->cancaptain == null || $profile->steamid64
+            $profile->mmr == null || $profile->discord == null ||
+            $profile->cancaptain == null 
         ) // haven't set key info for NADCL profile
             return back()->with('statusError', "Please fill out NADCL required Info");
 
-        $entry = new nadcl_tournamentplayer();
-        $entry->key = auth()->user()->email;
-        $entry->displayname = $profile->displayname;
-        $entry->siggy = $profile->siggy;
-        $entry->role = $profile->role;
-        $entry->mmr = $profile->mmr;
-        $entry->cancaptain = $profile->cancaptain;
-        // $entry->steamid64 = $steam->steamid64;
-        // $entry->personaname = $steam->personaname;
-        // $entry->profileurl = $steam->profileurl;
-        // $entry->avatarfull = $steam->avatarfull;
-        // $entry->realname = $steam->realname;
-        // $entry->loccountrycode = $steam->loccountrycode;
-        // $entry->locstatecode = $steam->locstatecode;
-        $entry->save();
+        $found = nadcl_tournamentplayer::find($profile->id);
+        $entry = $found == null ? new nadcl_tournamentplayer() : $found;
+        $entry->playeremail = auth()->user()->email;
+        $entry->tournamentid = 1;
+        if ($found == null)
+            $entry->save();
+        else
+            $entry->update();
         return redirect('/Tournaments/NADCL_SeasonFive')->with('status', "Successfully Joined NADCL S5");
     }
 }

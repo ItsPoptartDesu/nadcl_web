@@ -1,18 +1,5 @@
 <x-app-layout>
-    @if (session('status'))
-        <div class="alert alert-success">
-            {{ session('status') }}
-        </div>
-    @endif
-    @if (session('statusError'))
-        <div class="alert alert-danger">
-            {{ session('statusError') }}
-        </div>
-    @endif
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('NADCL Team Profile') }}
-        </h2>
+    <x-slot name="livewire">
     </x-slot>
     <!-- UPDATE NADCL Team Info -->
     <div class="py-12">
@@ -48,7 +35,7 @@
                                                     <label for="nadcl_teamname">Team Name</label>
                                                     <div>
                                                         <input type="text" name="nadcl_teamname"
-                                                            placeholder={{ $data['team']->teamname == '' ? 'placeholder...' : $data['team']->teamname }}
+                                                            placeholder={{ isset($data['team']) ? $data['team']->teamname : 'placeholder...' }}
                                                             class="@error('title') is-invalid @enderror">
                                                     </div>
                                                 </div>
@@ -68,7 +55,7 @@
                                                     <label for="nadcl_aboutteam">About Team...</label>
                                                     <div>
                                                         <textarea rows='5' style="width:100%;" name="nadcl_aboutteam"
-                                                            placeholder={{ $data['team']->teamname == '' ? 'About Team...' : $data['team']->about }}></textarea>
+                                                            placeholder={{ isset($data['team']) ? $data['team']->about : 'About Team...' }}></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -109,7 +96,7 @@
                                                     <label for="nadcl_manager">Manager?</label>
                                                     <div>
                                                         <input type="text" name="nadcl_manager"
-                                                            placeholder={{ $data['team']->manager == '' ? 'Manager...' : $data['team']->manager }}
+                                                            placeholder={{ isset($data['team']) ? $data['team']->manager : 'Manager...' }}
                                                             class="@error('title') is-invalid @enderror">
                                                     </div>
                                                 </div>
@@ -117,7 +104,7 @@
                                                     <label for="nadcl_site">External Site?</label>
                                                     <div>
                                                         <input type="text" name="nadcl_site"
-                                                            placeholder={{ $data['team']->site == '' ? 'Site...' : $data['team']->site }}
+                                                            placeholder={{ isset($data['team']) ? $data['team']->site : 'Site...' }}
                                                             class="@error('title') is-invalid @enderror">
                                                     </div>
                                                 </div>
@@ -125,7 +112,7 @@
                                                     <label for="nadcl_youtube">Youtube?</label>
                                                     <div>
                                                         <input type="text" name="nadcl_youtube"
-                                                            placeholder={{ $data['team']->youtube == '' ? 'Youtube...' : $data['team']->youtube }}
+                                                            placeholder={{ isset($data['team']) ? $data['team']->youtube : 'Youtube...' }}
                                                             class="@error('title') is-invalid @enderror">
                                                     </div>
                                                 </div>
@@ -133,7 +120,7 @@
                                                     <label for="nadcl_winnings">Winnings?</label>
                                                     <div>
                                                         <input type="text" name="nadcl_winnings"
-                                                            placeholder={{ $data['team']->totalwinnings == null ? 'TotalWinnings...' : $data['team']->totalwinnings }}
+                                                            placeholder={{ isset($data['team']) ? $data['team']->totalwinnings : 'TotalWinnings...' }}
                                                             class="@error('title') is-invalid @enderror">
                                                     </div>
                                                 </div>

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('nadcl_profile', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('key')->index();
+            $table->string('email')->index();
             $table->string('displayname')->nullable();
             $table->text('about')->nullable();
             $table->string('siggy')->nullable();
@@ -29,11 +29,9 @@ return new class extends Migration
             $table->string('youtube')->nullable();
             $table->string('tiktok')->nullable();
             $table->text('altnames')->nullable();
-            $table->text('accolades')->nullable();
             $table->boolean('isteamowner');
             $table->boolean('isadmin');
-
-            $table->bigInteger('steamid64')->nullable();
+            $table->bigInteger('steamid64')->nullable();// steam info 
             $table->string('personaname')->nullable();
             $table->string('profileurl')->nullable();
             $table->string('avatar')->nullable();

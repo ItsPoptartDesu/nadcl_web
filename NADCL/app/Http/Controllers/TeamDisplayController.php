@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\nadcl_team;
+use App\Models\na_team;
 use App\Models\nadcl_tournamentplayer;
-use Illuminate\Http\Request;
-
 class TeamDisplayController extends Controller
 {
     public function Index($request)
     {
-        $team = nadcl_team::where('teamname', '=', $request)->first();
+        $team = na_team::where('teamname', '=', $request)->first();
         $players = explode(',', $team->players);
         $tPlayer = [];
         foreach ($players as $player) {
@@ -25,7 +23,7 @@ class TeamDisplayController extends Controller
     }
     public function Teams()
     {
-        $teams = nadcl_team::All();
+        $teams = na_team::All();
         return view('/nadclteams/nadcl_teams')->with('teams', $teams);
     }
     public function Astronaut()

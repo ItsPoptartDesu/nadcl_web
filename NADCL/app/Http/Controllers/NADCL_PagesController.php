@@ -3,29 +3,38 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\na_accolade;
+use App\Models\na_steam;
 use App\Models\nadcl_constants;
-use App\Models\nadcl_profile;
-use App\Models\nadcl_steam;
-use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class NADCL_PagesController extends Controller
 {
+    public function PlayerCardDisplay($who)
+    {
+        $profile = user::where("username", '=', $who)->first();
+        if ($profile == null)
+            return view('/players')->with('statusError', $who . ' is not a valid USERNAME');
+
+        $usersteam = na_steam::find($profile->id);
+        $data = [
+            'profile' => $profile,
+            'steam' => $usersteam,
+        ];
+        return view('/pages/playercard')->with('data', $data);
+    }
     //
     public function AboutUs()
     {
-        $adminEmails  = ["davidmejia4215@gmail.com"];
-        $nadclInfo = nadcl_profile::find($adminEmails);
-        $data = [
-            'profile' => $nadclInfo,
-        ];
+        $data = [];
         return view('/aboutus')->with('data', $data);
     }
 
     public function BigScreen()
     {
         $nadclInfo = null;
-        if (Auth::check())
-            $nadclInfo = nadcl_profile::find(auth()->user()->email);
+        // if (Auth::check())
+        //     $nadclInfo = nadcl_profile::find(auth()->user()->email);
         $data = [
             'profile' => $nadclInfo,
         ];
@@ -46,7 +55,7 @@ class NADCL_PagesController extends Controller
             'youtube' => $you,
             'tiktok' => $tik
         ];
-        return view('landing')->with('data', $data);
+        return view('/pages/landing')->with('data', $data);
     }
 
     public function sandbox()
@@ -63,28 +72,27 @@ class NADCL_PagesController extends Controller
             'youtube' => $you,
             'tiktok' => $tik
         ];
-        return view('/custom/sandbox')->with('data', $data);
+        return view('/pages/landing')->with('data', $data);
     }
     public function ShowAllPlayersPlayers()
     {
-        $tournaments = null;
+        $profile = null;
         if (request()->has('search')) {
             $search = Request()->get('search', '');
             if ($search != null) {
-                $tournaments = nadcl_profile::where('displayname', 'like', '%' . $search . '%')->get();
+                $profile = User::where('username', 'like', '%' . $search . '%')->get();
             }
         }
-        // if ($tournaments == null)
-        //     $tournaments = nadcl_tournamentplayer::all();
-        if ($tournaments == null) {
-            // $tournaments = DB::table('nadcl_profile')->paginate(10);
-            $tournaments = nadcl_profile::orderBy("displayname", 'desc')->paginate(10);
+        if ($profile == null) {
+            $profile = User::orderBy("username", 'desc')->get();
         }
         $data = [
-            'profile' => $tournaments,
+            'profile' => $profile, // Rename 'profile' to 'profiles' to hold an array of profiles
         ];
+
         return view('tournaments/NADCL_showplayers')->with('data', $data);
-    } //
+    }
+
     public function SeasonFourLoad()
     {
         return view('/tournaments/NADCL_SeasonFour');

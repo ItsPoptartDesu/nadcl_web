@@ -23,39 +23,7 @@
                 </div>
             </div>
             <div class="items-center text-center profile_container">
-                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                        <h2 class="ml-3 text-xl font-semibold text-gray-900">
-                            <a href={{ URL('/dashboard/dota_profile') }}>Linked Steam Account</a>
-                        </h2>
-                        <div class="mt-4 text-gray-500 text-sm leading-relaxed">
-                            Connected Steam info For Tournaments
-                        </div>
-                        <div class="mt-4 text-sm">
-                            <div class="mt-1 text-sm text-gray-600">
-                                <b>Connected Steam Name:</b>
-                                @if ($data['profile']->steamid64 != null)
-                                    {{ $data['profile']->personaname }}
-                                @endif
-                            </div>
-                            <div class="mt-1 text-sm text-gray-600">
-                                <b>SteamID:</b>
-                                @if ($data['profile']->steamid64 != null)
-                                    {{ $data['profile']->steamid64 }}
-                                @endif
-                            </div>
-
-                            @if ($data['profile']->steamid64 != null)
-                                <img class="text-center" style="display:inline; width:100px;height:100px;"
-                                    src={{ $data['profile']->avatarfull }}>
-                            @else
-                                <img class="text-center" style="display:inline; width:100px;height:100px;"
-                                    src={{ asset('/img/we_want_you.png') }}>
-                            @endif
-
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                         <h2 class="ml-3 text-xl font-semibold text-gray-900">
@@ -66,14 +34,14 @@
                         </div>
                         <div class="mt-4 text-sm">
                             <div class="mt-1 text-sm text-gray-600">
-                                <b>Connected Steam Name:</b> {{ $data['profile']->displayname }}
+                                <b>Connected Steam Name:</b> {{ auth()->user()->displayname }}
                             </div>
                             <div class="mt-1 text-sm text-gray-600">
-                                <b>Siggy:</b> {{ $data['profile']->siggy }}
+                                <b>Siggy:</b> {{ auth()->user()->siggy }}
                             </div>
-                            @if ($data['profile']->headshot)
+                            @if (auth()->user()->headshot)
                                 <img class="text-center" style="display:inline;width:100px;height:100px;"
-                                    src="{{ asset('/headshots/' . $data['profile']->headshot) }}">
+                                    src="{{ asset('/headshots/' . auth()->user()->headshot) }}">
                             @else
                                 <img class="text-center" style="display:inline; width:100px;height:100px;"
                                     src={{ asset('/img/we_want_you.png') }}>
@@ -81,7 +49,7 @@
                         </div>
                     </div>
                 </div>
-                @if ($data['profile']->isteamowner)
+                @if (auth()->user()->isteamowner)
                     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                             <h2 class="ml-3 text-xl font-semibold text-gray-900">
@@ -114,7 +82,7 @@
                         </div>
                     </div>
                 @endif
-                @if ($data['profile']->isadmin)
+                @if (auth()->user()->isadmin)
                     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                             <h2 class="ml-3 text-xl font-semibold text-gray-900">
@@ -130,7 +98,7 @@
                                 </div>
                                 <div class="mt-1 text-sm text-gray-600">
                                     <b>NADCL Username:</b>
-                                    {{ $data['profile']->displayname }}
+                                    {{ auth()->user()->username }}
                                 </div>
                             </div>
                         </div>

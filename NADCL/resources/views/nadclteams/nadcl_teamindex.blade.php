@@ -46,7 +46,7 @@
                                             </td>
                                             <td>
                                                 <a class=""
-                                                    href="{{ URL('/players/' . $player->displayname) }}"><b>{{ $player->displayname }}</b></a>
+                                                    href="{{ URL('/playercard/' . $player->displayname) }}"><b>{{ $player->displayname }}</b></a>
                                             </td>
                                             <td>
                                                 {{ $player->role }}

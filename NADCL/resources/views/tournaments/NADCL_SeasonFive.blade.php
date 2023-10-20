@@ -18,16 +18,6 @@
 </head>
 
 <body class="na_white_text na_blue">
-    @if (session('statusError'))
-        <div class="alert alert-danger">
-            {{ session('statusError') }}
-        </div>
-    @endif
-    @if (session('status'))
-        <div class="alert alert-success">
-            {{ session('status') }}
-        </div>
-    @endif
     <!-- Sidebar/menu -->
     <nav class="na_sidebar_noBG" style="z-index:3;font-weight:bold;" id="mySidebar"><br>
         <div class="container row na_red_text">

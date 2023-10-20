@@ -3,71 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\nadcl_accolade;
-use App\Models\nadcl_profile;
-use App\Models\nadcl_steam;
-use App\Models\nadcl_team;
+use App\Models\na_accolade;
+use App\Models\na_steam;
+use App\Models\na_team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Models\nadcl_tournamentplayer;
-use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class NADCL_ProfileController extends Controller
 {
-    public function PlayerIndex($who)
-    {
-        $profile = nadcl_profile::where("personaname", '=', $who)->first();
-        if ($profile == null)
-            return back();
-        $accolade = explode(',', $profile->accolades);
-        $foundAccolades = [];
-        foreach ($accolade as $a) {
-            $aIndex = nadcl_accolade::find($a);
-            array_push($foundAccolades, $aIndex);
-        }
-        $data = [
-            'profile' => $profile,
-            'accolades' => $foundAccolades
-        ];
-        return view('/players/playerindex')->with('data', $data);
-    }
-    public function Players()
-    {
-        $profile = null;
-        if (request()->has('search')) {
-            $search = Request()->get('search', '');
-            if ($search != null) {
-                $profile = nadcl_profile::where('displayname', 'like', '%' . $search . '%')->get();
-            }
-        }
-        if ($profile == null) {
-            $profile = DB::table('nadcl_profile')->paginate(10);
-            //$tournaments = nadcl_profile::orderBy("displayname", 'desc')->paginate(10);
-        }
-        $accolades = nadcl_accolade::all();
-        $acc = array();
-        foreach ($accolades as $a) {
-            $acc[$a->key] = $a;
-        }
-        $data = [
-            'profile' => compact('profile'),
-            'accolades' => $acc,
-        ];
-        //dd($data['profile']['tournaments'][0]);
-        return view('tournaments/NADCL_showplayers')->with('data', $data);
-    } //
     public function Load()
     {
-        $nadclInfo = nadcl_profile::find(auth()->user()->email);
-        $data = [
-            'profile' => $nadclInfo,
-        ];
-        return view('/nadcl_profile')->with('data', $data);
+        return view('/nadcl_profile');
     }
 
     public function Store(Request $request)
     {
-        $profile = nadcl_profile::find(auth()->user()->email)->first();
+        $profile = User::find(auth()->user()->id)->first();
 
         if ($request->hasFile('nadcl_headshot')) {
             if ($profile->headshot != null) {
@@ -79,21 +33,20 @@ class NADCL_ProfileController extends Controller
             $request->file('nadcl_headshot')->move(public_path('headshots'), $name);
             $profile->headshot = $name;
         }
+        if ($request->nadcl_accname != null)
+            $profile->accoladedisplayid = $request->nadcl_accname;
         if ($request->nadcl_siggy != null)
             $profile->siggy = $request->nadcl_siggy;
-        if ($request->nadcl_username != null) {
-            if ($profile->altnames == '')
-                $profile->altnames = $profile->displayname;
-            else
-                $profile->altnames = $profile->altnames . ',' . $profile->displayname;
-            $profile->displayname = $request->nadcl_username;
-        }
+        if ($request->nadcl_username != null)
+            $profile->username = $request->nadcl_username;
         if ($request->nadcl_aboutme != null)
             $profile->about = $request->nadcl_aboutme;
         if ($request->nadcl_hottake != null)
             $profile->hottake = $request->nadcl_hottake;
         if ($request->nadcl_mmr != null)
             $profile->mmr = $request->nadcl_mmr;
+        if ($request->nadcl_discord != null)
+            $profile->discord = $request->nadcl_discord;
         if ($request->nadcl_role != null)
             $profile->role = $request->nadcl_role;
         if ($request->nadcl_cancaptain != null)
@@ -111,10 +64,8 @@ class NADCL_ProfileController extends Controller
     }
     public function Dashboard()
     {
-        $nadclInfo = nadcl_profile::find(auth()->user()->email);
-        $teamInfo = nadcl_team::find(auth()->user()->email);
+        $teamInfo = na_team::find(auth()->user()->id);
         $data = [
-            'profile' => $nadclInfo,
             'team' => $teamInfo
         ];
         //dd($data);
@@ -123,8 +74,8 @@ class NADCL_ProfileController extends Controller
 
     public function TeamLoad()
     {
-        $teamInfo = nadcl_team::find(auth()->user()->email);
-        $nadclInfo = nadcl_profile::find(auth()->user()->email);
+        $teamInfo = na_team::find(auth()->user()->id);
+        $nadclInfo = User::find(auth()->user()->id);
         $data = [
             'team' => $teamInfo,
             'profile' => $nadclInfo,
@@ -133,10 +84,10 @@ class NADCL_ProfileController extends Controller
     }
     public function TeamStore(Request $request)
     {
-        $profile = nadcl_team::find(auth()->user()->email);
+        $profile = na_team::find(auth()->user()->id);
         $flag = false;
         if ($profile == null) {
-            $profile = new nadcl_team();
+            $profile = new na_team();
             $flag = true;
         }
         if ($request->nadcl_teamname != null)
@@ -175,7 +126,7 @@ class NADCL_ProfileController extends Controller
             $profile->youtube = $request->nadcl_youtube;
         if ($request->Winnings != null)
             $profile->totalwinnings = $request->Winnings;
-        $profile->key = auth()->user()->email;
+        $profile->email = auth()->user()->email;
         if ($flag)
             $profile->save();
         else
@@ -185,11 +136,13 @@ class NADCL_ProfileController extends Controller
 
     public function AdminLoad()
     {
-        $nadclInfo = nadcl_profile::find(auth()->user()->email);
-        $teamInfo = nadcl_team::find(auth()->user()->email);
+        $teamInfo = na_team::find(auth()->user()->id);
+        $users = User::where('issteamlinked', 1)->get();
+        $accolades = na_accolade::all();
         $data = [
-            'profile' => $nadclInfo,
-            'team' => $teamInfo
+            'team' => $teamInfo,
+            'accolades' => $accolades,
+            'users' => $users,
         ];
         //dd($data);
         return view("adminpanel")->with('data', $data);
@@ -197,19 +150,41 @@ class NADCL_ProfileController extends Controller
 
     public function AdminStore(Request $request)
     {
-        $accolade = new nadcl_accolade();
-        if ($request->nadcl_name != null)
-            $accolade->key = $request->nadcl_name;
+        if ($request->nadcl_acctag != null) {
+            if (isset($request->nadcl_playername) && $request->nadcl_accoladename == "delete_me") {
+                $tested = na_accolade::where('id', $request->nadcl_acctag)->first();
+                na_accolade::where('name', $tested->name)->where('playerid', $request->nadcl_playername)
+                    ->delete();
+                return redirect('/dashboard/AdminPanel')->with('status', 'Removed ' . $request->nadcl_acctag . " from " . $request->nadcl_playername);
+            } else {
+                $accToCopy = na_accolade::where('id', $request->nadcl_acctag)->first();
+                $acc = new na_accolade();
+                $acc->img = $accToCopy->img;
+                $acc->name = $accToCopy->name;
+                $acc->about = $accToCopy->about;
+                $acc->playerid = $request->nadcl_playername;
+                $acc->save();
+                return redirect('/dashboard/AdminPanel')->with('status', 'Added new Accolade');
+            }
+        }
 
-        if ($request->hasFile('nadcl_img')) {
+        if (
+            $request->nadcl_accoladename != null &&
+            $request->hasFile('nadcl_img') &&
+            $request->nadcl_about != null &&
+            $request->nadcl_playername != null
+        ) {
+
+            $accolade = new na_accolade();
             $name = $request->file('nadcl_img')->getClientOriginalName();
             $path = $request->file('nadcl_img')->storeAs('public', $name);
             $request->file('nadcl_img')->move(public_path('img/accolades'), $name);
             $accolade->img = $name;
-        }
-        if ($request->nadcl_about != null)
+            $accolade->name = $request->nadcl_accoladename;
             $accolade->about = $request->nadcl_about;
-        $accolade->save();
-        return redirect('/dashboard/AdminPanel')->with('status', 'Updated Username / About Me');
+            $accolade->playerid = $request->nadcl_playername;
+            $accolade->save();
+            return redirect('/dashboard/AdminPanel')->with('status', 'Added new Accolade');
+        }
     }
 }
