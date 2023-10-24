@@ -112,7 +112,6 @@
                                 </tr>
                             </tbody>
                         </table>
-
                     </div>
                 </div>
             </div>
@@ -120,7 +119,7 @@
                 <div class="row" style="padding-top:50px;">
                     <div class="shadow">
                         <div class="row">
-                            <h3 class="h3">NADCL Info: {{ $data['profile']->displayname }}</h3>
+                            <h3 class="h3">NADCL Info: {{ $data['profile']->username }}</h3>
                             <div class="col-auto">
                                 <div class="float-left">
                                     @if (isset($data['profile']->headshot))
@@ -140,6 +139,53 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg">
+                    <div class="row" style="padding-top:50px;">
+                        <div class="shadow">
+                            <div class="row">
+                                <h3 class="h3">Recent 20 Game Stats: {{ $data['steam']->personaname }}</h3>
+                                <div class="col-auto">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Match ID</th>
+                                                <th scope="col">Hero</th>
+                                                <th scope="col">Kills</th>
+                                                <th scope="col">Deaths</th>
+                                                <th scope="col">Assists</th>
+                                                <th scope="col">XP Per Min</th>
+                                                <th scope="col">Gold Per Min</th>
+                                                <th scope="col">Hero Damage</th>
+                                                <th scope="col">Tower Damage</th>
+                                                <th scope="col">Last Hits</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($data['profile']->TrackableDotaStats as $stats)
+                                                <tr>
+
+                                                    <th scope="row"><a class="na_red_text" target="_blank"
+                                                            href="https://www.opendota.com/matches/{{ $stats->matchid }}">{{ $stats->matchid }}</a>
+                                                    </th>
+                                                    <td>{{ $stats->hero }}</td>
+                                                    <td>{{ $stats->kills }}</td>
+                                                    <td>{{ $stats->deaths }}</td>
+                                                    <td>{{ $stats->assists }}</td>
+                                                    <td>{{ $stats->xp_per_min }}</td>
+                                                    <td>{{ $stats->gold_per_min }}</td>
+                                                    <td>{{ $stats->hero_damage }}</td>
+                                                    <td>{{ $stats->tower_damage }}</td>
+                                                    <td>{{ $stats->last_hits }}</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
 </x-app-layout>

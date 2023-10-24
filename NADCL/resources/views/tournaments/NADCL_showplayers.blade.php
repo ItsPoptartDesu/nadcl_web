@@ -19,11 +19,9 @@
                     <tr>
                         <th scope="col">Headshot</th>
                         <th scope="col">NADCL Name</th>
-                        <th scope="col">Siggy</th>
+                        <th scope="col">SteamID</th>
                         <th scope="col">MMR</th>
-                        <th scope="col">Can Captain</th>
                         <th scope="col">Discord</th>
-                        <th scope="col">About</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,7 +36,7 @@
                             <td><a class="na_red_text"
                                     href="{{ URL('/playercard/' . $player->username) }}">{{ $player->username }}</a>
                             </td>
-                            <td>{{ $player->siggy }}</td>
+                            <td>{{ $player->steam->steamid64 }}</td>
                             <td>
                                 @if ($player->accolade)
                                     <img style="width:41px; height:41px; padding:0px;"
@@ -50,9 +48,7 @@
                                 @endif
                             </td>
                             {{-- <td>{{ $player->mmr }}</td> --}}
-                            <td>{{ $player->cancaptain }}</td>
                             <td>{{ $player->discord }}</td>
-                            <td>{{ $player->about }}</td>
                         </tr>
                     @endforeach
                 </tbody>

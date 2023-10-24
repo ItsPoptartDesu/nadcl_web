@@ -34,10 +34,7 @@
                         </div>
                         <div class="mt-4 text-sm">
                             <div class="mt-1 text-sm text-gray-600">
-                                <b>Connected Steam Name:</b> {{ auth()->user()->displayname }}
-                            </div>
-                            <div class="mt-1 text-sm text-gray-600">
-                                <b>Siggy:</b> {{ auth()->user()->siggy }}
+                                <b>Connected Steam Name:</b> {{ auth()->user()->steam->personaname }}
                             </div>
                             @if (auth()->user()->headshot)
                                 <img class="text-center" style="display:inline;width:100px;height:100px;"

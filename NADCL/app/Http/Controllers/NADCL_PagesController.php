@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\na_accolade;
+use App\Models\DotaPlayerStats;
 use App\Models\na_steam;
 use App\Models\nadcl_constants;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class NADCL_PagesController extends Controller
 {

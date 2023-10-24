@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\DotaPlayerStats;
 use App\Models\na_steam;
 use App\Models\User;
+
 class NADCL_SteamController extends Controller
 {
     public function Load()
@@ -84,8 +86,12 @@ class NADCL_SteamController extends Controller
         $isFound->realname = $userData['realname'];
         $isFound->loccountrycode = $userData['loccountrycode'];
         $isFound->locstatecode = $userData['locstatecode'];
+
         $player = User::find(auth()->user()->id);
         $player->issteamlinked = true;
+
+        DotaPlayerStatsController::SaveRecentMatchesToDB($userData['steamid']);
+
         $isFound->update();
         $player->update();
         $redirect_url = "NADCL_Profile";

@@ -13,26 +13,9 @@
 </head>
 
 <body class="bg-gray-100">
-    <!-- Sidebar/menu -->
-    <nav class="na_sidebar " style="z-index:3;font-weight:bold;" id="mySidebar"><br>
-        <div class="container row na_red_text">
-            <h1 style="font-size: 2.5em">
-                <b>NADCL</b>
-                <hr style="width:100%;border:5px solid  red ">
-            </h1>
-        </div>
-        <div class="container">
-            <div class="row">
-                <a class="row btn" href="#"><img src="{{ asset('/img/pages/home_title.png') }}"></a>
-                <a class="row btn" href="#participants"><img src="{{ asset('/img/pages/teams_title.png') }}"></a>
-
-                <a class="row btn" href="#bracket"><img src="{{ asset('/img/pages/bracket_title.png') }}"></a>
-            </div>
-        </div>
-    </nav>
 
     <!-- !PAGE CONTENT! -->
-    <div class="main " style="margin-left:340px; margin-right:40px">
+    <div class="main container">
         @include('/code_injects/nadcl_header')
         <div class="row" style="margin-top:20px;">
             <div class="shadow col-8">

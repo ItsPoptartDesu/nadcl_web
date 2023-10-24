@@ -13,7 +13,7 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
-//  implements MustVerifyEmail
+implements MustVerifyEmail
 {
     use HasApiTokens;
     use HasFactory;
@@ -73,5 +73,9 @@ class User extends Authenticatable
     public function accolades()
     {
         return $this->hasMany(na_accolade::class, 'playerid', 'id');
+    }
+    public function TrackableDotaStats()
+    {
+        return $this->hasMany(DotaPlayerStats::class, 'ownerid', 'id');
     }
 }
